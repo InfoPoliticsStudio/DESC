@@ -244,6 +244,10 @@ cursor:pointer;
             margin-bottom: .8rem;
             color: #ff8800;
         }
+        .card:hover > .bodys{
+            margin-bottom: .8rem;
+            color: #fff;
+        }
 
         .card:hover{
             background: var(--or-2);
