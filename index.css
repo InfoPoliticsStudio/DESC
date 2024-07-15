@@ -159,7 +159,7 @@ cursor:pointer;
 
     @media(max-width: 576px){
         .dropdown_menu{
-            width: unset;
+            width: 0;
         }
         
         .td a.piset{
