@@ -43,6 +43,11 @@ cursor:pointer;
     
     a.hd{
         text-decoration: none;
+        color: #ff1e00;
+        font-size: 1rem;
+    }
+    dropdown_menu a.hd{
+        text-decoration: none;
         color: #fff;
         font-size: 1rem;
     }
