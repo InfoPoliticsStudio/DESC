@@ -1,61 +1,70 @@
+        @import url('https://fonts.googleapis.com/css2?family=Kanit&display=swap');
+    
+        :root{
+            --or-2: #ff0000;
+            --or: #ff3700;
+            --bg-desc: linear-gradient(to right,#ff0000,#ff1e00,#ff3700,#ff5e00,#ff8800);
+        }
+    
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Kanit', sans-serif;
+        }
 
-    @import url('https://fonts.googleapis.com/css2?family=Kanit&display=swap');
+        body {
+            background-color: #e0e0e0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
 
-    :root{
-        --or-2: #ff0000;
-        --or: #ff3700;
-        --bg-desc: linear-gradient(to right,#ff0000,#ff1e00,#ff3700,#ff5e00,#ff8800);
-    }
-
-    *{
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        font-family: 'Kanit', sans-serif;
-    }
-
-    body {
-        background-color: #f4f4f9;
-        margin: 0;
-        padding: 0;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        min-height: 100vh;
-    }
-
-        .profile-container {
+        .profile-card {
             background-color: #ffffff;
-            border: 1px solid #ddd;
-            border-radius: 8px;
+            border: 1px solid #ccc;
+            border-radius: 12px;
             padding: 20px;
-            width: 300px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            width: 320px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
             text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .profile-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 150px;
+            background-color: #007bff;
+            clip-path: polygon(0 0, 100% 0, 100% 50%, 0 100%);
+            z-index: -1;
         }
 
         .profile-img {
-            width: 150px;
-            height: 150px;
+            width: 120px;
+            height: 120px;
             border-radius: 50%;
+            border: 5px solid #ffffff;
             margin-bottom: 15px;
         }
 
         .profile-info {
-            margin-bottom: 15px;
             color: #333;
         }
 
-        .profile-info strong {
-            display: block;
-            font-size: 16px;
-            margin-bottom: 5px;
+        .profile-info h1 {
+            font-size: 20px;
+            margin: 0;
         }
 
-        .profile-info span {
-            display: block;
+        .profile-info p {
             font-size: 14px;
-            color: #666;
+            margin: 5px 0;
         }
 
         .back-link {
