@@ -17,6 +17,10 @@
             background-color: #e0e0e0;
         }
 
+        img.u {
+            width: 80%;
+        }
+
         .profile-card {
             background-color: #ffffff;
             border: 1px solid #ccc;
