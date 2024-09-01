@@ -23,33 +23,38 @@
             }
         }
 
-        function updateProfile(user) {
-            document.getElementById('name').textContent = user.firstName;
-            document.getElementById('last-name').textContent = user.lastName;
-            document.getElementById('id-user').textContent = user.userId;
-            document.getElementById('profile-img').src = user.imageUrl; // อัปเดต URL รูปภาพ
-            // อัปเดตข้อมูลอื่นๆ ตามต้องการ
-        }
+        function updateUI(users) {
+            const userCardsContainer = document.getElementById('user-cards');
+            userCardsContainer.innerHTML = ''; // Clear existing content
 
-        function getUserIdFromUrl() {
-            const params = new URLSearchParams(window.location.search);
-            return params.get('id');
-        }
+            users.forEach(user => {
 
-        document.addEventListener('DOMContentLoaded', () => {
-            const userId = getUserIdFromUrl();
-            fetchUserData(userId);
-        });
+                const card = document.createElement('div');
+                card.className = 'name';
+
+                const header = document.createElement('div');
+                header.className = 'header';
+
+                const img = document.createElement('img');
+                img.src = user.imageUrl;
+                img.alt = `${user.firstName} ${user.lastName}`;
+
+                header.appendChild(img);
+                header.innerHTML += `<span id="name">${user.firstName}</span> <br><span id="last-name">${user.lastName}</span>`;
+
+                const bodys = document.createElement('div');
+                bodys.className = 'bodys';
+                bodys.innerHTML = `<span id="id-user">${user.userId}</span>`;
+
+                card.appendChild(header);
+                card.appendChild(bodys);
+            });
+        }
     </script>
 </head>
 <body>
     <h1>User Profile</h1>
-    <div>
-        <img id="profile-img" class="profile-img" src="" alt="User Image"><br>
-        <strong>Name:</strong> <span id="name"></span><br>
-        <strong>Last Name:</strong> <span id="last-name"></span><br>
-        <strong>ID:</strong> <span id="id-user"></span>
-    </div>
+    <div class="user-cards"></div>
     <!-- เพิ่มข้อมูลผู้ใช้เพิ่มเติมตามต้องการ -->
 </body>
 </html>
