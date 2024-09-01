@@ -14,7 +14,7 @@
     <script>
         async function fetchUserData(userId) {
             try {
-                const response = await fetch(`https://script.google.com/macros/s/AKfycbyGTsDaMtFDW98nrvokhSfah8SB5IsRpQDktD6WgQVPrUP0zbS5mO6_dkz9TwCfOWZa/exec?action=getUser`);
+                const response = await fetch(`https://script.google.com/macros/s/AKfycbyGTsDaMtFDW98nrvokhSfah8SB5IsRpQDktD6WgQVPrUP0zbS5mO6_dkz9TwCfOWZa/exec?action=getUser&userId=${userId}`);
                 const user = await response.json();
                 updateProfile(user);
             } catch (error) {
