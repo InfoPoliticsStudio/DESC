@@ -18,27 +18,13 @@ header {
     width: 200px;
 }
 
-main {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
 .generation-table {
-    border-collapse: collapse;
     width: 80%;
     max-width: 800px;
 }
 
-.generation-table th, .generation-table td {
-    border: 1px solid #ddd;
-    padding: 10px;
-    text-align: center;
-}
-
 .generation-table th {
-    background-color: #4CAF50;
-    color: white;
+    padding: 20px;
 }
 
 .generation-table td input[type="radio"] {
