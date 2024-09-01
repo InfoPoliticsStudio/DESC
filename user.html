@@ -12,8 +12,9 @@
         }
     </style>
     <script>
-        async function fetchUserData(userId) {
-            const response = await fetch('https://script.google.com/macros/s/AKfycbyGTsDaMtFDW98nrvokhSfah8SB5IsRpQDktD6WgQVPrUP0zbS5mO6_dkz9TwCfOWZa/exec?action=getUser');
+        async function fetchData() {
+            try {
+                const response = await fetch('https://script.google.com/macros/s/AKfycbyGTsDaMtFDW98nrvokhSfah8SB5IsRpQDktD6WgQVPrUP0zbS5mO6_dkz9TwCfOWZa/exec?action=getUser');
                 const data = await response.json();
                 updateUI(data);
             } catch (error) {
@@ -26,18 +27,21 @@
             userCardsContainer.innerHTML = ''; // Clear existing content
 
             users.forEach(user => {
+                const cardLink = document.createElement('a');
+                cardLink.href = `user.html?id=${user.userId}`; // ลิงก์ไปยังหน้า HTML ของผู้ใช้แต่ละคน
+                cardLink.className = 'card-link';
 
                 const card = document.createElement('div');
-                card.className = 'name';
+                card.className = 'card';
 
                 const header = document.createElement('div');
                 header.className = 'header';
 
-                const img = document.createElement('img');
-                img.src = user.imageUrl;
-                img.alt = `${user.firstName} ${user.lastName}`;
+                // const img = document.createElement('img');
+                // img.src = user.imageUrl;
+                // img.alt = `${user.firstName} ${user.lastName}`;
 
-                header.appendChild(img);
+                // header.appendChild(img);
                 header.innerHTML += `<span id="name">${user.firstName}</span> <br><span id="last-name">${user.lastName}</span>`;
 
                 const bodys = document.createElement('div');
@@ -46,13 +50,15 @@
 
                 card.appendChild(header);
                 card.appendChild(bodys);
+                cardLink.appendChild(card);
+
+                userCardsContainer.appendChild(cardLink);
             });
         }
     </script>
 </head>
 <body>
     <h1>User Profile</h1>
-    <div class="user-cards"></div>
-    <!-- เพิ่มข้อมูลผู้ใช้เพิ่มเติมตามต้องการ -->
+    <div class="user-cards" id="user-cards"></div>
 </body>
 </html>
