@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+    <style>
+        .profile-img {
+            width: 150px; /* ปรับขนาดตามต้องการ */
+            height: auto;
+            border-radius: 50%; /* ทำให้รูปเป็นวงกลม */
+        }
+    </style>
+    <script>
+        async function fetchUserData(userId) {
+            try {
+                const response = await fetch(`https://script.google.com/macros/s/AKfycbyGTsDaMtFDW98nrvokhSfah8SB5IsRpQDktD6WgQVPrUP0zbS5mO6_dkz9TwCfOWZa/exec?action=getUser&userId=${userId}`);
+                const user = await response.json();
+                updateProfile(user);
+            } catch (error) {
+                console.error('Error fetching user data:', error);
+            }
+        }
+
+        function updateProfile(user) {
+            document.getElementById('name').textContent = user.firstName;
+            document.getElementById('last-name').textContent = user.lastName;
+            document.getElementById('id-user').textContent = user.userId;
+            document.getElementById('profile-img').src = user.imageUrl; // อัปเดต URL รูปภาพ
+            // อัปเดตข้อมูลอื่นๆ ตามต้องการ
+        }
+
+        function getUserIdFromUrl() {
+            const params = new URLSearchParams(window.location.search);
+            return params.get('id');
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const userId = getUserIdFromUrl();
+            fetchUserData(userId);
+        });
+    </script>
+</head>
+<body>
+    <h1>User Profile</h1>
+    <div>
+        <img id="profile-img" class="profile-img" src="" alt="User Image"><br>
+        <strong>Name:</strong> <span id="name"></span><br>
+        <strong>Last Name:</strong> <span id="last-name"></span><br>
+        <strong>ID:</strong> <span id="id-user"></span>
+    </div>
+    <!-- เพิ่มข้อมูลผู้ใช้เพิ่มเติมตามต้องการ -->
+</body>
+</html>
