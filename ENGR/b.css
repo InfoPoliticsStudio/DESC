@@ -8,6 +8,7 @@ body {
     justify-content: center;
     height: 100vh;
     background-color: #f4f4f4;
+    overflow:none;
 }
 
 header {
@@ -18,10 +19,10 @@ header {
     width: 200px;
 }
 
-.generation-table {
+/* .generation-table {
     width: 80%;
     max-width: 800px;
-}
+} */
 
 .generation-table th {
     padding: 20px;
