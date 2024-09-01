@@ -31,7 +31,8 @@
             text-align: center;
             position: static;
             overflow: hidden;
-            margin: 5px;
+        }
+        .user-cards{
             display: grid;
             gap: .25rem;
             grid-template-columns: repeat(auto-fill,minmax(150px,1fr));
