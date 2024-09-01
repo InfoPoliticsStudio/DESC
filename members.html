@@ -7,10 +7,11 @@
     <link rel="icon" href="">
     <link rel="stylesheet" href="index.css">
     <title>DESC - หน้าหลัก</title>
+    
     <script>
         async function fetchData() {
             try {
-                const response = await fetch('https://script.google.com/macros/s/AKfycbxbjpaXGTX-egedAL1IryZeAOFpAr7_1afWtj501O9B_SwrOBpMOSjA1vTaLfOkmwbD/exec?action=getUser');
+                const response = await fetch('https://script.google.com/macros/s/AKfycbyGTsDaMtFDW98nrvokhSfah8SB5IsRpQDktD6WgQVPrUP0zbS5mO6_dkz9TwCfOWZa/exec?action=getUser');
                 const data = await response.json();
                 updateUI(data);
             } catch (error) {
@@ -23,12 +24,22 @@
             userCardsContainer.innerHTML = ''; // Clear existing content
 
             users.forEach(user => {
+                const cardLink = document.createElement('a');
+                cardLink.href = `user.html?id=${user.userId}`; // ลิงก์ไปยังหน้า HTML ของผู้ใช้แต่ละคน
+                cardLink.className = 'card-link';
+
                 const card = document.createElement('div');
                 card.className = 'card';
 
                 const header = document.createElement('div');
                 header.className = 'header';
-                header.innerHTML = `<span id="name">${user.firstName}</span> <br><span id="last-name">${user.lastName}</span>`;
+
+                const img = document.createElement('img');
+                img.src = user.imageUrl;
+                img.alt = `${user.firstName} ${user.lastName}`;
+
+                header.appendChild(img);
+                header.innerHTML += `<span id="name">${user.firstName}</span> <br><span id="last-name">${user.lastName}</span>`;
 
                 const bodys = document.createElement('div');
                 bodys.className = 'bodys';
@@ -36,8 +47,9 @@
 
                 card.appendChild(header);
                 card.appendChild(bodys);
+                cardLink.appendChild(card);
 
-                userCardsContainer.appendChild(card);
+                userCardsContainer.appendChild(cardLink);
             });
         }
     </script>
