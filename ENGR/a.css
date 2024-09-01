@@ -31,6 +31,7 @@
             text-align: center;
             position: static;
             overflow: hidden;
+            margin: 5px;
         }
 
         .logo {
