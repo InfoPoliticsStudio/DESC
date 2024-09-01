@@ -8,7 +8,7 @@ body {
     justify-content: center;
     height: 100vh;
     background-color: #f4f4f4;
-    overflow:none;
+    overflow: hidden;
 }
 
 header {
@@ -24,10 +24,25 @@ header {
     max-width: 800px;
 } */
 
+main {
+    display: grid;
+    margin-top: 20%;
+    align-items: center;
+}
+
 .generation-table th {
     padding: 20px;
 }
 
 .generation-table td input[type="radio"] {
     margin-right: 5px;
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+}
+
+button {
+    width: 50%;
 }
