@@ -46,7 +46,7 @@ body{margin:auto !important; background:#fff; position:relative; font-family: 'K
 
 img{border:0;}
 img, object, embed, video {
-	max-width: 100%;
+	max-width: 205px;
 	height:auto;
 }
 /* IE 6 does not support max-width so default to width 100% */
