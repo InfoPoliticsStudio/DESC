@@ -7,6 +7,23 @@
     <link rel="icon" href="https://i.postimg.cc/Fzngfzcv/14.png">
     <link rel="stylesheet" href="index.css">
     <title>DESC - หน้าหลัก</title>
+    <style>
+        @keyframes marquee {
+            0% {
+                transform: translateX(100%);
+            }
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+
+        .marquee {
+            display: inline-block;
+            white-space: nowrap;
+            padding-left: 100%;
+            animation: marquee 30s linear infinite;
+        }
+    </style>
 </head>
 
 <body>
@@ -40,7 +57,10 @@
     </div>
     <main>
         <section id="hero">
-            <marquee><h1 class="aaa">ยินดีต้อนรับเข้าสู่เว็บไซต์สภานักเรียนเตรียมวิศวกรรม โรงเรียนดาราวิทยาลัย - Welcome to Dara Academy Engineering Student Council website. </h1></marquee>
+            <h1 class="aaa">
+                <span class="marquee" style="font-size: 24px;">ยินดีต้อนรับเข้าสู่เว็บไซต์สภานักเรียนเตรียมวิศวกรรม โรงเรียนดาราวิทยาลัย - Welcome to Dara Academy Engineering Student Council website..</span>
+            </h1>
+
             <center><h1 style="font-family: 'Kanit', sans-serif;">Menu</h1></center>
             <table class="MeNu" style="width: 100%; padding: 0 35px;">
                 <tr>
