@@ -10,6 +10,116 @@
     <!-- <link rel="stylesheet" href="styles.css"> -->
     <style>body{font-family: "Kanit", sans-serif;}.sub_head > .text > h1{font-family: "Kanit", sans-serif !important;}</style>
     <style>
+    body{margin:0;}
+    .sidebar {
+        width: 250px;
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100%;
+        background-color: #333;
+        padding-top: 20px;
+        transition: left 0.3s;
+    }
+    
+    .logo {
+        color: white;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    
+    .menu {
+        list-style-type: none;
+        padding: 0;
+    }
+    
+    .menu li {
+        padding: 10px;
+    }
+    
+    .menu li a {
+        color: white;
+        text-decoration: none;
+        display: block;
+        padding: 10px;
+    }
+    
+    .menu li a:hover {
+        background-color: #575757;
+    }
+    
+    .submenu {
+        list-style-type: none;
+        padding-left: 20px;
+        display: none;
+    }
+    
+    .submenu li a {
+        font-size: 0.9em;
+        color: #ccc;
+    }
+    
+    .sidebar.hidden {
+        left: -250px;
+    }
+    
+    #toggleButton {
+        position: fixed;
+        top: 10px;
+        left: 10px;
+        background-color: #333;
+        color: white;
+        border: none;
+        padding: 10px;
+        cursor: pointer;
+        z-index: 1000;
+    }
+    
+    #toggleButton:hover {
+        background-color: #575757;
+    }
+    
+    /* ส่วนของคณะกรรมการบริหาร */
+    #containerbomy {
+        margin-left: 250px;
+        padding: 20px;
+        transition: margin-left 0.3s;
+    }
+    
+    .header h1 {
+        font-size: 2em;
+        margin-bottom: 20px;
+    }
+    
+    .board {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    
+    .board-member {
+        width: 200px;
+        margin: 10px;
+        text-align: center;
+    }
+    
+    .board-member img {
+        width: 100%;
+        height: auto;
+        border-radius: 50%;
+    }
+    
+    .board-member h3 {
+        margin-top: 10px;
+        font-size: 1.2em;
+    }
+    
+    .board-member p {
+        font-size: 0.9em;
+        color: #555;
+    }
+    
+    </style>
+    <style>
         .board {
             display: flex;
             flex-wrap: wrap;
@@ -79,49 +189,68 @@ h1::before {
     </style>
 </head>
 <body>
-    <div id="containerbomy">
-    <!--<div id="container">
-            <div class="sub_head margin_left">
-                <div class="square"></div>
-                <div class="text">
-                    <h1>คณะกรรมการบริหาร ชุดที่ 1</h1>
-                </div>
-            </div>
-        </div> -->
-        <section class="header">
-            <h1>คณะกรรมการบริหาร ชุดที่ 1</h1>
-        </section>
-            <section class="board">
-                <div class="board-member">
-                    <img src="https://i.postimg.cc/FH8f0rry/37698.jpg" alt="นายณภัทร ปัญโญ">
-                    <h3>นายณภัทร ปัญโญ</h3>
-                    <p>หัวหน้าสำนักงานสภา/เหรัญญิก/กรรมการบริหาร</p>
-                </div>
-        
-                <div class="board-member">
-                    <img src="https://i.postimg.cc/432W6hK8/37643.jpg" alt="นางสาวกรกนก เสมสะอาด">
-                    <h3>นางสาวกรกนก เสมสะอาด</h3>
-                    <p>นายกสภา/กรรมการบริหาร</p>
-                </div>
-        
-                <div class="board-member">
-                    <img src="https://i.postimg.cc/1XDwtQRs/34514.jpg" alt="นายณัฐปิยังกูร โภคินชลิตพงศ์">
-                    <h3>นายณัฐปิยังกูร โภคินชลิตพงศ์</h3>
-                    <p>อุปนายก/กรรมการบริหาร</p>
-                </div>
-        
-                <div class="board-member">
-                    <img src="https://i.postimg.cc/bwDx7FdR/38739.jpg" alt="นางสาวนงนภัส ทองเชื้อ">
-                    <h3>นางสาวนงนภัส ทองเชื้อ</h3>
-                    <p>อุปนายก/กรรมการบริหาร</p>
-                </div>
-        
-                <div class="board-member">
-                    <img src="https://i.postimg.cc/3JbhJ7Hm/42985.jpg" alt="นายธนกฤต เมืองจันทร์">
-                    <h3>นายธนกฤต เมืองจันทร์</h3>
-                    <p>เลขาธิการ/กรรมการบริหาร</p>
-                </div>
-            </section>
+    
+
+
+
+<div class="sidebar" id="sidebar">
+    <div class="logo">
+        <h2>LOGO</h2>
+    </div>
+    <ul class="menu">
+        <li>
+            <a href="#" onclick="toggleSubmenu('submenu1')">คณะกรรมการบริหาร</a>
+            <ul id="submenu1" class="submenu">
+                <li><a href="#">ชุดที่ 1</a></li>
+                <li><a href="#">ชุดที่ 2</a></li>
+                <li><a href="#">ชุดที่ 3</a></li>
+            </ul>
+        </li>
+        <li><a href="#">ทำเนียบหัวหน้าสำนักงานสภา</a></li>
+        <li><a href="#">ทำเนียบนายกสภา</a></li>
+        <li><a href="#">ทำเนียบอุปนายกสภา</a></li>
+        <li><a href="#">ทำเนียนเลขาธิการสภา</a></li>
+        <li><a href="#">ทำเนียบเหรัญญิก</a></li>
+        <li><a href="#">ทำเนียบกรรมการบริหารและทำเนียบอนุกรรมการ</a></li>
+    </ul>
+</div>
+
+
+<div id="containerbomy">
+    <section class="header">
+        <h1>คณะกรรมการบริหาร ชุดที่ 1</h1>
+    </section>
+    <section class="board">
+        <div class="board-member">
+            <img src="https://i.postimg.cc/FH8f0rry/37698.jpg" alt="นายณภัทร ปัญโญ">
+            <h3>นายณภัทร ปัญโญ</h3>
+            <p>หัวหน้าสำนักงานสภา/เหรัญญิก/กรรมการบริหาร</p>
         </div>
+
+        <div class="board-member">
+            <img src="https://i.postimg.cc/432W6hK8/37643.jpg" alt="นางสาวกรกนก เสมสะอาด">
+            <h3>นางสาวกรกนก เสมสะอาด</h3>
+            <p>นายกสภา/กรรมการบริหาร</p>
+        </div>
+
+        <div class="board-member">
+            <img src="https://i.postimg.cc/1XDwtQRs/34514.jpg" alt="นายณัฐปิยังกูร โภคินชลิตพงศ์">
+            <h3>นายณัฐปิยังกูร โภคินชลิตพงศ์</h3>
+            <p>อุปนายก/กรรมการบริหาร</p>
+        </div>
+
+        <div class="board-member">
+            <img src="https://i.postimg.cc/bwDx7FdR/38739.jpg" alt="นางสาวนงนภัส ทองเชื้อ">
+            <h3>นางสาวนงนภัส ทองเชื้อ</h3>
+            <p>อุปนายก/กรรมการบริหาร</p>
+        </div>
+
+        <div class="board-member">
+            <img src="https://i.postimg.cc/3JbhJ7Hm/42985.jpg" alt="นายธนกฤต เมืองจันทร์">
+            <h3>นายธนกฤต เมืองจันทร์</h3>
+            <p>เลขาธิการ/กรรมการบริหาร</p>
+        </div>
+    </section>
+</div>
 </body>
 </html>
