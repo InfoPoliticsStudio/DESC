@@ -34,7 +34,7 @@
     transition: all 0.3s ease-in;
 }
 
-body{margin:auto !important; background:#fff; position:relative; font-family: 'Kanit-Light'; color:#000; max-width: 3000px; 
+body{margin:auto !important; background:#800; position:relative; font-family: 'Kanit-Light'; color:#000; max-width: 3000px; 
   /*-webkit-box-shadow: 0px 0px 18px 8px rgba(50, 50, 50, 0.27);
   -moz-box-shadow:    0px 0px 18px 8px rgba(50, 50, 50, 0.27);
   box-shadow:         0px 0px 18px 8px rgba(50, 50, 50, 0.27);*/
@@ -269,8 +269,8 @@ input[type="checkbox"] + label:before {
 .sub_menu ul li:hover{text-decoration:none; color:#f2a225; cursor:pointer;}
 .sub_head{margin:auto; /*width:41%;*/ padding:25px 0 40px 0; text-align: center;}
 .sub_head>.square{border:11px solid #f2a225; width:144px; height:149px;}
-.sub_head>.text{background:#fff; margin:-138px 0 0 81px; padding:3px 0 3px 0; display: flex;}
-.sub_head>.text>h1{font-family: 'Kanit-Medium'; font-size:36px; text-transform:uppercase;}
+.sub_head>.text{background:#800; margin:-138px 0 0 81px; padding:3px 0 3px 0; display: flex;}
+.sub_head>.text>h1{font-family: 'Kanit-Medium'; font-size:36px; text-transform:uppercase;color:#fff;}
 
 .black1{color:#000101;}
 .orange{color:#f2a225;}
