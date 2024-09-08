@@ -358,6 +358,7 @@ cursor:pointer;
                 width: fit-content;
                 margin-bottom: 40px;
                 position: relative;
+                overflow: hidden;
 
             }
 
