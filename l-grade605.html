@@ -843,8 +843,7 @@ button:not(:disabled), [type="button"]:not(:disabled), [type="reset"]:not(:disab
                     // เก็บข้อมูลผู้ใช้ลงใน Local Storage
                     localStorage.setItem('fullName', user.name);
                     localStorage.setItem('imageUrl', user.pics);
-                    localStorage.setItem('scores', JSON.stringify(user)); // เก็บผลการเรียนไว้
-
+                    localStorage.setItem('userId', user.id); // เก็บ userId ด้วย
                     // เปลี่ยนหน้าไปยัง grade605.html
                     window.location.href = 'grade605.html';
                 } else {
