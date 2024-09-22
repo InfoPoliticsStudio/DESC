@@ -350,43 +350,43 @@ h3, .h3 {
     <!-- จะมีข้อมูลเกรดแทรกตรงนี้ -->
 </table>
 
+
 <script>
-    // ดึงข้อมูลจาก Local Storage
-    const fullName = localStorage.getItem('fullName');
-    const imageUrl = localStorage.getItem('imageUrl');
-    const username = localStorage.getItem('username');  // อาจจะต้องเก็บ username มาด้วยนะ
+    window.onload = function() {
+        // รับข้อมูลจาก Local Storage
+        const fullName = localStorage.getItem('fullName');
+        const imageUrl = localStorage.getItem('imageUrl');
+        const userId = localStorage.getItem('userId'); // สมมุติว่าเก็บ userId ด้วย
+        const userData = JSON.parse(document.getElementById('userData').textContent);
 
-    // แสดงข้อความยินดีต้อนรับ
-    document.getElementById('welcomeMessage').textContent = `${fullName}`;
+        // แสดงชื่อและรูปภาพ
+        document.getElementById('fullName').textContent = fullName;
+        document.getElementById('profilePic').src = imageUrl;
 
-    // แสดงรูปภาพของผู้ใช้
-    document.getElementById('userImage').src = imageUrl;
+        // ค้นหาผู้ใช้ที่ตรงกับ userId
+        const user = userData.users.find(user => user.id == userId);
+        if (user) {
+            // สร้างตารางผลการเรียน
+            const subjects = ['s01', 's02', 's03', 's04', 's05', 's06', 's07', 's08', 's09', 's10', 's11', 's12', 's13', 's14', 's15', 's16'];
+            const gradeTable = document.getElementById('gradeTable');
+            
+            subjects.forEach((subject, index) => {
+                if (user[subject]) {
+                    const row = document.createElement('tr');
+                    const subjectCell = document.createElement('td');
+                    subjectCell.textContent = `วิชา ${index + 1}`;
+                    const gradeCell = document.createElement('td');
+                    gradeCell.textContent = user[subject];
 
-    // ดึงผลการเรียนจาก API
-    fetch('https://script.google.com/macros/s/AKfycbxsHZQjQHWReDT5dhfzmrLuPSpJ-PrbQ11jMsH2jKLYyoTqRBJ4dTnzx0z3EykSykdFKA/exec?action=getUsers')
-        .then(response => response.json())
-        .then(data => {
-            const user = data.find(user => user.username === username);
-            if (user) {
-                const grades = user.grades;  // สมมติว่า grades คือ array ของผลการเรียน
-                
-                // เพิ่มผลการเรียนลงในตาราง
-                const table = document.getElementById('gradesTable');
-                grades.forEach(subject => {
-                    const row = `<tr>
-                                    <td>${subject.subject}</td>
-                                    <td>${subject.grade}</td>
-                                 </tr>`;
-                    table.innerHTML += row;
-                });
-            } else {
-                alert('ไม่พบข้อมูลผู้ใช้');
-            }
-        })
-        .catch(error => {
-            console.error('Error:', error);
-            alert('เกิดข้อผิดพลาดในการดึงข้อมูลผลการเรียน');
-        });
+                    row.appendChild(subjectCell);
+                    row.appendChild(gradeCell);
+                    gradeTable.appendChild(row);
+                }
+            });
+        } else {
+            alert('ไม่พบข้อมูลผู้ใช้');
+        }
+    };
 </script>
 
 </body>
