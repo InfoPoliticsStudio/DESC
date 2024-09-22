@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Login</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .login-page {
+            width: 360px;
+            padding: 8% 0 0;
+            margin: auto;
+        }
+
+        .login-box {
+            position: relative;
+            background: white;
+            max-width: 360px;
+            padding: 45px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+
+        .login-logo img {
+            width: 100px;
+        }
+
+        .login-logo {
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            position: relative;
+            margin-bottom: 25px;
+        }
+
+        .form-control {
+            font-size: 16px;
+            padding: 10px;
+            width: 100%;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        .btn-block {
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .btn-block:hover {
+            background-color: #0056b3;
+        }
+
+        .icheck-primary {
+            text-align: left;
+            display: inline-block;
+        }
+
+        .icheck-primary label {
+            margin-left: 5px;
+        }
+
+        .form-control-feedback {
+            position: absolute;
+            right: 10px;
+            top: 10px;
+        }
+
+        a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="login-page">
+    <div class="login-box">
+        <div class="login-logo">
+            <img src="https://example.com/schoollogo.png" alt="School Logo">
+            <br>Student
+        </div>
+        
+        <form id="loginForm" novalidate>
+            <div class="form-group has-feedback">
+                <input type="email" name="username" placeholder="Username" class="form-control" required autocomplete="username">
+            </div>
+            <div class="form-group has-feedback">
+                <input type="password" name="password" placeholder="Password" class="form-control" required autocomplete="password">
+                <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+            </div>
+            <div class="form-group has-feedback">
+                <div class="icheck-primary d-inline">
+                    <input type="checkbox" id="remember" checked class="form-control">
+                    <label for="remember"> Remember Me </label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <button type="submit" class="btn btn-primary btn-block">LOG IN</button>
+                </div>
+            </div>
+        </form>
+        
+        <br>
+        <a href="https://www.infopro.co.th">Powered by InfoproACE</a>
+    </div>
+</div>
+
+<script>
+    document.getElementById('loginForm').addEventListener('submit', function(event) {
+        event.preventDefault(); // ป้องกันการรีเฟรชหน้า
+
+        const username = document.querySelector('input[name="username"]').value;
+        const password = document.querySelector('input[name="password"]').value;
+
+        if (password === 'krutor2567') {
+            alert(`เข้าสู่ระบบสำเร็จ: รหัสนักเรียนคือ ${username}`);
+            // สามารถทำการ redirect ไปยังหน้าถัดไปได้ เช่น window.location.href = 'nextPage.html';
+        } else {
+            alert('รหัสผ่านไม่ถูกต้อง');
+        }
+    });
+</script>
+
+</body>
+</html>
