@@ -958,7 +958,6 @@ h3, .h3 {
 
 
 <script>
-// ใส่ JavaScript ที่ได้รวมไว้ที่นี่
 window.onload = function() {
     // รับข้อมูลจาก Local Storage
     const fullName = localStorage.getItem('fullName');
@@ -980,21 +979,22 @@ window.onload = function() {
         
         subjects.forEach((subject, index) => {
             if (user[subject]) {
-                const row = document.createElement('tr');
-                const subjectCell = document.createElement('td');
-                subjectCell.textContent = `วิชา ${index + 1}`;
-                const gradeCell = document.createElement('td');
-                gradeCell.textContent = user[subject];
+                const row = document.createElement('tr'); // สร้างแถวใหม่
+                const subjectCell = document.createElement('td'); // สร้างเซลล์สำหรับวิชา
+                subjectCell.textContent = `วิชา ${index + 1}`; // ตั้งชื่อวิชา
+                const gradeCell = document.createElement('td'); // สร้างเซลล์สำหรับเกรด
+                gradeCell.textContent = user[subject]; // ใส่เกรดในเซลล์
 
-                row.appendChild(subjectCell);
-                row.appendChild(gradeCell);
-                gradeTable.appendChild(row);
+                row.appendChild(subjectCell); // เพิ่มเซลล์วิชาในแถว
+                row.appendChild(gradeCell); // เพิ่มเซลล์เกรดในแถว
+                gradeTable.appendChild(row); // เพิ่มแถวในตาราง
             }
         });
     } else {
-        alert('ไม่พบข้อมูลผู้ใช้');
+        alert('ไม่พบข้อมูลผู้ใช้'); // แจ้งถ้าไม่พบผู้ใช้
     }
 };
+
 </script>
 
 </body>
