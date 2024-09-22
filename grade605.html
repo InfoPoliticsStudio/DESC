@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grade 605</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        .welcome-section {
+            display: flex;
+            align-items: center;
+        }
+
+        .welcome-section img {
+            border-radius: 50%;
+            width: 100px;
+            margin-right: 20px;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            display: -ms-flexbox;
+            min-width: 0;
+            word-wrap: break-word;
+            background-color: #ffffff;
+            background-clip: border-box;
+            border: 0 solid rgba(0, 0, 0, 0.125);
+            border-radius: 0.25rem;
+        }
+
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+
+        th, td {
+            padding: 8px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+/*       - */
+      
+.container-fluid, .container-sm, .container-md, .container-lg, .container-xl {
+    width: 100%;
+    padding-right: 7.5px;
+    padding-left: 7.5px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.mb-2, .my-2 {
+    margin-bottom: 0.5rem !important;
+}
+.row {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin-right: -7.5px;
+    margin-left: -7.5px;
+}
+@media (min-width: 576px) {
+    .col-sm-6 {
+        -ms-flex: 0 0 50%;
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+}
+.col-1, .col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-9, .col-10, .col-11, .col-12, .col, .col-auto, .col-sm-1, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm, .col-sm-auto, .col-md-1, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-10, .col-md-11, .col-md-12, .col-md, .col-md-auto, .col-lg-1, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-lg-10, .col-lg-11, .col-lg-12, .col-lg, .col-lg-auto, .col-xl-1, .col-xl-2, .col-xl-3, .col-xl-4, .col-xl-5, .col-xl-6, .col-xl-7, .col-xl-8, .col-xl-9, .col-xl-10, .col-xl-11, .col-xl-12, .col-xl, .col-xl-auto {
+    position: relative;
+    width: 100%;
+    padding-right: 7.5px;
+    padding-left: 7.5px;
+}
+      
+.m-0 {
+    margin: 0 !important;
+}
+h3, .h3 {
+    font-size: 1.75rem;
+}
+      
+    </style>
+</head>
+<body>
+
+<div class="welcome-section">
+    <img id="userImage" src="" alt="User Image">
+    <h1 id="welcomeMessage"></h1>
+</div>
+<div _ngcontent-uxf-c127="" class="container-fluid"><div _ngcontent-uxf-c127="" class="row mb-2"><div _ngcontent-uxf-c127="" class="col-sm-6"><h3 _ngcontent-uxf-c127="" class="m-0">Scores</h3></div></div></div>
+<table id="gradesTable">
+    <tr>
+        <th>วิชา</th>
+        <th>เกรด</th>
+    </tr>
+    <!-- จะมีข้อมูลเกรดแทรกตรงนี้ -->
+</table>
+
+<script>
+    // ดึงข้อมูลจาก Local Storage
+    const fullName = localStorage.getItem('fullName');
+    const imageUrl = localStorage.getItem('imageUrl');
+    const username = localStorage.getItem('username');  // อาจจะต้องเก็บ username มาด้วยนะ
+
+    // แสดงข้อความยินดีต้อนรับ
+    document.getElementById('welcomeMessage').textContent = `ยินดีต้อนรับคุณ ${fullName}`;
+
+    // แสดงรูปภาพของผู้ใช้
+    document.getElementById('userImage').src = imageUrl;
+
+    // ดึงผลการเรียนจาก API
+    fetch('https://script.google.com/macros/s/AKfycbxsHZQjQHWReDT5dhfzmrLuPSpJ-PrbQ11jMsH2jKLYyoTqRBJ4dTnzx0z3EykSykdFKA/exec?action=getUsers')
+        .then(response => response.json())
+        .then(data => {
+            const user = data.find(user => user.username === username);
+            if (user) {
+                const grades = user.grades;  // สมมติว่า grades คือ array ของผลการเรียน
+                
+                // เพิ่มผลการเรียนลงในตาราง
+                const table = document.getElementById('gradesTable');
+                grades.forEach(subject => {
+                    const row = `<tr>
+                                    <td>${subject.subject}</td>
+                                    <td>${subject.grade}</td>
+                                 </tr>`;
+                    table.innerHTML += row;
+                });
+            } else {
+                alert('ไม่พบข้อมูลผู้ใช้');
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert('เกิดข้อผิดพลาดในการดึงข้อมูลผลการเรียน');
+        });
+</script>
+
+</body>
+</html>
