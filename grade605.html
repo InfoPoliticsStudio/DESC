@@ -950,49 +950,51 @@ h3, .h3 {
 ]
 }
 </script>
+    
     <script>
     window.onload = function() {
-        // รับข้อมูลจาก Local Storage
-        const fullName = localStorage.getItem('fullName');
-        const imageUrl = localStorage.getItem('imageUrl');
-        const userId = localStorage.getItem('userId'); // ตรวจสอบว่ามีการเก็บ userId ไว้หรือไม่
-        const userData = JSON.parse(document.getElementById('userData').textContent);
+    // รับข้อมูลจาก Local Storage
+    const fullName = localStorage.getItem('fullName');
+    const imageUrl = localStorage.getItem('imageUrl');
+    const userId = localStorage.getItem('userId'); // ตรวจสอบว่ามีการเก็บ userId ไว้หรือไม่
+    const userData = JSON.parse(document.getElementById('userData').textContent);
 
-        console.log('fullName:', fullName);
-        console.log('userId:', userId);
-        console.log('userData:', userData);
+    console.log('fullName:', fullName);
+    console.log('userId:', userId);
+    console.log('userData:', userData);
 
-        // แสดงชื่อและรูปภาพ
-        document.getElementById('fullName').textContent = fullName;
-        document.getElementById('profilePic').src = imageUrl;
+    // แสดงชื่อและรูปภาพ
+    document.getElementById('fullName').textContent = fullName;
+    document.getElementById('profilePic').src = imageUrl;
 
-        // ค้นหาผู้ใช้ที่ตรงกับ userId
-        const user = userData.users.find(user => user.id == userId);
-        console.log('Found user:', user); // เพิ่มการดีบักที่นี่
+    // ค้นหาผู้ใช้ที่ตรงกับ userId
+    const user = userData.users.find(user => user.id == Number(userId));
+    console.log('Found user:', user); // เพิ่มการดีบักที่นี่
 
-        if (user) {
-            // สร้างตารางผลการเรียน
-            const subjects = ['s01', 's02', 's03', 's04', 's05', 's06', 's07', 's08', 's09', 's10', 's11', 's12', 's13', 's14', 's15', 's16'];
-            const gradeTable = document.getElementById('gradeTable');
-            
-            subjects.forEach((subject, index) => {
-                if (user[subject]) {
-                    const row = document.createElement('tr');
-                    const subjectCell = document.createElement('td');
-                    subjectCell.textContent = `วิชา ${index + 1}`;
-                    const gradeCell = document.createElement('td');
-                    gradeCell.textContent = user[subject];
+    if (user) {
+        // สร้างตารางผลการเรียน
+        const subjects = ['s01', 's02', 's03', 's04', 's05', 's06', 's07', 's08', 's09', 's10', 's11', 's12', 's13', 's14', 's15', 's16'];
+        const gradeTable = document.getElementById('gradeTable');
+        
+        subjects.forEach((subject, index) => {
+            if (user[subject]) {
+                console.log(`Adding grade for subject ${index + 1}:`, user[subject]); // ดีบักค่าที่จะเพิ่ม
+                const row = document.createElement('tr');
+                const subjectCell = document.createElement('td');
+                subjectCell.textContent = `วิชา ${index + 1}`;
+                const gradeCell = document.createElement('td');
+                gradeCell.textContent = user[subject];
 
-                    row.appendChild(subjectCell);
-                    row.appendChild(gradeCell);
-                    gradeTable.appendChild(row);
-                }
-            });
-        } else {
-            alert('ไม่พบข้อมูลผู้ใช้');
-        }
-    };
-        localStorage.setItem('userId', user.id);
+                row.appendChild(subjectCell);
+                row.appendChild(gradeCell);
+                gradeTable.appendChild(row);
+            }
+        });
+    } else {
+        alert('ไม่พบข้อมูลผู้ใช้');
+    }
+};
+
 </script>
 
 </body>
