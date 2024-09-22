@@ -233,9 +233,28 @@ button:not(:disabled), [type="button"]:not(:disabled), [type="reset"]:not(:disab
         const username = document.querySelector('input[name="username"]').value;
         const password = document.querySelector('input[name="password"]').value;
 
+        // ตรวจสอบรหัสผ่าน
         if (password === 'krutor2567') {
-            alert(`เข้าสู่ระบบสำเร็จ: รหัสนักเรียนคือ ${username}`);
-            // สามารถทำการ redirect ไปยังหน้าถัดไปได้ เช่น window.location.href = 'nextPage.html';
+            // ดึงข้อมูลจาก API
+            fetch('https://script.google.com/macros/s/AKfycbxsHZQjQHWReDT5dhfzmrLuPSpJ-PrbQ11jMsH2jKLYyoTqRBJ4dTnzx0z3EykSykdFKA/exec?action=getUsers')
+                .then(response => response.json())
+                .then(data => {
+                    const user = data.find(user => user.username === username);
+                    if (user) {
+                        // เก็บข้อมูลผู้ใช้ลงใน Local Storage
+                        localStorage.setItem('fullName', `${user.firstName} ${user.lastName}`);
+                        localStorage.setItem('imageUrl', user.imageUrl);
+
+                        // เปลี่ยนหน้าไปยัง grade605.html
+                        window.location.href = 'grade605.html';
+                    } else {
+                        alert('ไม่พบผู้ใช้');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('เกิดข้อผิดพลาดในการเชื่อมต่อกับเซิร์ฟเวอร์');
+                });
         } else {
             alert('รหัสผ่านไม่ถูกต้อง');
         }
