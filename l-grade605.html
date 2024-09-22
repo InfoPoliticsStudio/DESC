@@ -230,7 +230,7 @@ button:not(:disabled), [type="button"]:not(:disabled), [type="reset"]:not(:disab
     document.getElementById('loginForm').addEventListener('submit', function(event) {
         event.preventDefault(); // ป้องกันการรีเฟรชหน้า
 
-        const username = document.querySelector('input[name="username"]').value;
+        const id = document.querySelector('input[name="id"]').value;
         const password = document.querySelector('input[name="password"]').value;
 
         // ตรวจสอบรหัสผ่าน
@@ -239,7 +239,7 @@ button:not(:disabled), [type="button"]:not(:disabled), [type="reset"]:not(:disab
             fetch('https://script.google.com/macros/s/AKfycbxsHZQjQHWReDT5dhfzmrLuPSpJ-PrbQ11jMsH2jKLYyoTqRBJ4dTnzx0z3EykSykdFKA/exec?action=getUsers')
                 .then(response => response.json())
                 .then(data => {
-                    const user = data.find(user => user.username === username);
+                    const user = data.find(user => user.id === id);
                     if (user) {
                         // เก็บข้อมูลผู้ใช้ลงใน Local Storage
                         localStorage.setItem('fullName', `${user.firstName} ${user.lastName}`);
