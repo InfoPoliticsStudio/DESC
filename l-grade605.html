@@ -220,40 +220,42 @@ button:not(:disabled), [type="button"]:not(:disabled), [type="reset"]:not(:disab
         <a href="index">Powered by DESC605</a>
     </div>
 </div>
-
 <script>
-    document.getElementById('loginForm').addEventListener('submit', function(event) {
-        event.preventDefault(); // ป้องกันการรีเฟรชหน้า
+    window.onload = function() {
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // ป้องกันการรีเฟรชหน้า
 
-        const id = document.querySelector('input[name="id"]').value;
-        const password = document.querySelector('input[name="password"]').value;
+            // ตรวจสอบค่า id (รหัสนักเรียน) และ password
+            const id = document.querySelector('input[name="id"]').value.trim(); // .trim() เพื่อลบช่องว่าง
+            const password = document.querySelector('input[name="password"]').value.trim();
 
-        // ตรวจสอบรหัสผ่าน
-        if (password === 'krutor2567') {
-            // ดึงข้อมูลจาก API
-            fetch('https://script.google.com/macros/s/AKfycbxsHZQjQHWReDT5dhfzmrLuPSpJ-PrbQ11jMsH2jKLYyoTqRBJ4dTnzx0z3EykSykdFKA/exec?action=getUsers')
-                .then(response => response.json())
-                .then(data => {
-                    const user = data.find(user => user.id === id);
-                    if (user) {
-                        // เก็บข้อมูลผู้ใช้ลงใน Local Storage
-                        localStorage.setItem('fullName', `${user.firstName} ${user.lastName}`);
-                        localStorage.setItem('imageUrl', user.imageUrl);
+            // ตรวจสอบรหัสผ่าน
+            if (password === 'krutor2567') {
+                // ดึงข้อมูลจาก API
+                fetch('https://script.google.com/macros/s/AKfycbxsHZQjQHWReDT5dhfzmrLuPSpJ-PrbQ11jMsH2jKLYyoTqRBJ4dTnzx0z3EykSykdFKA/exec?action=getUsers')
+                    .then(response => response.json())
+                    .then(data => {
+                        const user = data.find(user => user.id === id); // ตรวจสอบ id จาก API
+                        if (user) {
+                            // เก็บข้อมูลผู้ใช้ลงใน Local Storage
+                            localStorage.setItem('fullName', `${user.firstName} ${user.lastName}`);
+                            localStorage.setItem('imageUrl', user.imageUrl);
 
-                        // เปลี่ยนหน้าไปยัง grade605.html
-                        window.location.href = 'grade605.html';
-                    } else {
-                        alert('ไม่พบผู้ใช้');
-                    }
-                })
-                .catch(error => {
-                    console.error('Error:', error);
-                    alert('เกิดข้อผิดพลาดในการเชื่อมต่อกับเซิร์ฟเวอร์');
-                });
-        } else {
-            alert('รหัสผ่านไม่ถูกต้อง');
-        }
-    });
+                            // เปลี่ยนหน้าไปยัง grade605.html
+                            window.location.href = 'grade605.html';
+                        } else {
+                            alert('ไม่พบผู้ใช้');
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                        alert('เกิดข้อผิดพลาดในการเชื่อมต่อกับเซิร์ฟเวอร์');
+                    });
+            } else {
+                alert('รหัสผ่านไม่ถูกต้อง');
+            }
+        });
+    };
 </script>
 
 </body>
