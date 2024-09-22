@@ -27,6 +27,9 @@
 }
 .navbar-ace {
     background-color: #fbc1c1;
+    top: 0;
+    position: fixed;
+    width: -webkit-fill-available;
 }
 
 .main-header {
@@ -89,8 +92,7 @@
     padding-right: 0;
     padding-left: 0;
 }
-<style>
-.img-size-square-32[_ngcontent-uxf-c42] {
+.img-size-square-32{
     -o-object-fit: cover;
     object-fit: cover;
     width: 32px;
@@ -173,7 +175,7 @@
 /*     NAV */
         body {
             font-family: Arial, sans-serif;
-            margin: 20px;
+            margin: 0;
         }
 
         .welcome-section {
@@ -219,7 +221,6 @@
 /*       - */
       
 .container-fluid, .container-sm, .container-md, .container-lg, .container-xl {
-    width: 100%;
     padding-right: 7.5px;
     padding-left: 7.5px;
     margin-right: auto;
