@@ -356,9 +356,9 @@ h3, .h3 {
     </tbody>
 </table>
 
-<script type="application/json" id="userData">
-{
-    "users": [
+<script>
+const users = {
+  "users": [
   {
     "id": 34514,
     "name": "ณัฐปิยังกูร โภคินชลิตพงศ์",
@@ -953,25 +953,20 @@ h3, .h3 {
     "s16": "",
     "sall": ""
   }
-]
+];
+// ดึง studentId จาก sessionStorage
+const studentId = sessionStorage.getItem('studentId');
+
+// ค้นหาข้อมูลผู้ใช้จาก JSON
+const user = users.users.find(u => u.id == studentId);
+
+if (user) {
+  // แสดงข้อมูล
+  document.getElementById('userImage').src = user.pics;
+  document.getElementById('userName').textContent = user.name;
+} else {
+  alert('User not found');
 }
-</script>
-<script>
-  // ดึงข้อมูล JSON จากแท็ก script
-  const userDataScript = document.getElementById('userData');
-  const userData = JSON.parse(userDataScript.textContent);  // แปลง JSON เป็น object
-
-  // สมมติว่าเราจะใช้ข้อมูลของผู้ใช้คนแรกในอาร์เรย์
-  const firstUser = userData.users[0];  // เข้าถึงผู้ใช้คนแรก
-
-  // เติมข้อมูลลงใน HTML
-  const userImage = document.querySelector('img.img-size-square-32');  // เลือกแท็ก img ด้วย class ที่กำหนด
-  const userName = document.querySelector('a.nav-link span.hidden-s');  // เลือกแท็ก span ภายใต้ a
-
-  // กำหนดค่าจากข้อมูล JSON
-  userImage.src = firstUser.pics;  // ตั้งค่าที่อยู่ของรูปภาพ
-  userImage.alt = firstUser.name;  // ตั้งค่า alt เป็นชื่อผู้ใช้
-  userName.textContent = firstUser.name;  // แสดงชื่อผู้ใช้ใน span
 </script>
 
 </body>
