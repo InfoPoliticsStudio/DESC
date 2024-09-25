@@ -175,6 +175,14 @@ div#numGen {
 
                             </style>
 <script>
+// Load the custom font that supports Thai characters
+function loadThaiFont(jsPDF) {
+    jsPDF.API.events.push(['addFonts', function () {
+        this.addFileToVFS('THSarabun.ttf', '<base64-string-of-thai-font>');
+        this.addFont('THSarabun.ttf', 'THSarabun', 'normal');
+    }]);
+}
+
 // Function to update the displayed member info based on the student ID
 async function updateMemberInfo() {
     const studentId = document.getElementById('student-id').value;
@@ -206,29 +214,47 @@ async function updateMemberInfo() {
     }
 }
 
-// Function to download the content of box-members as PDF
-function downloadPDF() {
+// Function to download the content of box-members as a PDF with background
+async function downloadPDF() {
     const { jsPDF } = window.jspdf;
     const doc = new jsPDF();
 
-    // Capture the content inside the box-members div
-    const name = document.getElementById('name').innerText;
-    const enId = document.getElementById('en-id').innerText;
-    const stId = document.getElementById('st-id').innerText;
-    const pos = document.getElementById('pos').innerText;
+    // Load the custom Thai font
+    loadThaiFont(jsPDF);
+    doc.setFont('THSarabun');
 
-    // Add content to the PDF
-    doc.setFontSize(16);
-    doc.text("Member Information", 10, 10);
-    doc.setFontSize(12);
-    doc.text(`Name: ${name}`, 10, 20);
-    doc.text(`EN-ID: ${enId}`, 10, 30);
-    doc.text(`ST-ID: ${stId}`, 10, 40);
-    doc.text(`Position: ${pos}`, 10, 50);
+    // Load the background image (ensure it's in base64 or use a URL)
+    const imgUrl = 'https://i.postimg.cc/g2BTVfxz/image.png';
+    const img = await fetch(imgUrl).then(r => r.blob());
+    const reader = new FileReader();
 
-    // Save the PDF
-    doc.save("member-info.pdf");
+    reader.onloadend = function () {
+        // Add the background image
+        const imgData = reader.result;
+        doc.addImage(imgData, 'PNG', 0, 0, 210, 297); // full-page background (A4 size)
+
+        // Get member data from the HTML
+        const name = document.getElementById('name').innerText;
+        const enId = document.getElementById('en-id').innerText;
+        const stId = document.getElementById('st-id').innerText;
+        const pos = document.getElementById('pos').innerText;
+
+        // Add content to the PDF
+        doc.setFontSize(16);
+        doc.text("ข้อมูลสมาชิก", 20, 20);
+        doc.setFontSize(12);
+        doc.text(`ชื่อ: ${name}`, 20, 40);
+        doc.text(`รหัสวิศวกรรม: ${enId}`, 20, 50);
+        doc.text(`รหัสนักเรียน: ${stId}`, 20, 60);
+        doc.text(`ตำแหน่ง: ${pos}`, 20, 70);
+
+        // Save the PDF
+        doc.save("member-info.pdf");
+    };
+
+    reader.readAsDataURL(img);
 }
+
 </script>
                         </div>
                         <div class="column end">
