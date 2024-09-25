@@ -173,7 +173,7 @@ div#numGen {
     background-color: #9c0000;
 }
 
-                            </style>
+</style>
 <script>
 // Function to update the displayed member info based on the student ID
 async function updateMemberInfo() {
@@ -206,34 +206,33 @@ async function updateMemberInfo() {
     }
 }
 
-// Function to download the content of box-members as a PNG
-function downloadPNG() {
-    const memberInfo = document.getElementById('member-info');
+// Function to navigate to a URL based on the numGen value
+function goToURL() {
+    const numGen = document.getElementById('numGen').innerText; // Get the current numGen value
 
-    // Ensure the background image is fully loaded
-    const backgroundImg = new Image();
-    backgroundImg.src = 'https://i.postimg.cc/g2BTVfxz/image.png';
-    backgroundImg.onload = function() {
-        // Once the background image is loaded, capture the content
-        html2canvas(memberInfo, { width: 800, height: 508 }).then(function (canvas) {
-            // Convert canvas to data URL
-            const imgData = canvas.toDataURL("image/png");
+    let url;
+    // Map numGen to specific URLs
+    switch (numGen) {
+        case '1':
+            url = 'https://example.com/url-1'; // URL for numGen 1
+            break;
+        case '2':
+            url = 'https://example.com/url-2'; // URL for numGen 2
+            break;
+        case '3':
+            url = 'https://example.com/url-3'; // URL for numGen 3
+            break;
+        case '4':
+            url = 'https://example.com/url-4'; // URL for numGen 4
+            break;
+        default:
+            alert("No valid URL found for this generation");
+            return;
+    }
 
-            // Create a temporary link element to trigger the download
-            const link = document.createElement('a');
-            link.href = imgData;
-            link.download = 'member-info.png';
-
-            // Append the link to the body and click it
-            document.body.appendChild(link);
-            link.click();
-
-            // Remove the link from the document
-            document.body.removeChild(link);
-        });
-    };
+    // Redirect to the URL
+    window.location.href = url;
 }
-
 </script>
                         </div>
                         <div class="column end">
@@ -244,7 +243,7 @@ function downloadPNG() {
                                 <input type="text" id="student-id" placeholder="Enter Student ID" oninput="updateMemberInfo()">
                                   <br><br>
                                     <!-- Download PNG button -->
-                                    <button id="download-btn" onclick="downloadPNG()">Download PNG</button>
+                                    <button id="download-btn" onclick="goToURL()">Download PNG</button>
                                   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
                               </div>
                           </div>
