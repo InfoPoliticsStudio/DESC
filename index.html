@@ -161,25 +161,27 @@ div#numGen {
 }
                             </style>
 <script>
-    // Function to update the displayed member info based on the student ID
+   // Function to update the displayed member info based on the student ID
 async function updateMemberInfo() {
     const studentId = document.getElementById('student-id').value;
 
     try {
         // Fetch the data from member.json
-        const response = await fetch('member.json');
+        const response = await fetch('path/to/your/member.json');
         const members = await response.json();
 
         // Find the member that matches the entered student ID
         const member = members.find(m => m['st-id'] === studentId);
 
         if (member) {
+            document.getElementById('numGen').innerText = member['numGen']; // Update numGen
             document.getElementById('name').innerText = member['name'];
             document.getElementById('en-id').innerText = member['en-id'];
             document.getElementById('st-id').innerText = member['st-id'];
             document.getElementById('pos').innerText = member['pos'];
         } else {
             // Clear fields if no matching member is found
+            document.getElementById('numGen').innerText = "0";  // Reset numGen to 0
             document.getElementById('name').innerText = "No Data";
             document.getElementById('en-id').innerText = "N/A";
             document.getElementById('st-id').innerText = "N/A";
@@ -189,6 +191,7 @@ async function updateMemberInfo() {
         console.error("Error fetching member data: ", error);
     }
 }
+
 </script>
                         </div>
                         <div class="column end">
