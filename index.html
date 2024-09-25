@@ -92,9 +92,9 @@
                                             <div class="num-gen" id="numGen">0</div>
                                         </div>
                                     </div>
-                                    <h4 style="margin-top: 61px;margin-left: 26px;color: #fff;font-size: 11px;" id="name">นายเศรษฐวัฒน์ เห็มชาติ</h4>
-                                    <h5 style="margin-top: 11px;margin-left: 26px;color: #fff;font-size: 11px;" id="en-id">ENGR-063</h5>
-                                    <h5 style="margin-top: 11px;margin-left: 26px;color: #fff;font-size: 11px;" id="st-id">42500</h5>
+                                    <h4 style="margin-top: 61px;margin-left: 26px;color: #fff;font-size: 11px;" id="name"></h4>
+                                    <h5 style="margin-top: 11px;margin-left: 26px;color: #fff;font-size: 11px;" id="en-id"></h5>
+                                    <h5 style="margin-top: 11px;margin-left: 26px;color: #fff;font-size: 11px;" id="st-id"></h5>
                                     <h5 style="margin-top: 11px;margin-left: 26px;color: #fff;font-size: 11px;">
                                         <ul>
                                             <li>สมาชิกสภานักเรียนเตรียมวิศวกรรมศาสตร์</li> 
@@ -159,9 +159,23 @@ div#numGen {
     margin-top: 10px;
     width: 100%;
 }
+#download-btn {
+    background-color: #cf0000;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+#download-btn:hover {
+    background-color: #9c0000;
+}
+
                             </style>
 <script>
-   // Function to update the displayed member info based on the student ID
+// Function to update the displayed member info based on the student ID
 async function updateMemberInfo() {
     const studentId = document.getElementById('student-id').value;
 
@@ -192,6 +206,29 @@ async function updateMemberInfo() {
     }
 }
 
+// Function to download the content of box-members as PDF
+function downloadPDF() {
+    const { jsPDF } = window.jspdf;
+    const doc = new jsPDF();
+
+    // Capture the content inside the box-members div
+    const name = document.getElementById('name').innerText;
+    const enId = document.getElementById('en-id').innerText;
+    const stId = document.getElementById('st-id').innerText;
+    const pos = document.getElementById('pos').innerText;
+
+    // Add content to the PDF
+    doc.setFontSize(16);
+    doc.text("Member Information", 10, 10);
+    doc.setFontSize(12);
+    doc.text(`Name: ${name}`, 10, 20);
+    doc.text(`EN-ID: ${enId}`, 10, 30);
+    doc.text(`ST-ID: ${stId}`, 10, 40);
+    doc.text(`Position: ${pos}`, 10, 50);
+
+    // Save the PDF
+    doc.save("member-info.pdf");
+}
 </script>
                         </div>
                         <div class="column end">
@@ -200,6 +237,10 @@ async function updateMemberInfo() {
                                 <h4>กรุณากรอกรหัสนักเรียน</h4>
                                 <label for="student-id">รหัสนักเรียน:</label>
                                 <input type="text" id="student-id" placeholder="Enter Student ID" oninput="updateMemberInfo()">
+                                  <br><br>
+                                <!-- Download button -->
+                                <button id="download-btn" onclick="downloadPDF()">Download PDF</button>
+                                  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
                               </div>
                           </div>
                         </div>
