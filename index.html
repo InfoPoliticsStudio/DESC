@@ -148,11 +148,55 @@ div#numGen {
     height: 254px;
     width: 400px;
 }
+                                
+.column.end .column label {
+    font-size: 14px;
+}
+
+.column.end .column input,
+.column.end .column select {
+    padding: 5px;
+    margin-top: 10px;
+    width: 100%;
+}
                             </style>
+<script>
+    // Function to update the displayed member info based on the student ID
+async function updateMemberInfo() {
+    const studentId = document.getElementById('student-id').value;
+
+    try {
+        // Fetch the data from member.json
+        const response = await fetch('member.json');
+        const members = await response.json();
+
+        // Find the member that matches the entered student ID
+        const member = members.find(m => m['st-id'] === studentId);
+
+        if (member) {
+            document.getElementById('name').innerText = member['name'];
+            document.getElementById('en-id').innerText = member['en-id'];
+            document.getElementById('st-id').innerText = member['st-id'];
+            document.getElementById('pos').innerText = member['pos'];
+        } else {
+            // Clear fields if no matching member is found
+            document.getElementById('name').innerText = "No Data";
+            document.getElementById('en-id').innerText = "N/A";
+            document.getElementById('st-id').innerText = "N/A";
+            document.getElementById('pos').innerText = "";
+        }
+    } catch (error) {
+        console.error("Error fetching member data: ", error);
+    }
+}
+</script>
                         </div>
                         <div class="column end">
                           <div class="row">
                               <div class="column">
+                                <h4>กรุณากรอกรหัสนักเรียน</h4>
+                                <label for="student-id">รหัสนักเรียน:</label>
+                                <input type="text" id="student-id" placeholder="Enter Student ID" oninput="updateMemberInfo()">
                               </div>
                           </div>
                         </div>
