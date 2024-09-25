@@ -142,7 +142,7 @@ div#numGen {
                                 
 .box-members.first {
     margin: auto;
-    background: url(https://i.postimg.cc/g2BTVfxz/image.png);
+    background: url('https://i.postimg.cc/g2BTVfxz/image.png') no-repeat center center;
     background-size: cover;
     border-radius: 5px;
     height: 254px;
@@ -210,23 +210,28 @@ async function updateMemberInfo() {
 function downloadPNG() {
     const memberInfo = document.getElementById('member-info');
 
-    // Use html2canvas to capture the element
-    html2canvas(memberInfo, { width: 800, height: 508 }).then(function (canvas) {
-        // Convert canvas to data URL
-        const imgData = canvas.toDataURL("image/png");
+    // Ensure the background image is fully loaded
+    const backgroundImg = new Image();
+    backgroundImg.src = 'https://i.postimg.cc/g2BTVfxz/image.png';
+    backgroundImg.onload = function() {
+        // Once the background image is loaded, capture the content
+        html2canvas(memberInfo, { width: 800, height: 508 }).then(function (canvas) {
+            // Convert canvas to data URL
+            const imgData = canvas.toDataURL("image/png");
 
-        // Create a temporary link element to trigger the download
-        const link = document.createElement('a');
-        link.href = imgData;
-        link.download = 'member-info.png';
+            // Create a temporary link element to trigger the download
+            const link = document.createElement('a');
+            link.href = imgData;
+            link.download = 'member-info.png';
 
-        // Append the link to the body and click it
-        document.body.appendChild(link);
-        link.click();
+            // Append the link to the body and click it
+            document.body.appendChild(link);
+            link.click();
 
-        // Remove the link from the document
-        document.body.removeChild(link);
-    });
+            // Remove the link from the document
+            document.body.removeChild(link);
+        });
+    };
 }
 
 </script>
