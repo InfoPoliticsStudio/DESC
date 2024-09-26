@@ -5,6 +5,13 @@ body {
     padding: 0;
 }
 
+.filter-section input {
+    width: 100px;
+    border: none;
+    background: transparent;
+    text-align: left;
+}
+
 .top-menu {
     background-color: #ddd;
     padding: 10px;
