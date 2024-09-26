@@ -31,8 +31,22 @@ function calculateAllRows() {
     rows.forEach(row => calculateRow(row));
 }
 
+// Event listener to calculate when user inputs final score
+function attachInputListeners() {
+    const finalScores = document.querySelectorAll('.final-score');
+    finalScores.forEach(input => {
+        input.addEventListener('input', function () {
+            const row = input.closest('tr');
+            calculateRow(row);
+        });
+    });
+}
+
 // Run the calculations as soon as the document is loaded
-document.addEventListener('DOMContentLoaded', calculateAllRows);
+document.addEventListener('DOMContentLoaded', function () {
+    calculateAllRows();
+    attachInputListeners();  // Attach event listeners to input fields
+});
 
 function toggleDisplay() {
     const subject = document.getElementById('subject').value;
