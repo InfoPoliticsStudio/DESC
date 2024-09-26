@@ -21,8 +21,10 @@ input:read-only {
     background-color: #ddd;
     padding: 10px;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
     font-size: 16px;
+    width: -webkit-fill-available;
+    padding-right: 50%;
 }
 
 .title-bar {
