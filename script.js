@@ -33,3 +33,17 @@ function calculateAllRows() {
 
 // Run the calculations as soon as the document is loaded
 document.addEventListener('DOMContentLoaded', calculateAllRows);
+
+function toggleDisplay() {
+    const subject = document.getElementById('subject').value;
+    const eng1 = document.getElementById('Eng1');
+    const eng2 = document.getElementById('Eng2');
+
+    if (subject === 'Eng1') {
+        eng1.style.display = 'block';
+        eng2.style.display = 'none';
+    } else if (subject === 'Eng2') {
+        eng1.style.display = 'none';
+        eng2.style.display = 'block';
+    }
+}
