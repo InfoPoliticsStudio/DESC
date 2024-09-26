@@ -17,14 +17,15 @@ input:read-only {
     background: transparent!important;
 }
 
+
 .top-menu {
     background-color: #ddd;
     padding: 10px;
-    display: flex;
-    justify-content: space-evenly;
-    width: 20%;
-    font-size: 12px;
+    font-size: 14px;
+}
 
+.top-menu span{
+    margin: 0 10px;
 }
 
 .title-bar {
