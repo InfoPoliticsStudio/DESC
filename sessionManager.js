@@ -1,5 +1,12 @@
 // อิมพอร์ตฟังก์ชัน getUserSession จาก sessionManager
-import { getUserSession } from 'sessionManager.js';
+import { getUserSession } from './sessionManager.js';
+
+// ฟังก์ชันที่เรียกใช้เมื่อเพจโหลดขึ้น
+document.addEventListener('DOMContentLoaded', async function () {
+    const userData = await getUserSession();
+    console.log(userData); // แสดงข้อมูลผู้ใช้ใน console
+
+    // ทำอะไรกับข้อมูลผู้ใช้ต่อไปตามที่ต้องการ
 
 
     // Automatically display student image when Student ID is entered
@@ -29,3 +36,5 @@ import { getUserSession } from 'sessionManager.js';
             alert("Invalid Student ID or Password");
         }
     }
+
+});
