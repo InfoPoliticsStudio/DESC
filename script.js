@@ -39,15 +39,11 @@ function toggleDisplay() {
     const eng1 = document.getElementById('Eng1');
     const eng2 = document.getElementById('Eng2');
 
-    // Remove the active class from both
-    eng1.classList.remove('active');
-    eng2.classList.remove('active');
-
-    // Add the active class based on selection
     if (subject === 'Eng1') {
-        eng1.classList.add('active');
+        eng1.style.display = 'block'; // Show Eng1
+        eng2.style.display = 'none';  // Hide Eng2
     } else if (subject === 'Eng2') {
-        eng2.classList.add('active');
+        eng1.style.display = 'none';  // Hide Eng1
+        eng2.style.display = 'block';  // Show Eng2
     }
 }
-
