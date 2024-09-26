@@ -1,5 +1,5 @@
-function calculateGrade(input) {
-    const row = input.closest('tr');
+// Function to calculate the total and grade for each row
+function calculateRow(row) {
     const scores = row.querySelectorAll('input[type="text"]');
     let total = 0;
 
@@ -24,3 +24,12 @@ function calculateGrade(input) {
 
     gradeElement.textContent = grade.toFixed(1);
 }
+
+// Function to calculate all rows when page is loaded
+function calculateAllRows() {
+    const rows = document.querySelectorAll('tbody tr');
+    rows.forEach(row => calculateRow(row));
+}
+
+// Run the calculations as soon as the document is loaded
+document.addEventListener('DOMContentLoaded', calculateAllRows);
