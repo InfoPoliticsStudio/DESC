@@ -44,7 +44,7 @@ cursor:pointer;
     
     a.hd{
         text-decoration: none;
-        color: #ff1e00;
+        color: #fff;
         font-size: 1rem;
     }
     dropdown_menu a.hd{
@@ -54,7 +54,7 @@ cursor:pointer;
     }
 
     a.hd:hover{
-        color: #0300a0;
+        color: #ffd000;
     }
     /* HEADER */
 
@@ -67,7 +67,7 @@ cursor:pointer;
     header{
         position: relative;
         padding: 0 2rem;
-        background: #fff;
+        background: #800;
     }
     .navbar{
         width: 100%;
@@ -91,8 +91,8 @@ cursor:pointer;
     }
     
     .action-btn{
-        background-color: #ff1e00;
-        color: #fff;
+        background-color: #fff;
+        color: #800;
         padding: 0.5rem 1rem;
         border: none;
         outline: none;
@@ -105,7 +105,7 @@ cursor:pointer;
     
     .action-btn:hover{
         scale: 1.05;
-        color: #fff;
+        color: #001188;
     }
 
     .action-btn:active{
