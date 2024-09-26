@@ -23,8 +23,8 @@ body {
 .title-bar {
     background-color: #ffffe1;
     color: blue;
-    text-align: center;
-    padding: 10px;
+    text-align: left;
+    margin: 10px;
     font-weight: bold;
 }
 
