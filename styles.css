@@ -6,10 +6,10 @@ body {
 }
 
 .filter-section input {
-    width: 100px;
-    border: none;
-    background: transparent;
-    text-align: left;
+    width: 100px !important;
+    border: none!important;
+    background: transparent!important;
+    text-align: left!important;
 }
 
 .top-menu {
