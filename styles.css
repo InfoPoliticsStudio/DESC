@@ -12,6 +12,11 @@ body {
     text-align: left!important;
 }
 
+input:read-only {
+    border: none!important;
+    background: transparent!important;
+}
+
 .top-menu {
     background-color: #ddd;
     padding: 10px;
