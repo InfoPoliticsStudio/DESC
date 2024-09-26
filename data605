@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>บันทึกคะแนน</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Top Menu Bar -->
+    <div class="top-menu">
+        <span>แฟ้มข้อมูลหลัก</span>
+        <span>บันทึกรายการ</span>
+        <span>รายงาน</span>
+        <span>Windows</span>
+    </div>
+
+    <!-- Title Bar -->
+    <div class="title-bar">
+        <span>บันทึกคะแนน โดยครูผู้สอน</span>
+    </div>
+
+    <!-- Filter Section -->
+    <div class="filter-section">
+        <label for="class">ชั้นเรียน:</label>
+        <select id="class">
+            <option>มัธยมศึกษาปีที่ 6/5</option>
+        </select>
+        <label for="year">ปีการศึกษา:</label>
+        <input type="text" id="year" value="2567" readonly>
+
+        <br><br>
+
+        <label for="subject">วิชา:</label>
+        <select id="subject">
+            <option>ภาษาอังกฤษ</option>
+            <option>ภาษาอังกฤษเสริมทักษะ</option>
+        </select>
+        <label for="term">ภาคเรียน:</label>
+        <input type="text" id="term" value="1" readonly>
+    </div>
+
+    <!-- Table Section -->
+    <table>
+        <thead>
+            <tr>
+                <th rowspan="2">ที่</th>
+                <th rowspan="2">รหัส</th>
+                <th rowspan="2">ชื่อ ชื่อสกุลนักเรียน</th>
+                <th colspan="4">รายละเอียดคะแนนตามตัวชี้วัด</th>
+                <th rowspan="2">ปลายภาค</th>
+                <th rowspan="2">คะแนนรวม</th>
+                <th rowspan="2">เกรด</th>
+            </tr>
+            <tr>
+                <th>Formative1</th>
+                <th>Formative2</th>
+                <th>Summative1</th>
+                <th>Summative2</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>1480110764</td>
+                <td>นายกฤต เกิดไทยดี</td>
+                <td><input type="text" value="5"></td>
+                <td><input type="text" value="5"></td>
+                <td><input type="text" value="15"></td>
+                <td><input type="text" value="15"></td>
+                <td><input type="text" class="final-score" oninput="calculateGrade(this)"></td>
+                <td><span class="total-score"></span></td>
+                <td><span class="grade"></span></td>
+            </tr>
+            <!-- Add more rows as needed -->
+        </tbody>
+    </table>
+
+    <script src="script.js"></script>
+</body>
+</html>
