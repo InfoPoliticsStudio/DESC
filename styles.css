@@ -73,3 +73,14 @@ input[type="text"] {
     display: inline-block;
     width: 100%;
 }
+
+.content {
+    visibility: hidden; /* Hide content initially */
+    opacity: 0;        /* Fully transparent */
+    transition: visibility 0s, opacity 0.5s linear; /* Smooth transition */
+}
+
+.content.active {
+    visibility: visible; /* Make visible */
+    opacity: 1;         /* Fully opaque */
+}
