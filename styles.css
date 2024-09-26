@@ -22,9 +22,9 @@ input:read-only {
     padding: 10px;
     display: flex;
     justify-content: space-evenly;
-    font-size: 16px;
-    width: -webkit-fill-available;
-    padding-right: 50%;
+    width: 20%;
+    font-size: 12px;
+
 }
 
 .title-bar {
