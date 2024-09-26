@@ -74,7 +74,3 @@ input[type="text"] {
     width: 100%;
 }
 
-#Eng1, #Eng2 {
-    height: 50px; /* Set a fixed height for both */
-    overflow: hidden; /* Prevent overflow if content exceeds */
-}
