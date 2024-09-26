@@ -59,21 +59,335 @@
                 <th>Summative2</th>
             </tr>
         </thead>
-        <tbody>
-            <tr>
-                <td>1</td>
-                <td>1480110764</td>
-                <td>นายกฤต เกิดไทยดี</td>
-                <td><input type="text" value="5" readonly></td>
-                <td><input type="text" value="5" readonly></td>
-                <td><input type="text" value="15" readonly></td>
-                <td><input type="text" value="15" readonly></td>
-                <td><input type="text" class="final-score" oninput="calculateGrade(this)" value="0"></td>
-                <td><span class="total-score"></span></td>
-                <td><span class="grade"></span></td>
-            </tr>
-            <!-- Add more rows as needed -->
-        </tbody>
+        <tbody id="Eng1">
+    <tr>
+        <td>1</td>
+        <td>34514</td>
+        <td>ณัฐปิยังกูร โภคินชลิตพงศ์</td>
+        <td><input type="text" value="9.5" readonly></td>
+        <td><input type="text" value="24.9" readonly></td>
+        <td><input type="text" value="28" readonly></td>
+        <td><input type="text" value="0" readonly></td>
+        <td><input type="text" class="final-score" oninput="calculateGrade(this)" value="0"></td>
+        <td><span class="total-score"></span></td>
+        <td><span class="grade"></span></td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>34599</td>
+        <td>ปริญญากร สิงห์แก้ว</td>
+        <td><input type="text" value="N/A" readonly></td>
+        <td><input type="text" value="N/A" readonly></td>
+        <td><input type="text" value="N/A" readonly></td>
+        <td><input type="text" value="N/A" readonly></td>
+        <td><input type="text" class="final-score" oninput="calculateGrade(this)" value="0"></td>
+        <td><span class="total-score"></span></td>
+        <td><span class="grade"></span></td>
+    </tr>
+    <tr>
+        <td>3</td>
+        <td>34774</td>
+        <td>สุทธชัย ส่องแสง</td>
+        <td><input type="text" value="5.3" readonly></td>
+        <td><input type="text" value="23.1" readonly></td>
+        <td><input type="text" value="29.2" readonly></td>
+        <td><input type="text" value="0" readonly></td>
+        <td><input type="text" class="final-score" oninput="calculateGrade(this)" value="0"></td>
+        <td><span class="total-score"></span></td>
+        <td><span class="grade"></span></td>
+    </tr>
+    <tr>
+        <td>4</td>
+        <td>34776</td>
+        <td>จิรันธนิน เตชะตุ้ย</td>
+        <td><input type="text" value="8.5" readonly></td>
+        <td><input type="text" value="25.6" readonly></td>
+        <td><input type="text" value="27.6" readonly></td>
+        <td><input type="text" value="0" readonly></td>
+        <td><input type="text" class="final-score" oninput="calculateGrade(this)" value="0"></td>
+        <td><span class="total-score"></span></td>
+        <td><span class="grade"></span></td>
+    </tr>
+    <tr>
+        <td>5</td>
+        <td>35878</td>
+        <td>วาริศ จันทร์ปิง</td>
+        <td><input type="text" value="9.4" readonly></td>
+        <td><input type="text" value="22.1" readonly></td>
+        <td><input type="text" value="28.4" readonly></td>
+        <td><input type="text" value="0" readonly></td>
+        <td><input type="text" class="final-score" oninput="calculateGrade(this)" value="0"></td>
+        <td><span class="total-score"></span></td>
+        <td><span class="grade"></span></td>
+    </tr>
+    <tr>
+        <td>6</td>
+        <td>36127</td>
+        <td>พีรวิชญ์ จิ๋วแก้ว</td>
+        <td><input type="text" value="7.6" readonly></td>
+        <td><input type="text" value="21.5" readonly></td>
+        <td><input type="text" value="25.6" readonly></td>
+        <td><input type="text" value="0" readonly></td>
+        <td><input type="text" class="final-score" oninput="calculateGrade(this)" value="0"></td>
+        <td><span class="total-score"></span></td>
+        <td><span class="grade"></span></td>
+    </tr>
+    <tr>
+        <td>7</td>
+        <td>37131</td>
+        <td>ศิวัช พุกพูลทรัพย์</td>
+        <td><input type="text" value="N/A" readonly></td>
+        <td><input type="text" value="N/A" readonly></td>
+        <td><input type="text" value="N/A" readonly></td>
+        <td><input type="text" value="N/A" readonly></td>
+        <td><input type="text" class="final-score" oninput="calculateGrade(this)" value="0"></td>
+        <td><span class="total-score"></span></td>
+        <td><span class="grade"></span></td>
+    </tr>
+    <tr>
+        <td>8</td>
+        <td>37275</td>
+        <td>ศิโรธร บุญแฮด</td>
+        <td><input type="text" value="9.5" readonly></td>
+        <td><input type="text" value="26.1" readonly></td>
+        <td><input type="text" value="28.2" readonly></td>
+        <td><input type="text" value="0" readonly></td>
+        <td><input type="text" class="final-score" oninput="calculateGrade(this)" value="0"></td>
+        <td><span class="total-score"></span></td>
+        <td><span class="grade"></span></td>
+    </tr>
+    <tr>
+        <td>9</td>
+        <td>37327</td>
+        <td>ปวีณ์สุดา จันทร์อุธร</td>
+        <td><input type="text" value="5" readonly></td>
+        <td><input type="text" value="20" readonly></td>
+        <td><input type="text" value="28.2" readonly></td>
+        <td><input type="text" value="0" readonly></td>
+        <td><input type="text" class="final-score" oninput="calculateGrade(this)" value="0"></td>
+        <td><span class="total-score"></span></td>
+        <td><span class="grade"></span></td>
+    </tr>
+    <tr>
+        <td>10</td>
+        <td>37341</td>
+        <td>รัฐภูมิ วงค์แก้ว</td>
+        <td><input type="text" value="8.1" readonly></td>
+        <td><input type="text" value="13.7" readonly></td>
+        <td><input type="text" value="20" readonly></td>
+        <td><input type="text" value="0" readonly></td>
+        <td><input type="text" class="final-score" oninput="calculateGrade(this)" value="0"></td>
+        <td><span class="total-score"></span></td>
+        <td><span class="grade"></span></td>
+    </tr>
+    <!-- Add more rows as needed -->
+    <tr>
+        <td>11</td>
+        <td>37434</td>
+        <td>ภูริช เย็นขุนทด</td>
+        <td><input type="text" value="9.8" readonly></td>
+        <td><input type="text" value="26.7" readonly></td>
+        <td><input type="text" value="24.8" readonly></td>
+        <td><input type="text" value="0" readonly></td>
+        <td><input type="text" class="final-score" oninput="calculateGrade(this)" value="0"></td>
+        <td><span class="total-score"></span></td>
+        <td><span class="grade"></span></td>
+    </tr>
+    <tr>
+        <td>12</td>
+        <td>37643</td>
+        <td>กรกนก เสมสะอาด</td>
+        <td><input type="text" value="10" readonly></td>
+        <td><input type="text" value="25.1" readonly></td>
+        <td><input type="text" value="28.4" readonly></td>
+        <td><input type="text" value="0" readonly></td>
+        <td><input type="text" class="final-score" oninput="calculateGrade(this)" value="0"></td>
+        <td><span class="total-score"></span></td>
+        <td><span class="grade"></span></td>
+    </tr>
+    <tr>
+        <td>13</td>
+        <td>37698</td>
+        <td>ณภัทร ปัญโญ</td>
+        <td><input type="text" value="10" readonly></td>
+        <td><input type="text" value="23.1" readonly></td>
+        <td><input type="text" value="29.8" readonly></td>
+        <td><input type="text" value="0" readonly></td>
+        <td><input type="text" class="final-score" oninput="calculateGrade(this)" value="0"></td>
+        <td><span class="total-score"></span></td>
+        <td><span class="grade"></span></td>
+    </tr>
+    <tr>
+        <td>14</td>
+        <td>38739</td>
+        <td>นงนภัส ทองเชื้อ</td>
+        <td><input type="text" value="10" readonly></td>
+        <td><input type="text" value="19.3" readonly></td>
+        <td><input type="text" value="29.6" readonly></td>
+        <td><input type="text" value="0" readonly></td>
+        <td><input type="text" class="final-score" oninput="calculateGrade(this)" value="0"></td>
+        <td><span class="total-score"></span></td>
+        <td><span class="grade"></span></td>
+    </tr>
+    <tr>
+        <td>15</td>
+        <td>38793</td>
+        <td>ญาดาณัฐ อุจะรัตน</td>
+        <td><input type="text" value="10" readonly></td>
+        <td><input type="text" value="26.4" readonly></td>
+        <td><input type="text" value="26.8" readonly></td>
+        <td><input type="text" value="0" readonly></td>
+        <td><input type="text" class="final-score" oninput="calculateGrade(this)" value="0"></td>
+        <td><span class="total-score"></span></td>
+        <td><span class="grade"></span></td>
+    </tr>
+    <tr>
+        <td>16</td>
+        <td>39492</td>
+        <td>พลภูมิ ว่องเจริญ</td>
+        <td><input type="text" value="N/A" readonly></td>
+        <td><input type="text" value="N/A" readonly></td>
+        <td><input type="text" value="N/A" readonly></td>
+        <td><input type="text" value="N/A" readonly></td>
+        <td><input type="text" class="final-score" oninput="calculateGrade(this)" value="0"></td>
+        <td><span class="total-score"></span></td>
+        <td><span class="grade"></span></td>
+    </tr>
+    <tr>
+        <td>17</td>
+        <td>41394</td>
+        <td>ศิรเมศร์ พิศาลอนันภูมิกร</td>
+        <td><input type="text" value="4.8" readonly></td>
+        <td><input type="text" value="16.7" readonly></td>
+        <td><input type="text" value="26.6" readonly></td>
+        <td><input type="text" value="0" readonly></td>
+        <td><input type="text" class="final-score" oninput="calculateGrade(this)" value="0"></td>
+        <td><span class="total-score"></span></td>
+        <td><span class="grade"></span></td>
+    </tr>
+    <tr>
+        <td>18</td>
+        <td>42468</td>
+        <td>สุนทร ทรัพย์เมือง</td>
+        <td><input type="text" value="7.5" readonly></td>
+        <td><input type="text" value="24.2" readonly></td>
+        <td><input type="text" value="27.6" readonly></td>
+        <td><input type="text" value="0" readonly></td>
+        <td><input type="text" class="final-score" oninput="calculateGrade(this)" value="0"></td>
+        <td><span class="total-score"></span></td>
+        <td><span class="grade"></span></td>
+    </tr>
+    <tr>
+        <td>19</td>
+        <td>42473</td>
+        <td>ภูริ ธาราวิไลสุขสกุล</td>
+        <td><input type="text" value="N/A" readonly></td>
+        <td><input type="text" value="N/A" readonly></td>
+        <td><input type="text" value="N/A" readonly></td>
+        <td><input type="text" value="N/A" readonly></td>
+        <td><input type="text" class="final-score" oninput="calculateGrade(this)" value="0"></td>
+        <td><span class="total-score"></span></td>
+        <td><span class="grade"></span></td>
+    </tr>
+    <tr>
+        <td>20</td>
+        <td>42500</td>
+        <td>เศรษฐวัฒน์ เห็มชาติ</td>
+        <td><input type="text" value="6.5" readonly></td>
+        <td><input type="text" value="9.7" readonly></td>
+        <td><input type="text" value="15" readonly></td>
+        <td><input type="text" value="0" readonly></td>
+        <td><input type="text" class="final-score" oninput="calculateGrade(this)" value="0"></td>
+        <td><span class="total-score"></span></td>
+        <td><span class="grade"></span></td>
+    </tr>
+    <!-- Previous rows -->
+    <tr>
+        <td>21</td>
+        <td>42892</td>
+        <td>พัชราพร กันทาหงษ์</td>
+        <td><input type="text" value="8" readonly></td>
+        <td><input type="text" value="20.8" readonly></td>
+        <td><input type="text" value="27.4" readonly></td>
+        <td><input type="text" value="0" readonly></td>
+        <td><input type="text" class="final-score" oninput="calculateGrade(this)" value="0"></td>
+        <td><span class="total-score"></span></td>
+        <td><span class="grade"></span></td>
+    </tr>
+    <tr>
+        <td>22</td>
+        <td>42985</td>
+        <td>ธนกฤต เมืองจันทร์</td>
+        <td><input type="text" value="9.5" readonly></td>
+        <td><input type="text" value="20.8" readonly></td>
+        <td><input type="text" value="29.8" readonly></td>
+        <td><input type="text" value="0" readonly></td>
+        <td><input type="text" class="final-score" oninput="calculateGrade(this)" value="0"></td>
+        <td><span class="total-score"></span></td>
+        <td><span class="grade"></span></td>
+    </tr>
+    <tr>
+        <td>23</td>
+        <td>43066</td>
+        <td>เทพทัต ประสบจตุรพร</td>
+        <td><input type="text" value="8.6" readonly></td>
+        <td><input type="text" value="16" readonly></td>
+        <td><input type="text" value="27.6" readonly></td>
+        <td><input type="text" value="0" readonly></td>
+        <td><input type="text" class="final-score" oninput="calculateGrade(this)" value="0"></td>
+        <td><span class="total-score"></span></td>
+        <td><span class="grade"></span></td>
+    </tr>
+    <tr>
+        <td>24</td>
+        <td>44313</td>
+        <td>โจฮันนา ธัญญารัตน์ นิโคลโล</td>
+        <td><input type="text" value="N/A" readonly></td>
+        <td><input type="text" value="N/A" readonly></td>
+        <td><input type="text" value="N/A" readonly></td>
+        <td><input type="text" value="N/A" readonly></td>
+        <td><input type="text" class="final-score" oninput="calculateGrade(this)" value="0"></td>
+        <td><span class="total-score"></span></td>
+        <td><span class="grade"></span></td>
+    </tr>
+    <tr>
+        <td>25</td>
+        <td>45326</td>
+        <td>ณภัทร เป็งเฟือย</td>
+        <td><input type="text" value="8.3" readonly></td>
+        <td><input type="text" value="17.1" readonly></td>
+        <td><input type="text" value="25.8" readonly></td>
+        <td><input type="text" value="0" readonly></td>
+        <td><input type="text" class="final-score" oninput="calculateGrade(this)" value="0"></td>
+        <td><span class="total-score"></span></td>
+        <td><span class="grade"></span></td>
+    </tr>
+    <tr>
+        <td>26</td>
+        <td>45403</td>
+        <td>ณัฐนันท์ สวนกุหลาบ</td>
+        <td><input type="text" value="9.8" readonly></td>
+        <td><input type="text" value="19.1" readonly></td>
+        <td><input type="text" value="28.4" readonly></td>
+        <td><input type="text" value="0" readonly></td>
+        <td><input type="text" class="final-score" oninput="calculateGrade(this)" value="0"></td>
+        <td><span class="total-score"></span></td>
+        <td><span class="grade"></span></td>
+    </tr>
+    <tr>
+        <td>27</td>
+        <td>45405</td>
+        <td>ปภินวิช มูลเมือง</td>
+        <td><input type="text" value="9.6" readonly></td>
+        <td><input type="text" value="23.8" readonly></td>
+        <td><input type="text" value="29.4" readonly></td>
+        <td><input type="text" value="0" readonly></td>
+        <td><input type="text" class="final-score" oninput="calculateGrade(this)" value="0"></td>
+        <td><span class="total-score"></span></td>
+        <td><span class="grade"></span></td>
+    </tr>
+</tbody>
+
     </table>
 
     <script src="script.js"></script>
