@@ -8,23 +8,21 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background-color: #f0f0f0;
+            margin: 0;
+        }
+        .border{
+               height: 100vh;
         }
         .login-container {
             display: flex;
             align-items: center;
+            justify-content: center;
             background-color: #fff;
-            padding: 20px;
-            border: 1px solid #ddd;
-            box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
         }
         .image-container {
-            width: 100px;
-            height: 100px;
+            width: 150px;
+            height: 200px;
             border: 1px solid #ccc;
             margin-right: 20px;
             display: flex;
@@ -69,14 +67,16 @@
     <div class="image-container">
         <img id="studentImage" src="" alt="Student Image">
     </div>
-    <div class="login-form">
-        <label for="studentID">Student ID:</label>
-        <input type="text" id="studentID" placeholder="Enter Student ID" required>
-        
-        <label for="password">Password:</label>
-        <input type="password" id="password" placeholder="Enter Password" required>
-        
-        <button type="button" onclick="validateLogin()">Login</button>
+    <div class="border">
+       <div class="login-form">
+           <label for="studentID">Student ID:</label>
+           <input type="text" id="studentID" placeholder="Enter Student ID" required>
+           
+           <label for="password">Password:</label>
+           <input type="password" id="password" placeholder="Enter Password" required>
+           
+           <button type="button" onclick="validateLogin()">Login</button>
+       </div>
     </div>
 </div>
 
