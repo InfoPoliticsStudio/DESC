@@ -116,7 +116,7 @@ cursor:pointer;
 
     .dropdown_menu{
         display: none;
-        position: absolute;
+        position: fixed;
         right: 0;
         top: 60px;
         height: calc(100vh - 60px) !important;
