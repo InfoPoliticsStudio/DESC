@@ -41,16 +41,37 @@
         const details = document.querySelector('.details');
         let detailsText = '';
     
-        bars.forEach(bar => {
-            const key = bar.className;
-            const value = data[key] || 0; // ถ้าไม่มีค่าจะกำหนดเป็น 0
-            if (value === 0) {
-                bar.style.display = 'none'; // ถ้าเป็น 0 ซ่อนแถบ
-                bar.style.width = '0%';
+        // คำนวณเปอร์เซ็นต์และปัดเป็นทศนิยม 1 ตำแหน่ง
+        let percentages = [];
+        let totalPercentage = 0;
+    
+        for (const key in data) {
+            const value = data[key] || 0;
+            const percentage = ((value / total) * 100);
+            const roundedPercentage = Math.round(percentage * 10) / 10;
+            percentages.push({ key, percentage: roundedPercentage });
+            totalPercentage += roundedPercentage;
+        }
+    
+        // ปรับให้ผลรวมเป็น 100% โดยปรับค่าเล็กน้อยกับค่าแรกๆ
+        let difference = 100 - totalPercentage;
+        percentages = percentages.map((item, index) => {
+            if (difference !== 0) {
+                item.percentage += Math.sign(difference) * 0.1;
+                difference -= Math.sign(difference) * 0.1;
+            }
+            return item;
+        });
+    
+        // แสดงผลแถบเปอร์เซ็นต์และอัปเดตข้อความ
+        percentages.forEach(item => {
+            const bar = document.querySelector(`.${item.key}`);
+            if (item.percentage > 0) {
+                bar.style.width = `${item.percentage}%`;
+                bar.textContent = `${item.key.toUpperCase()} (${item.percentage.toFixed(1)}%)`;
+                detailsText += `${item.key.toUpperCase()}: ${item.percentage.toFixed(1)}% `;
             } else {
-                const percentage = (value / total) * 100;
-                bar.style.width = `${percentage}%`;
-                detailsText += `${bar.textContent}: ${percentage.toFixed(2)}% `;
+                bar.style.display = 'none'; // ถ้าเป็น 0 ให้ซ่อนแถบ
             }
         });
     
@@ -60,7 +81,7 @@
     <style>
     .bars {
         width: 100%;
-        max-width: 600px;
+        max-width: 800px;
         margin: auto;
         background-color: #f1f1f1;
         border-radius: 8px;
@@ -78,6 +99,7 @@
         line-height: 30px;
         color: white;
         font-weight: bold;
+        font-size: 10px;
     }
     
     .cmu { background-color: #9E76B4; }
