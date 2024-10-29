@@ -68,7 +68,6 @@
             const bar = document.querySelector(`.${item.key}`);
             if (item.percentage > 0) {
                 bar.style.width = `${item.percentage}%`;
-                bar.textContent = `${item.key.toUpperCase()} (${item.percentage.toFixed(1)}%)`;
                 detailsText += `${item.key.toUpperCase()}: ${item.percentage.toFixed(1)}% `;
             } else {
                 bar.style.display = 'none'; // ถ้าเป็น 0 ให้ซ่อนแถบ
@@ -76,6 +75,7 @@
         });
     
         details.textContent = detailsText;
+
     </script>
     
     <style>
