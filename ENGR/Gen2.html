@@ -7,49 +7,47 @@
     <link rel="stylesheet" href="/ENGR/a.css">
 </head>
 <body>
-    <img class="logo" src="https://i.postimg.cc/nc54WyNB/HRIS.png" alt="Logo">
-    <div class="bars university">
-        <div class="bar">
-            <div class="cmu">CMU</div>
-            <div class="mju">MJU</div>
-            <div class="kmitl">KMITL</div>
-            <div class="cu">CU</div>
-            <div class="ku">KU</div>
-            <div class="tu">TU</div>
-            <div class="up">UP</div>
-            <div class="mu">MU</div>
-            <div class="tcas">TCAS</div>
-        </div>
-        <div class="details"></div>
+    <img class="logo" src="https://i.postimg.cc/nc54WyNB/HRIS.png" alt="Logo"><div class="bars university">
+    <div class="bar">
+        <div class="cmu">CMU</div>
+        <div class="mju">MJU</div>
+        <div class="kmitl">KMITL</div>
+        <div class="cu">CU</div>
+        <div class="ku">KU</div>
+        <div class="tu">TU</div>
+        <div class="up">UP</div>
+        <div class="mu">MU</div>
+        <div class="tcas">TCAS</div>
     </div>
-    <div class="bars faculty">
-        <div class="bar">
-            <div class="engineering">Engineering</div>
-            <div class="science">Science</div>
-            <div class="education">Education</div>
-            <div class="business">Business</div>
-            <div class="tcas wait">TCAS</div>
-            <!-- ส่วนอื่น ๆ ของคณะ -->
-        </div>
-        <div class="details"></div>
-    </div>
-    
-    <div class="bars department">
-        <div class="bar">
-            <div class="civil">Civil</div>
-            <div class="elec">Elec</div>
-            <div class="agricultural-industry">AGI</div>
-            <div class="ai">AI</div>
-            <div class="computer">Com</div>
-            <div class="math">Math</div>
-            <div class="tcas wait">TCAS</div>
-            <!-- ส่วนอื่น ๆ ของสาขา -->
-        </div>
-        <div class="details"></div>
-    </div>
+    <div class="details"></div>
+</div>
 
-    <script>
-        const data = {
+<div class="bars faculty">
+    <div class="bar">
+        <div class="engineering">Engineering</div>
+        <div class="science">Science</div>
+        <div class="education">Education</div>
+        <div class="business">Business</div>
+        <div class="tcas wait">TCAS</div>
+    </div>
+    <div class="details"></div>
+</div>
+
+<div class="bars department">
+    <div class="bar">
+        <div class="civil">Civil</div>
+        <div class="elec">Elec</div>
+        <div class="agricultural-industry">AGI</div>
+        <div class="ai">AI</div>
+        <div class="computer">Com</div>
+        <div class="math">Math</div>
+        <div class="tcas wait">TCAS</div>
+    </div>
+    <div class="details"></div>
+</div>
+
+<script>
+    const data = {
         university: {
             "cmu": 2,
             "mju": 1,
@@ -66,7 +64,7 @@
             "education": 0,
             "business": 0,
             "engineering": 3,
-            "tcas": 24
+            "tcas": 24 // Use same value as university
         },
         department: {
             "civil": 1,
@@ -75,11 +73,13 @@
             "ai": 0,
             "agricultural-industry": 1,
             "math": 0,
-            "tcas": 24
+            "tcas": 24 // Use same value as university
         }
     };
 
     const totals = { university: 27, faculty: 16, department: 12 };
+
+    const tcasPercentage = (data.university.tcas / totals.university) * 100;
 
     ['university', 'faculty', 'department'].forEach(category => {
         const bars = document.querySelectorAll(`.${category} .bar > div`);
@@ -93,19 +93,20 @@
             const value = data[category][key] || 0;
             const percentage = ((value / totals[category]) * 100);
             const roundedPercentage = Math.round(percentage * 10) / 10;
-            percentages.push({ key, percentage: roundedPercentage });
-            totalPercentage += roundedPercentage;
+
+            if (key === 'tcas') {
+                // Assign TCAS percentage based on university's TCAS
+                percentages.push({ key, percentage: tcasPercentage });
+            } else {
+                percentages.push({ key, percentage: roundedPercentage });
+            }
+
+            if (roundedPercentage > 0) {
+                totalPercentage += roundedPercentage;
+            }
         }
 
-        let difference = 100 - totalPercentage;
-        percentages = percentages.map((item) => {
-            if (difference !== 0) {
-                item.percentage += Math.sign(difference) * 0.1;
-                difference -= Math.sign(difference) * 0.1;
-            }
-            return item;
-        });
-
+        // Adjust percentages for bars
         percentages.forEach(item => {
             const bar = document.querySelector(`.${category} .${item.key}`);
             if (item.percentage > 0) {
@@ -113,15 +114,20 @@
                 detailsText += `${item.key.toUpperCase()}: ${item.percentage.toFixed(1)}% `;
             } else {
                 bar.style.display = 'none';
+                bar.style.width = '0'; // Set width to 0
             }
         });
 
         details.textContent = detailsText;
     });
+</script>
 
-    </script>
-    
-    <style>
+<style>
+.tcas{width:88.9% !important;}
+.engineering{width:11.1% !important;}
+.bars.department .civil,
+.bars.department .agricultural-industry,
+.bars.department .computer{width: 3.7%!important;}
     .bars {
         width: 100%;
         max-width: 800px;
@@ -160,16 +166,17 @@
     .business{ background-color: #0003b3; }
     .wait { background-color: #1a477f; }
 
-        
     .civil { background-color: #4c0000; }
     .agricultural-industry { background-color: #017f3f; }
     .computer { background-color: #ff3232; }
+    
     .details {
         padding: 10px;
         text-align: center;
         font-size: 14px;
     }
-    </style>
+</style>
+
     
     <div class="user-cards">
         <div class="profile-card">
