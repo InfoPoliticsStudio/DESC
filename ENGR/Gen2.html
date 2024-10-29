@@ -8,6 +8,94 @@
 </head>
 <body>
     <img class="logo" src="https://i.postimg.cc/nc54WyNB/HRIS.png" alt="Logo">
+    <div class="bars">
+        <div class="bar">
+            <div class="cmu">CMU</div>
+            <div class="mju">MJU</div>
+            <div class="kmitl">KMITL</div>
+            <div class="cu">CU</div>
+            <div class="ku">KU</div>
+            <div class="tu">TU</div>
+            <div class="up">UP</div>
+            <div class="mu">MU</div>
+            <div class="tcas">TCAS</div>
+        </div>
+        <div class="details"></div>
+    </div>
+
+    <script>
+        const data = {
+            "cmu": 2,
+            "mju": 1,
+            "kmitl": 0,
+            "cu": 0,
+            "ku": 0,
+            "tu": 0,
+            "up": 0,
+            "mu": 0,
+            "tcas": 24
+        };
+    
+        const total = 27;
+        const bars = document.querySelectorAll('.bar > div');
+        const details = document.querySelector('.details');
+        let detailsText = '';
+    
+        bars.forEach(bar => {
+            const key = bar.className;
+            const value = data[key] || 0; // ถ้าไม่มีค่าจะกำหนดเป็น 0
+            if (value === 0) {
+                bar.style.display = 'none'; // ถ้าเป็น 0 ซ่อนแถบ
+                bar.style.width = '0%';
+            } else {
+                const percentage = (value / total) * 100;
+                bar.style.width = `${percentage}%`;
+                detailsText += `${bar.textContent}: ${percentage.toFixed(2)}% `;
+            }
+        });
+    
+        details.textContent = detailsText;
+    </script>
+    
+    <style>
+    .bars {
+        width: 100%;
+        max-width: 600px;
+        margin: auto;
+        background-color: #f1f1f1;
+        border-radius: 8px;
+        overflow: hidden;
+    }
+    
+    .bar {
+        display: flex;
+        height: 30px;
+    }
+    
+    .bar > div {
+        height: 100%;
+        text-align: center;
+        line-height: 30px;
+        color: white;
+        font-weight: bold;
+    }
+    
+    .cmu { background-color: #9E76B4; }
+    .mju { background-color: #017f3f; }
+    .kmitl { background-color: #F16322; }
+    .cu { background-color: #DF5D8D; }
+    .ku { background-color: #006664; }
+    .tu { background-color: #FFD13F; }
+    .up { background-color: #8D38C9; }
+    .mu { background-color: #19458b; }
+    .tcas { background-color: #1a477f; }
+    
+    .details {
+        padding: 10px;
+        text-align: center;
+        font-size: 14px;
+    }
+    </style>
     <div class="user-cards">
         <div class="profile-card">
             <img class="profile-img" src="https://i.postimg.cc/1XDwtQRs/34514.jpg" alt="User Image">
