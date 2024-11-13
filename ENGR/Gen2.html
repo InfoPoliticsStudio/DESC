@@ -4,7 +4,103 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ENGR-02</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="/ENGR/a.css">
+    <style>
+    .bod {
+        display: none;
+        justify-content: center;
+        padding-top: 20px;
+        align-items: center;
+    }
+    .a {
+        background-color: #fff8ea;
+        width: -webkit-fill-available;
+        display: flex;
+        justify-content: center;
+        padding-bottom: 0;
+    }
+    
+    .container {
+        width: -webkit-fill-available;
+    }
+    
+    .header {
+        background-color: #f3b200;
+        color: white;
+        font-weight: bold;
+        font-size: 24px;
+        display: flex;
+        align-items: center;
+    }
+    .header .round { width: 65px; }
+    .header .round center {
+        background-color: #fff0d3;
+        padding: 10px;
+        font-size: 20px;
+        height: 57.2px;
+        display: grid;
+        color: #f3b200;
+        width: -webkit-fill-available;
+        margin-right: 5px;
+    }
+    
+    .header .title {
+        flex-grow: 1;
+        width: 150px;
+    }
+    .t {
+        font-size: 18px;
+        margin-left: 5px;
+    }
+    .oc {
+        margin-right: 20px;
+        cursor: pointer;
+    }
+    .header .date {
+        font-size: 14px;
+        margin-left: 5px;
+    }
+    
+    .content {
+        background-color: white;
+        border: 2px solid #f3b200;
+        padding: 15px;
+        display: flex;
+        align-items: flex-start;
+        position: relative;
+        margin: 10px 15px -25px 15px;
+        display: none;
+    }
+    
+    .content img {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        width: 100px;
+        height: 100px;
+    }
+    
+    .university-info {
+        line-height: 1.8;
+    }
+    
+    .university-info b {
+        font-size: 18px;
+    }
+    
+    .university-info p {
+        font-size: 14px;
+        color: #333;
+    }
+    .circle{
+        border: 2px solid #eaeaea;
+        border-radius: 50px;
+        margin-right:10px;
+        margin-top:10px;
+        margin-left:0;
+    }
+    </style>
 </head>
 <body>
     <img class="logo" src="https://i.postimg.cc/nc54WyNB/HRIS.png" alt="Logo">
@@ -178,6 +274,22 @@
     }
 </style>
 
+<script>
+document.querySelector('.oc').addEventListener('click', function() {
+const contents = document.querySelectorAll('.content');
+const container = document.querySelector('.a');
+const icon = document.querySelector('.oc i');
+
+contents.forEach(content => {
+content.style.display = content.style.display === 'flex' ? 'none' : 'flex';
+});
+
+container.style.paddingBottom = container.style.paddingBottom === '50px' ? '0' : '50px';
+icon.classList.toggle('fa-chevron-down');
+icon.classList.toggle('fa-chevron-up');
+});
+</script>
+
     
                 <!--  <div style="display:flex;align-items: center;">
                     <div style="width: 20%;">
@@ -188,7 +300,18 @@
                     <p><span id="id-user">มหาวิทยาลัย</span></p>
                     </div>
                 </div> -->
-    
+    <script>
+    // เมื่อคลิกปุ่มที่มี id="show-bod-btn"
+        document.getElementById("show-bod-btn").addEventListener("click", function() {
+            var bod = document.querySelector(".bod");
+            // เปลี่ยนการแสดงผลของ .bod จาก display: none เป็น display: block
+            if (bod.style.display === "none" || bod.style.display === "") {
+                bod.style.display = "flex";
+            } else {
+                bod.style.display = "none";
+            }
+        });
+    </script>
     <div class="user-cards">
         <div class="profile-card">
             <img class="profile-img" src="https://i.postimg.cc/1XDwtQRs/34514.jpg" alt="User Image">
@@ -197,6 +320,40 @@
                 <p><strong>ID:</strong> <span id="id-user">ENGR-00044</span></p>
                 <div style="border: 2px solid #fff;  align-items: center;">
                     <button id="1">ดูมหาวิทยาลัย</button>
+                </div>
+                <div class="bod">
+                    <div class="a">
+                        <div class="container">
+                            <div class="header">
+                                <div class="round">
+                                    <center>
+                                    <small>รอบ</small>1
+                                    </center>
+                                </div>
+                                <div class="title">
+                                    <div class="t">Portfolio</div>
+                                    <div class="date"><span id="field">ผ่านการคัดเลือก 2 สาขาวิชา</span></div>
+                                </div>
+                                <div class="oc">
+                                    <i class="fa-solid fa-chevron-down"></i>
+                                </div>
+                            </div>
+                            <div class="content">
+                                <div class="circle"></div>
+                            </div>
+                            <div class="university-info">
+                                <b>มหาวิทยาลัยเชียงใหม่</b>
+                                <p>เชียงใหม่<br>
+                                คณะวิศวกรรมศาสตร์<br>
+                                สาขาวิชาวิศวกรรมโยธา<br>
+                                วิศวกรรมศาสตรบัณฑิต สาขาวิชาวิศวกรรมโยธา<br>
+                                (ภาษาไทย ปกติ)
+                                </p>
+                            </div>
+                            <img src="https://www.cmu.ac.th/content/images/university/logo1.jpg" alt="University Logo">
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
