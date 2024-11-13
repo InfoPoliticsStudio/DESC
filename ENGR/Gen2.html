@@ -274,20 +274,21 @@
 </style>
 
 <script>
-    document.querySelector('.oc').addEventListener('click', function() {
-    const contents = document.querySelectorAll('.content');
-    const container = document.querySelector('.a');
-    const icon = document.querySelector('.oc i');
-    
-    contents.forEach(content => {
-    content.style.display = content.style.display === 'flex' ? 'none' : 'flex';
-    });
-    
-    container.style.paddingBottom = container.style.paddingBottom === '50px' ? '0' : '50px';
-    icon.classList.toggle('fa-chevron-down');
-    icon.classList.toggle('fa-chevron-up');
-    });
-</script>
+    document.querySelector('<script>
+        document.querySelector('.oc').addEventListener('click', function() {
+            const contents = document.querySelectorAll('.content');
+            const container = document.querySelector('.a');
+            const icon = document.querySelector('.oc i');
+
+            contents.forEach(content => {
+                content.style.display = content.style.display === 'flex' ? 'none' : 'flex';
+            });
+
+            container.style.paddingBottom = container.style.paddingBottom === '50px' ? '0' : '50px';
+            icon.classList.toggle('fa-chevron-down');
+            icon.classList.toggle('fa-chevron-up');
+        });
+    </script>
 
     
                 <!--  <div style="display:flex;align-items: center;">
