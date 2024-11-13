@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="/ENGR/a.css">
     <style>
     .bod {
-        display: none;
+        display: flex;
         justify-content: center;
         padding-top: 20px;
         align-items: center;
@@ -274,19 +274,19 @@
 </style>
 
 <script>
-document.querySelector('.oc').addEventListener('click', function() {
-const contents = document.querySelectorAll('.content');
-const container = document.querySelector('.a');
-const icon = document.querySelector('.oc i');
-
-contents.forEach(content => {
-content.style.display = content.style.display === 'flex' ? 'none' : 'flex';
-});
-
-container.style.paddingBottom = container.style.paddingBottom === '50px' ? '0' : '50px';
-icon.classList.toggle('fa-chevron-down');
-icon.classList.toggle('fa-chevron-up');
-});
+    document.querySelector('.oc').addEventListener('click', function() {
+    const contents = document.querySelectorAll('.content');
+    const container = document.querySelector('.a');
+    const icon = document.querySelector('.oc i');
+    
+    contents.forEach(content => {
+    content.style.display = content.style.display === 'flex' ? 'none' : 'flex';
+    });
+    
+    container.style.paddingBottom = container.style.paddingBottom === '50px' ? '0' : '50px';
+    icon.classList.toggle('fa-chevron-down');
+    icon.classList.toggle('fa-chevron-up');
+    });
 </script>
 
     
@@ -299,27 +299,12 @@ icon.classList.toggle('fa-chevron-up');
                     <p><span id="id-user">มหาวิทยาลัย</span></p>
                     </div>
                 </div> -->
-    <script>
-    // เมื่อคลิกปุ่มที่มี id="show-bod-btn"
-        document.getElementById("show-bod-btn").addEventListener("click", function() {
-            var bod = document.querySelector(".bod");
-            // เปลี่ยนการแสดงผลของ .bod จาก display: none เป็น display: block
-            if (bod.style.display === "none" || bod.style.display === "") {
-                bod.style.display = "flex";
-            } else {
-                bod.style.display = "none";
-            }
-        });
-    </script>
     <div class="user-cards">
         <div class="profile-card">
             <img class="profile-img" src="https://i.postimg.cc/1XDwtQRs/34514.jpg" alt="User Image">
             <div class="profile-info">
                 <h1 id="name">ณัฐปิยังกูร โภคินชลิตพงศ์</h1>
                 <p><strong>ID:</strong> <span id="id-user">ENGR-00044</span></p>
-                <div style="border: 2px solid #fff;  align-items: center;">
-                    <button id="1">ดูมหาวิทยาลัย</button>
-                </div>
                 <div class="bod">
                     <div class="a">
                         <div class="container">
