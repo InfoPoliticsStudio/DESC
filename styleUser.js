@@ -61,7 +61,7 @@ const students = {
     },
     "37698": {
         name: "ณภัทร ปัญโญ",
-        imageUrl: "https://i.postimg.cc/FH8f0rry/37698.jpg",
+        imageUrl: "https://admission.reg.cmu.ac.th/tcas/picture/c2d1250dc83fab89118eaefd0efeef04.jpg",
         password: "1234"
     },
     "38739": {
