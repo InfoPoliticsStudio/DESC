@@ -13,8 +13,7 @@
             justify-content: center;
             padding-top: 20px;
             align-items: center;
-        }
-        .a {
+        }.a, .aoc, .boc, .coc, .doc, .eoc, .foc, .goc, .hoc, .ioc, .joc, .koc, .loc, .moc, .noc, .ooc, .poc, .qoc, .roc, .soc, .toc, .uoc, .voc, .woc, .xoc, .yoc, .zoc {
             background-color: #fff8ea;
             min-width: -webkit-fill-available;
             min-width: -moz-available;
@@ -22,6 +21,7 @@
             justify-content: center;
             padding-bottom: 0;
         }
+
 
         .container {
             width: 700px;
@@ -56,10 +56,12 @@
             margin-left: 5px;  
             text-align: left;
         }
-        .oc {
+        .oc, .oca, .ocb, .occ, .ocd, .oce, .ocf, .ocg, .och, .oci, .ocj, .ock, .ocl, .ocm, .ocn, .oco, .ocp, .ocq, .ocr, .ocs, .oct, .ocu, .ocv, .ocw, .ocx, .ocy,
+        .obx, .oby {
             margin-right: 20px;
             cursor: pointer;
         }
+
         .header .date {
             font-size: 14px;
             margin-left: 5px;  
@@ -333,24 +335,8 @@
                     </div>
                     </div>
                     </div>
-                
-<!--                     <script>
-                        document.querySelector('.oc').addEventListener('click', function() {
-                            const contents = document.querySelectorAll('.content');
-                            const container = document.querySelector('.a');
-                            const icon = document.querySelector('.oc i');
-                
-                            contents.forEach(content => {
-                                content.style.display = content.style.display === 'flex' ? 'none' : 'flex';
-                            });
-                
-                            container.style.paddingBottom = container.style.paddingBottom === '50px' ? '0' : '50px';
-                            icon.classList.toggle('fa-chevron-down');
-                            icon.classList.toggle('fa-chevron-up');
-                        });
-                    </script> -->
 
-                    <script>
+<!--                     <script>
                         document.querySelectorAll('.oc').forEach(function(toggle) {
                             toggle.addEventListener('click', function() {
                                 const container = this.closest('.bod').querySelector('.a');
@@ -364,7 +350,7 @@
                                 icon.classList.toggle('fa-chevron-up');
                             });
                         });
-                    </script>
+                    </script> -->
                 
             </div>
         </div>
@@ -374,7 +360,7 @@
                 <h1 id="name">ปริญญากร สิงห์แก้ว</h1>
                 <p><strong>ID:</strong> <span id="id-user">ENGR-00045</span></p>
                 <div class="bod">
-                    <div class="a">
+                    <div class="aoc">
                     <div class="container">
                         <div class="header">
                             <div class="round">
@@ -386,7 +372,7 @@
                                 <div class="t">Portfolio</div>
                                 <div class="date"><span id="field">ผ่านการคัดเลือก ? สาขาวิชา</span></div>
                             </div>
-                            <div class="oc">
+                            <div class="oc oca">
                                 <i class="fa-solid fa-chevron-down"></i>
                             </div>
                         </div>
@@ -413,7 +399,7 @@
                                     <div class="t">Portfolio</div>
                                     <div class="date"><span id="field">ผ่านการคัดเลือก ? สาขาวิชา</span></div>
                                 </div>
-                                <div class="oc">
+                                <div class="oc ocb">
                                     <i class="fa-solid fa-chevron-down"></i>
                                 </div>
                             </div>
@@ -1087,5 +1073,381 @@
         <!-- เพิ่มข้อมูลผู้ใช้เพิ่มเติมตามต้องการ -->
         
     </div>
+        
+                
+                    <script>
+                       document.querySelector('.oc').addEventListener('click', function() {
+    const contents = document.querySelectorAll('.content');
+    const container = document.querySelector('.a');
+    const icon = document.querySelector('.oc i');
+
+    contents.forEach(content => {
+        content.style.display = content.style.display === 'flex' ? 'none' : 'flex';
+    });
+
+    container.style.paddingBottom = container.style.paddingBottom === '50px' ? '0' : '50px';
+    icon.classList.toggle('fa-chevron-down');
+    icon.classList.toggle('fa-chevron-up');
+});
+
+document.querySelector('.oca').addEventListener('click', function() {
+    const contents = document.querySelectorAll('.content');
+    const container = document.querySelector('.aoc');
+    const icon = document.querySelector('.oca i');
+
+    contents.forEach(content => {
+        content.style.display = content.style.display === 'flex' ? 'none' : 'flex';
+    });
+
+    container.style.paddingBottom = container.style.paddingBottom === '50px' ? '0' : '50px';
+    icon.classList.toggle('fa-chevron-down');
+    icon.classList.toggle('fa-chevron-up');
+});
+
+document.querySelector('.ocb').addEventListener('click', function() {
+    const contents = document.querySelectorAll('.content');
+    const container = document.querySelector('.boc');
+    const icon = document.querySelector('.ocb i');
+
+    contents.forEach(content => {
+        content.style.display = content.style.display === 'flex' ? 'none' : 'flex';
+    });
+
+    container.style.paddingBottom = container.style.paddingBottom === '50px' ? '0' : '50px';
+    icon.classList.toggle('fa-chevron-down');
+    icon.classList.toggle('fa-chevron-up');
+});
+
+document.querySelector('.occ').addEventListener('click', function() {
+    const contents = document.querySelectorAll('.content');
+    const container = document.querySelector('.coc');
+    const icon = document.querySelector('.occ i');
+
+    contents.forEach(content => {
+        content.style.display = content.style.display === 'flex' ? 'none' : 'flex';
+    });
+
+    container.style.paddingBottom = container.style.paddingBottom === '50px' ? '0' : '50px';
+    icon.classList.toggle('fa-chevron-down');
+    icon.classList.toggle('fa-chevron-up');
+});
+
+document.querySelector('.ocd').addEventListener('click', function() {
+    const contents = document.querySelectorAll('.content');
+    const container = document.querySelector('.doc');
+    const icon = document.querySelector('.ocd i');
+
+    contents.forEach(content => {
+        content.style.display = content.style.display === 'flex' ? 'none' : 'flex';
+    });
+
+    container.style.paddingBottom = container.style.paddingBottom === '50px' ? '0' : '50px';
+    icon.classList.toggle('fa-chevron-down');
+    icon.classList.toggle('fa-chevron-up');
+});
+document.querySelector('.oce').addEventListener('click', function() {
+    const contents = document.querySelectorAll('.content');
+    const container = document.querySelector('.eoc');
+    const icon = document.querySelector('.oce i');
+
+    contents.forEach(content => {
+        content.style.display = content.style.display === 'flex' ? 'none' : 'flex';
+    });
+
+    container.style.paddingBottom = container.style.paddingBottom === '50px' ? '0' : '50px';
+    icon.classList.toggle('fa-chevron-down');
+    icon.classList.toggle('fa-chevron-up');
+});
+
+document.querySelector('.ocf').addEventListener('click', function() {
+    const contents = document.querySelectorAll('.content');
+    const container = document.querySelector('.foc');
+    const icon = document.querySelector('.ocf i');
+
+    contents.forEach(content => {
+        content.style.display = content.style.display === 'flex' ? 'none' : 'flex';
+    });
+
+    container.style.paddingBottom = container.style.paddingBottom === '50px' ? '0' : '50px';
+    icon.classList.toggle('fa-chevron-down');
+    icon.classList.toggle('fa-chevron-up');
+});
+
+document.querySelector('.ocg').addEventListener('click', function() {
+    const contents = document.querySelectorAll('.content');
+    const container = document.querySelector('.goc');
+    const icon = document.querySelector('.ocg i');
+
+    contents.forEach(content => {
+        content.style.display = content.style.display === 'flex' ? 'none' : 'flex';
+    });
+
+    container.style.paddingBottom = container.style.paddingBottom === '50px' ? '0' : '50px';
+    icon.classList.toggle('fa-chevron-down');
+    icon.classList.toggle('fa-chevron-up');
+});
+
+document.querySelector('.och').addEventListener('click', function() {
+    const contents = document.querySelectorAll('.content');
+    const container = document.querySelector('.hoc');
+    const icon = document.querySelector('.och i');
+
+    contents.forEach(content => {
+        content.style.display = content.style.display === 'flex' ? 'none' : 'flex';
+    });
+
+    container.style.paddingBottom = container.style.paddingBottom === '50px' ? '0' : '50px';
+    icon.classList.toggle('fa-chevron-down');
+    icon.classList.toggle('fa-chevron-up');
+});
+
+document.querySelector('.oci').addEventListener('click', function() {
+    const contents = document.querySelectorAll('.content');
+    const container = document.querySelector('.ioc');
+    const icon = document.querySelector('.oci i');
+
+    contents.forEach(content => {
+        content.style.display = content.style.display === 'flex' ? 'none' : 'flex';
+    });
+
+    container.style.paddingBottom = container.style.paddingBottom === '50px' ? '0' : '50px';
+    icon.classList.toggle('fa-chevron-down');
+    icon.classList.toggle('fa-chevron-up');
+});
+document.querySelector('.ocj').addEventListener('click', function() {
+    const contents = document.querySelectorAll('.content');
+    const container = document.querySelector('.joc');
+    const icon = document.querySelector('.ocj i');
+
+    contents.forEach(content => {
+        content.style.display = content.style.display === 'flex' ? 'none' : 'flex';
+    });
+
+    container.style.paddingBottom = container.style.paddingBottom === '50px' ? '0' : '50px';
+    icon.classList.toggle('fa-chevron-down');
+    icon.classList.toggle('fa-chevron-up');
+});
+
+document.querySelector('.ock').addEventListener('click', function() {
+    const contents = document.querySelectorAll('.content');
+    const container = document.querySelector('.koc');
+    const icon = document.querySelector('.ock i');
+
+    contents.forEach(content => {
+        content.style.display = content.style.display === 'flex' ? 'none' : 'flex';
+    });
+
+    container.style.paddingBottom = container.style.paddingBottom === '50px' ? '0' : '50px';
+    icon.classList.toggle('fa-chevron-down');
+    icon.classList.toggle('fa-chevron-up');
+});
+
+document.querySelector('.ocl').addEventListener('click', function() {
+    const contents = document.querySelectorAll('.content');
+    const container = document.querySelector('.loc');
+    const icon = document.querySelector('.ocl i');
+
+    contents.forEach(content => {
+        content.style.display = content.style.display === 'flex' ? 'none' : 'flex';
+    });
+
+    container.style.paddingBottom = container.style.paddingBottom === '50px' ? '0' : '50px';
+    icon.classList.toggle('fa-chevron-down');
+    icon.classList.toggle('fa-chevron-up');
+});
+
+document.querySelector('.ocm').addEventListener('click', function() {
+    const contents = document.querySelectorAll('.content');
+    const container = document.querySelector('.moc');
+    const icon = document.querySelector('.ocm i');
+
+    contents.forEach(content => {
+        content.style.display = content.style.display === 'flex' ? 'none' : 'flex';
+    });
+
+    container.style.paddingBottom = container.style.paddingBottom === '50px' ? '0' : '50px';
+    icon.classList.toggle('fa-chevron-down');
+    icon.classList.toggle('fa-chevron-up');
+});
+
+document.querySelector('.ocn').addEventListener('click', function() {
+    const contents = document.querySelectorAll('.content');
+    const container = document.querySelector('.noc');
+    const icon = document.querySelector('.ocn i');
+
+    contents.forEach(content => {
+        content.style.display = content.style.display === 'flex' ? 'none' : 'flex';
+    });
+
+    container.style.paddingBottom = container.style.paddingBottom === '50px' ? '0' : '50px';
+    icon.classList.toggle('fa-chevron-down');
+    icon.classList.toggle('fa-chevron-up');
+});
+document.querySelector('.oco').addEventListener('click', function() {
+    const contents = document.querySelectorAll('.content');
+    const container = document.querySelector('.ooc');
+    const icon = document.querySelector('.oco i');
+
+    contents.forEach(content => {
+        content.style.display = content.style.display === 'flex' ? 'none' : 'flex';
+    });
+
+    container.style.paddingBottom = container.style.paddingBottom === '50px' ? '0' : '50px';
+    icon.classList.toggle('fa-chevron-down');
+    icon.classList.toggle('fa-chevron-up');
+});
+
+document.querySelector('.ocp').addEventListener('click', function() {
+    const contents = document.querySelectorAll('.content');
+    const container = document.querySelector('.poc');
+    const icon = document.querySelector('.ocp i');
+
+    contents.forEach(content => {
+        content.style.display = content.style.display === 'flex' ? 'none' : 'flex';
+    });
+
+    container.style.paddingBottom = container.style.paddingBottom === '50px' ? '0' : '50px';
+    icon.classList.toggle('fa-chevron-down');
+    icon.classList.toggle('fa-chevron-up');
+});
+
+document.querySelector('.ocq').addEventListener('click', function() {
+    const contents = document.querySelectorAll('.content');
+    const container = document.querySelector('.qoc');
+    const icon = document.querySelector('.ocq i');
+
+    contents.forEach(content => {
+        content.style.display = content.style.display === 'flex' ? 'none' : 'flex';
+    });
+
+    container.style.paddingBottom = container.style.paddingBottom === '50px' ? '0' : '50px';
+    icon.classList.toggle('fa-chevron-down');
+    icon.classList.toggle('fa-chevron-up');
+});
+
+document.querySelector('.ocr').addEventListener('click', function() {
+    const contents = document.querySelectorAll('.content');
+    const container = document.querySelector('.roc');
+    const icon = document.querySelector('.ocr i');
+
+    contents.forEach(content => {
+        content.style.display = content.style.display === 'flex' ? 'none' : 'flex';
+    });
+
+    container.style.paddingBottom = container.style.paddingBottom === '50px' ? '0' : '50px';
+    icon.classList.toggle('fa-chevron-down');
+    icon.classList.toggle('fa-chevron-up');
+});
+
+document.querySelector('.ocs').addEventListener('click', function() {
+    const contents = document.querySelectorAll('.content');
+    const container = document.querySelector('.soc');
+    const icon = document.querySelector('.ocs i');
+
+    contents.forEach(content => {
+        content.style.display = content.style.display === 'flex' ? 'none' : 'flex';
+    });
+
+    container.style.paddingBottom = container.style.paddingBottom === '50px' ? '0' : '50px';
+    icon.classList.toggle('fa-chevron-down');
+    icon.classList.toggle('fa-chevron-up');
+});
+document.querySelector('.oct').addEventListener('click', function() {
+    const contents = document.querySelectorAll('.content');
+    const container = document.querySelector('.toc');
+    const icon = document.querySelector('.oct i');
+
+    contents.forEach(content => {
+        content.style.display = content.style.display === 'flex' ? 'none' : 'flex';
+    });
+
+    container.style.paddingBottom = container.style.paddingBottom === '50px' ? '0' : '50px';
+    icon.classList.toggle('fa-chevron-down');
+    icon.classList.toggle('fa-chevron-up');
+});
+
+document.querySelector('.ocu').addEventListener('click', function() {
+    const contents = document.querySelectorAll('.content');
+    const container = document.querySelector('.uoc');
+    const icon = document.querySelector('.ocu i');
+
+    contents.forEach(content => {
+        content.style.display = content.style.display === 'flex' ? 'none' : 'flex';
+    });
+
+    container.style.paddingBottom = container.style.paddingBottom === '50px' ? '0' : '50px';
+    icon.classList.toggle('fa-chevron-down');
+    icon.classList.toggle('fa-chevron-up');
+});
+
+document.querySelector('.ocv').addEventListener('click', function() {
+    const contents = document.querySelectorAll('.content');
+    const container = document.querySelector('.voc');
+    const icon = document.querySelector('.ocv i');
+
+    contents.forEach(content => {
+        content.style.display = content.style.display === 'flex' ? 'none' : 'flex';
+    });
+
+    container.style.paddingBottom = container.style.paddingBottom === '50px' ? '0' : '50px';
+    icon.classList.toggle('fa-chevron-down');
+    icon.classList.toggle('fa-chevron-up');
+});
+
+document.querySelector('.ocw').addEventListener('click', function() {
+    const contents = document.querySelectorAll('.content');
+    const container = document.querySelector('.woc');
+    const icon = document.querySelector('.ocw i');
+
+    contents.forEach(content => {
+        content.style.display = content.style.display === 'flex' ? 'none' : 'flex';
+    });
+
+    container.style.paddingBottom = container.style.paddingBottom === '50px' ? '0' : '50px';
+    icon.classList.toggle('fa-chevron-down');
+    icon.classList.toggle('fa-chevron-up');
+});
+
+document.querySelector('.ocx').addEventListener('click', function() {
+    const contents = document.querySelectorAll('.content');
+    const container = document.querySelector('.xoc');
+    const icon = document.querySelector('.ocx i');
+
+    contents.forEach(content => {
+        content.style.display = content.style.display === 'flex' ? 'none' : 'flex';
+    });
+
+    container.style.paddingBottom = container.style.paddingBottom === '50px' ? '0' : '50px';
+    icon.classList.toggle('fa-chevron-down');
+    icon.classList.toggle('fa-chevron-up');
+});
+document.querySelector('.ocy').addEventListener('click', function() {
+    const contents = document.querySelectorAll('.content');
+    const container = document.querySelector('.yoc');
+    const icon = document.querySelector('.ocy i');
+
+    contents.forEach(content => {
+        content.style.display = content.style.display === 'flex' ? 'none' : 'flex';
+    });
+
+    container.style.paddingBottom = container.style.paddingBottom === '50px' ? '0' : '50px';
+    icon.classList.toggle('fa-chevron-down');
+    icon.classList.toggle('fa-chevron-up');
+});
+
+document.querySelector('.ocz').addEventListener('click', function() {
+    const contents = document.querySelectorAll('.content');
+    const container = document.querySelector('.zoc');
+    const icon = document.querySelector('.ocz i');
+
+    contents.forEach(content => {
+        content.style.display = content.style.display === 'flex' ? 'none' : 'flex';
+    });
+
+    container.style.paddingBottom = container.style.paddingBottom === '50px' ? '0' : '50px';
+    icon.classList.toggle('fa-chevron-down');
+    icon.classList.toggle('fa-chevron-up');
+});
+                    </script>
 </body>
 </html>
