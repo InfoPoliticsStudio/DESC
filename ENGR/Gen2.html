@@ -1105,31 +1105,31 @@ document.querySelector('.oca').addEventListener('click', function() {
 });
 
 document.querySelector('.ocb').addEventListener('click', function() {
-    const contents = document.querySelectorAll('.content');
-    const container = document.querySelector('.boc');
-    const icon = document.querySelector('.ocb i');
+    const contentsb = document.querySelectorAll('.content');
+    const containerb = document.querySelector('.boc');
+    const iconb = document.querySelector('.ocb i');
 
-    contents.forEach(content => {
-        content.style.display = content.style.display === 'flex' ? 'none' : 'flex';
+    contentsb.forEach(content => {
+        contentb.style.display = contentb.style.display === 'flex' ? 'none' : 'flex';
     });
 
-    container.style.paddingBottom = container.style.paddingBottom === '50px' ? '0' : '50px';
-    icon.classList.toggle('fa-chevron-down');
-    icon.classList.toggle('fa-chevron-up');
+    containerb.style.paddingBottom = containerb.style.paddingBottom === '50px' ? '0' : '50px';
+    iconb.classList.toggle('fa-chevron-down');
+    iconb.classList.toggle('fa-chevron-up');
 });
 
 document.querySelector('.occ').addEventListener('click', function() {
-    const contents = document.querySelectorAll('.content');
-    const container = document.querySelector('.coc');
-    const icon = document.querySelector('.occ i');
+    const contentsc = document.querySelectorAll('.content');
+    const containerc = document.querySelector('.coc');
+    const iconc = document.querySelector('.occ i');
 
-    contents.forEach(content => {
-        content.style.display = content.style.display === 'flex' ? 'none' : 'flex';
+    contentsc.forEach(content => {
+        contentc.style.display = contentc.style.display === 'flex' ? 'none' : 'flex';
     });
 
-    container.style.paddingBottom = container.style.paddingBottom === '50px' ? '0' : '50px';
-    icon.classList.toggle('fa-chevron-down');
-    icon.classList.toggle('fa-chevron-up');
+    containerc.style.paddingBottom = containerc.style.paddingBottom === '50px' ? '0' : '50px';
+    iconc.classList.toggle('fa-chevron-down');
+    iconc.classList.toggle('fa-chevron-up');
 });
 
 document.querySelector('.ocd').addEventListener('click', function() {
