@@ -334,7 +334,7 @@
                     </div>
                     </div>
                 
-                    <script>
+<!--                     <script>
                         document.querySelector('.oc').addEventListener('click', function() {
                             const contents = document.querySelectorAll('.content');
                             const container = document.querySelector('.a');
@@ -347,6 +347,22 @@
                             container.style.paddingBottom = container.style.paddingBottom === '50px' ? '0' : '50px';
                             icon.classList.toggle('fa-chevron-down');
                             icon.classList.toggle('fa-chevron-up');
+                        });
+                    </script> -->
+
+                    <script>
+                        document.querySelectorAll('.oc').forEach(function(toggle) {
+                            toggle.addEventListener('click', function() {
+                                const container = this.closest('.bod').querySelector('.a');
+                                const icon = this.querySelector('i');
+                                
+                                const content = container.querySelector('.container');
+                                content.style.display = content.style.display === 'flex' ? 'none' : 'flex';
+                                
+                                container.style.paddingBottom = container.style.paddingBottom === '50px' ? '0' : '50px';
+                                icon.classList.toggle('fa-chevron-down');
+                                icon.classList.toggle('fa-chevron-up');
+                            });
                         });
                     </script>
                 
