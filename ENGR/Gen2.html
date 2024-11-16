@@ -114,7 +114,35 @@
             position: fixed;
             top: 0;
             background: #0000006b;
-            padding-bottom: 15px;
+            padding: 10px;
+            display: flex;
+        }
+        header ul {
+            position: absolute;
+            right: 10px;
+            display: flex;
+            align-items: center;
+            height: 50px;
+        }
+        
+        header ul li {
+            padding-right: 5px;
+            padding-left: 5px;
+            margin: 0 5px;
+            border-bottom: 1px solid #ffffff00;
+            list-style: none;
+            cursor: pointer;
+            transition: .5s;
+        }
+        
+        header ul li:hover {
+            border-bottom: 1px solid #fff;
+            transition: .5s;
+        }
+        
+        header ul li a {
+            color: #fff;
+            text-decoration: none;
         }
     </style>
 </head>
