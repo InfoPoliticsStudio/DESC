@@ -42,8 +42,6 @@
             width: auto;
             height: 50px;
             position: relative;
-            top: 10px;
-            left: 10px;
         }
 
         .profile-card::before {
