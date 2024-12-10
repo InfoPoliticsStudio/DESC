@@ -1157,7 +1157,7 @@
                     <script>
                        // รายการของคลาสทั้งหมด
 // รายการของคลาสทั้งหมด
-const mappings = [
+const mapping = [
     { button: "oc", container: "a" },
     { button: "oca", container: "aoc" },
     { button: "ocb", container: "boc" },
@@ -1188,6 +1188,57 @@ const mappings = [
 ];
 
 // วนลูปเพื่อเพิ่ม EventListener ให้แต่ละคลาส
+mapping.forEach(({ button, container }) => {
+    document.querySelector(`.${button}`).addEventListener('click', function() {
+        const content = document.querySelector(`.${container}`);
+        const icon = document.querySelector(`.${button} i`);
+
+        // สลับการแสดงผลของ container
+        if (content) {
+            const isExpanded = content.style.paddingBottom === '50px';
+            content.style.paddingBottom = isExpanded ? '0' : '50px';
+        }
+
+        // เปลี่ยนไอคอนขึ้น/ลง
+        if (icon) {
+            icon.classList.toggle('fa-chevron-down');
+            icon.classList.toggle('fa-chevron-up');
+        }
+    });
+});
+                        
+// รายการของปุ่มและคอนเทนเนอร์
+const mappings = [
+    { button: "qqoc", container: "qq" },
+    { button: "qqoca", container: "qqoa" },
+    { button: "qqocb", container: "qqob" },
+    { button: "qqocc", container: "qqoc" },
+    { button: "qqocd", container: "qqod" },
+    { button: "qqoce", container: "qqoe" },
+    { button: "qqocf", container: "qqof" },
+    { button: "qqocg", container: "qqog" },
+    { button: "qqoch", container: "qqoh" },
+    { button: "qqoci", container: "qqoi" },
+    { button: "qqocj", container: "qqoj" },
+    { button: "qqock", container: "qqok" },
+    { button: "qqocl", container: "qqol" },
+    { button: "qqocm", container: "qqom" },
+    { button: "qqocn", container: "qqon" },
+    { button: "qqoco", container: "qqoo" },
+    { button: "qqocp", container: "qqop" },
+    { button: "qqocq", container: "qqoq" },
+    { button: "qqocr", container: "qqor" },
+    { button: "qqocs", container: "qqos" },
+    { button: "qqoct", container: "qqot" },
+    { button: "qqocu", container: "qqu" },
+    { button: "qqocv", container: "qqov" },
+    { button: "qqocw", container: "qqow" },
+    { button: "qqocx", container: "qqox" },
+    { button: "qqocy", container: "qqoy" },
+    { button: "qqocz", container: "qqoz" }
+];
+
+// วนลูปเพื่อเพิ่ม EventListener ให้แต่ละปุ่ม
 mappings.forEach(({ button, container }) => {
     document.querySelector(`.${button}`).addEventListener('click', function() {
         const content = document.querySelector(`.${container}`);
