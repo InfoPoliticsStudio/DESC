@@ -1156,27 +1156,51 @@
                 
                     <script>
                        // รายการของคลาสทั้งหมด
-const classes = [
-    "oc", "oca", "ocb", "occ", "ocd", "oce", "ocf", "ocg", "och", "oci", 
-    "ocj", "ock", "ocl", "ocm", "ocn", "oco", "ocp", "ocq", "ocr", "ocs", 
-    "oct", "ocu", "ocv", "ocw", "ocx", "ocy", "ocz"
+// รายการของคลาสทั้งหมด
+const mappings = [
+    { button: "oc", container: "a" },
+    { button: "oca", container: "aoc" },
+    { button: "ocb", container: "boc" },
+    { button: "occ", container: "coc" },
+    { button: "ocd", container: "doc" },
+    { button: "oce", container: "eoc" },
+    { button: "ocf", container: "foc" },
+    { button: "ocg", container: "goc" },
+    { button: "och", container: "hoc" },
+    { button: "oci", container: "ioc" },
+    { button: "ocj", container: "joc" },
+    { button: "ock", container: "koc" },
+    { button: "ocl", container: "loc" },
+    { button: "ocm", container: "moc" },
+    { button: "ocn", container: "noc" },
+    { button: "oco", container: "ooc" },
+    { button: "ocp", container: "poc" },
+    { button: "ocq", container: "qoc" },
+    { button: "ocr", container: "roc" },
+    { button: "ocs", container: "soc" },
+    { button: "oct", container: "toc" },
+    { button: "ocu", container: "uoc" },
+    { button: "ocv", container: "voc" },
+    { button: "ocw", container: "woc" },
+    { button: "ocx", container: "xoc" },
+    { button: "ocy", container: "yoc" },
+    { button: "ocz", container: "zoc" }
 ];
 
-// วนลูปเพื่อเพิ่ม EventListener ให้กับแต่ละคลาส
-classes.forEach(cls => {
-    document.querySelector(`.${cls}`).addEventListener('click', function() {
-        const contents = document.querySelectorAll('.content');
-        const container = document.querySelector(`.${cls.replace("oc", "aoc")}`); // ปรับชื่อคลาส container
-        const icon = document.querySelector(`.${cls} i`);
+// วนลูปเพื่อเพิ่ม EventListener ให้แต่ละคลาส
+mappings.forEach(({ button, container }) => {
+    document.querySelector(`.${button}`).addEventListener('click', function() {
+        const content = document.querySelector(`.${container}`);
+        const icon = document.querySelector(`.${button} i`);
 
-        contents.forEach(content => {
-            content.style.display = content.style.display === 'flex' ? 'none' : 'flex';
-        });
-
-        if (container) {
-            container.style.paddingBottom = container.style.paddingBottom === '50px' ? '0' : '50px';
+        // สลับการแสดงผลของ container
+        if (content) {
+            const isExpanded = content.style.paddingBottom === '50px';
+            content.style.paddingBottom = isExpanded ? '0' : '50px';
+            content.style.display = isExpanded ? 'none' : 'flex';
         }
 
+        // เปลี่ยนไอคอนขึ้น/ลง
         if (icon) {
             icon.classList.toggle('fa-chevron-down');
             icon.classList.toggle('fa-chevron-up');
