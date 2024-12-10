@@ -1,1 +1,270 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DESC Board Organization Chart</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="styles.css"> -->
+    <link rel="/board/icon" href="icon.png" type="image/png">
+    <meta property="og:image" content="https://dara-esc.pages.dev/board/icon.png">
+    <meta property="og:title" content="คณะกรรมการบริหาร DESC">
+    <meta property="og:url" content="https://dara-esc.pages.dev/board/">
+    <meta property="og:description" content="คณะกรรมการบริหารสภานักเรียนเตรียมวิศวกรรมศาสตร์">
+    <script>
+        function toggleSubmenu(submenuId) {
+        var submenu = document.getElementById(submenuId);
+        if (submenu.style.display === "none" || submenu.style.display === "") {
+            submenu.style.display = "block";
+        } else {
+            submenu.style.display = "none";
+        }
+    }
+    </script>
+    <style>body{font-family: "Kanit", sans-serif;}.sub_head > .text > h1{font-family: "Kanit", sans-serif !important;}</style>
+    <style>
+    body{margin:0;  overflow-x: hidden;}
+    .sidebar {
+        width: 250px;
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100%;
+        background-color: #800;
+        padding-top: 20px;
+        transition: left 0.3s;  z-index: 1;
+    }
+    
+    .logo {
+        color: white;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    
+    .menu {
+        list-style-type: none;
+        padding: 0;
+    }
+    
+    .menu li {
+        padding: 10px;
+    }
+    
+    .menu li a {
+        color: white;
+        text-decoration: none;
+        display: block;
+        padding: 10px;
+    }
+    
+    .menu li a:hover {
+        color: #ffc000;
+    }
+    
+    h2 a {
+        color: #fff;
+        text-decoration: none;
+    }
+        
+    .submenu {
+        list-style-type: none;
+        padding-left: 20px;
+        display: none;
+    }
+    
+    .submenu li a {
+        font-size: 0.9em;
+        color: #ccc;
+        padding: 5px;
+    }
+    
+    .sidebar.hidden {
+        left: -250px;
+    }
+    
+    #toggleButton {
+        position: fixed;
+        top: 10px;
+        left: 10px;
+        background-color: #333;
+        color: white;
+        border: none;
+        padding: 10px;
+        cursor: pointer;
+        z-index: 1000;
+    }
+    
+    #toggleButton:hover {
+        background-color: #575757;
+    }
+    
+    /* ส่วนของคณะกรรมการบริหาร */
+    #containerbomy {
+        margin-left: 250px;
+        padding: 20px;
+        transition: margin-left 0.3s;
+    }
+    
+    .header h1 {
+        font-size: 2em;
+        margin-bottom: 20px;
+    }
+    
+    .board {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    
+    .board-member {
+        width: 200px;
+        margin: 10px;
+        text-align: center;
+    }
+    
+    .board-member img {
+        width: 100%;
+        height: auto;
+        border-radius: 50%;
+    }
+    
+    .board-member h3 {
+        margin-top: 10px;
+        font-size: 1.2em;
+    }
+    
+    .board-member p {
+        font-size: 0.9em;
+        color: #555;
+    }
+    footer {
+      z-index: 0;
+      transition: margin-left 0.3s;
+      font-size: .875rem;
+      line-height: 1.25rem;
+      background-color: #000;
+      color: #fff;
+      justify-content: center;
+      align-items: center;
+      height: 60px;
+      display: flex;
+      bottom: 0;
+      position: absolute;
+      width: calc(100% - 250px);
+      margin-left: 250px;
+    }
+    </style>
+    <style>
+        .board {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            padding: 20px;
+        }
+        
+        .board-member {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0px 0px 8px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            margin: 20px;
+            padding: 20px;
+            width: 300px;
+        }
+        
+        .board-member img {
+              width: 150px;
+              height: auto;
+              object-fit: cover;
+              margin-bottom: 15px;
+              border-radius: 5px;
+        }
+        
+        .board-member h3 {
+            font-size: 1.2em;
+            margin-bottom: 10px;
+        }
+        
+        .board-member p {
+            font-size: 0.9em;
+            color: #555;
+            margin-bottom: 15px;
+        }
+        
+        .board-member a {
+            display: inline-block;
+            padding: 8px 15px;
+            background-color: #e74c3c;
+            color: white;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+        
+section.header {
+    padding: 20px;
+}
+        
+h1 {
+    margin-block-start: 0;
+    margin-block-end: 0;
+}
 
+h1::before {
+    content: " ";
+    width: 7.5px;
+    height: 20px;
+    background: #ffc000;
+    display: inline-block;
+    margin-right: 10px;
+}
+    </style>
+</head>
+<body>
+    
+
+
+
+<div class="sidebar" id="sidebar">
+    <div class="logo">
+        <h2><a href="/board">DESC</a></h2>
+    </div>
+    <ul class="menu">
+        <li>
+            <a href="index.html" onclick="toggleSubmenu('submenu1')">คณะกรรมการบริหาร</a>
+            <ul id="submenu1" class="submenu">
+                <li><a href="com1">ชุดที่ 1 (2566 - 2567)</a></li>
+                <li><a href="com2">ชุดที่ 2</a></li>
+                <li><a href="com3">ชุดที่ 3</a></li>
+            </ul>
+        </li>
+        <li><a href="hcho">ทำเนียบหัวหน้าสำนักงานสภา</a></li>
+        <li><a href="hp">ทำเนียบนายกสภา</a></li>
+        <li><a href="hvp">ทำเนียบอุปนายกสภา</a></li>
+        <li><a href="hsg">ทำเนียนเลขาธิการสภา</a></li>
+        <li><a href="#">ทำเนียบเหรัญญิก</a></li>
+        <li><a href="hes">ทำเนียบกรรมการบริหารและทำเนียบอนุกรรมการ</a></li>
+    </ul>
+</div>
+
+
+<div id="containerbomy">
+    <section class="header">
+        <h1>ทำเนียบเหรัญญิก</h1>
+    </section>
+    <section class="board">
+        <div class="board-member">
+            <img src="https://i.postimg.cc/qRcn8rhP/naphat.jpg" alt="นายณภัทร ปัญโญ">
+            <h3>นายณภัทร ปัญโญ</h3>
+            <p>เหรัญญิก คนที่ 1</p>
+        </div>
+    </section>
+    <section class="board">
+    </section>
+</div>
+    <footer>
+        <div>Copyright © 2024 All Rights Reserved</div>
+    </footer>
+
+
+</body>
+</html>
