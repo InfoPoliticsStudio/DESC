@@ -1157,7 +1157,7 @@
                     <script>
                        // รายการของคลาสทั้งหมด
 // รายการของคลาสทั้งหมด
-const mapping = [
+const mappings = [
     { button: "oc", container: "a" },
     { button: "oca", container: "aoc" },
     { button: "ocb", container: "boc" },
@@ -1184,31 +1184,8 @@ const mapping = [
     { button: "ocw", container: "woc" },
     { button: "ocx", container: "xoc" },
     { button: "ocy", container: "yoc" },
-    { button: "ocz", container: "zoc" }
-];
-
-// วนลูปเพื่อเพิ่ม EventListener ให้แต่ละคลาส
-mapping.forEach(({ button, container }) => {
-    document.querySelector(`.${button}`).addEventListener('click', function() {
-        const content = document.querySelector(`.${container}`);
-        const icon = document.querySelector(`.${button} i`);
-
-        // สลับการแสดงผลของ container
-        if (content) {
-            const isExpanded = content.style.paddingBottom === '50px';
-            content.style.paddingBottom = isExpanded ? '0' : '50px';
-        }
-
-        // เปลี่ยนไอคอนขึ้น/ลง
-        if (icon) {
-            icon.classList.toggle('fa-chevron-down');
-            icon.classList.toggle('fa-chevron-up');
-        }
-    });
-});
-                        
-// รายการของปุ่มและคอนเทนเนอร์
-const mappings = [
+    { button: "ocz", container: "zoc" },
+    
     { button: "qqoc", container: "qq" },
     { button: "qqoca", container: "qqoa" },
     { button: "qqocb", container: "qqob" },
@@ -1238,7 +1215,7 @@ const mappings = [
     { button: "qqocz", container: "qqoz" }
 ];
 
-// วนลูปเพื่อเพิ่ม EventListener ให้แต่ละปุ่ม
+// วนลูปเพื่อเพิ่ม EventListener ให้แต่ละคลาส
 mappings.forEach(({ button, container }) => {
     document.querySelector(`.${button}`).addEventListener('click', function() {
         const content = document.querySelector(`.${container}`);
@@ -1257,6 +1234,7 @@ mappings.forEach(({ button, container }) => {
         }
     });
 });
+   
 
                     </script>
 </body>
