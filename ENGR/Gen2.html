@@ -1835,12 +1835,16 @@ mappings.forEach(({ container }) => {
 mappings.forEach(({ button, container }) => {
     document.querySelector(`.${button}`).addEventListener('click', function () {
         const content = document.querySelector(`.${container} .content`);
+        const containerElement = document.querySelector(`.${container}`);
         const icon = document.querySelector(`.${button} i`);
 
-        if (content) {
+        if (content && containerElement) {
             // สลับการแสดงผลของ .content
             const isVisible = content.style.display === 'block';
             content.style.display = isVisible ? 'none' : 'block';
+
+            // สลับค่า margin-bottom ของ container
+            containerElement.style.marginBottom = isVisible ? '0' : '4em';
         }
 
         // เปลี่ยนไอคอนขึ้น/ลง
