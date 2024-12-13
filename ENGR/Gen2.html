@@ -1843,7 +1843,27 @@ mappings.forEach(({ button, container }) => {
         }
     });
 });
-   
+                        
+// ตั้งค่าเริ่มต้นให้ทุก container ซ่อนอยู่
+mappings.forEach(({ container }) => {
+    const content = document.querySelector(`.${container}`);
+    if (content) {
+        content.style.display = 'none'; // ซ่อนทุก container
+    }
+});
+
+// เพิ่ม EventListener ให้แต่ละปุ่ม
+mappings.forEach(({ button, container }) => {
+    document.querySelector(`.${button}`).addEventListener('click', function () {
+        const content = document.querySelector(`.${container}`);
+
+        if (content) {
+            // สลับการแสดงผลของ container
+            const isVisible = content.style.display === 'block';
+            content.style.display = isVisible ? 'none' : 'block';
+        }
+    });
+});
 
                     </script>
 </body>
