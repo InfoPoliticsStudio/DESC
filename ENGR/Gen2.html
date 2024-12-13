@@ -1845,7 +1845,7 @@ mappings.forEach(({ button, container }) => {
 });
                         
 // ตั้งค่าเริ่มต้นให้ทุก container ซ่อนอยู่
-mappings.forEach(({ container }) => {
+mappings.forEach(({ content }) => {
     const content = document.querySelector(`.${container}`);
     if (content) {
         content.style.display = 'none'; // ซ่อนทุก container
