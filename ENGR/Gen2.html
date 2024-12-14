@@ -1866,7 +1866,6 @@ mappings.forEach(({ button, container }) => {
             containerElement.style.paddingBottom = isVisible ? '0' : '0';
         } else if (containerElement) {
             // ตรวจสอบ paddingBottom เริ่มต้นและเปลี่ยนค่าตามการกดปุ่ม
-            const currentPadding = containerElement.style.paddingBottom || '0'; // ค่าเริ่มต้นเป็น '0'
             containerElement.style.paddingBottom = currentPadding === '0px' ? '4rem' : '0';
         }
 
