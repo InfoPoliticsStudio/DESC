@@ -1866,7 +1866,7 @@ mappings.forEach(({ button, container }) => {
             containerElement.style.paddingBottom = isVisible ? '0' : '0';
         } else if (containerElement) {
             // หากไม่มี .content ให้สลับ margin-bottom
-            const currentMargin = containerElement.style.marginBottom;
+            const currentMargin = containerElement.style.paddingBottom;
             containerElement.style.paddingBottom = currentMargin === '0' ? '4rem' : '0';
         }
 
