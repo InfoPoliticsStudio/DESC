@@ -1863,11 +1863,11 @@ mappings.forEach(({ button, container }) => {
             content.style.display = isVisible ? 'none' : 'block';
 
             // ปรับ margin-bottom ของ container
-            containerElement.style.marginBottom = isVisible ? '0' : '4rem';
+            containerElement.style.paddingBottom = isVisible ? '0' : '0';
         } else if (containerElement) {
             // หากไม่มี .content ให้สลับ margin-bottom
             const currentMargin = containerElement.style.marginBottom;
-            containerElement.style.marginBottom = currentMargin === '4rem' ? '0' : '4rem';
+            containerElement.style.paddingBottom = currentMargin === '0' ? '4rem' : '0';
         }
 
         // เปลี่ยนไอคอนขึ้น/ลง
