@@ -1314,11 +1314,11 @@
                                     <div class="date"><span id="field">ผ่านการคัดเลือก 1 สาขาวิชา</span></div>
                                 </div>
                                 <div class="ocr">
-                                    <i class="fa-solid fa-chevron-down"></i>
+                                    <i class="fa-solid fa-chevron-up"></i>
                                 </div>
                             </div>
 
-                            <div class="content">
+                            <div class="content" style="display: block !important;!i;!;">
                             	<div class="b">
                                     <div class="circle"></div>
                                 </div>
@@ -1833,28 +1833,26 @@ const mappings = [
     { button: "qqocy", container: "qqoy" },
     { button: "qqocz", container: "qqoz" }
 ];
-// ตั้งค่าเริ่มต้นให้ทุก .content ซ่อนอยู่
+// ตั้งค่าเริ่มต้นให้ทุก container ซ่อนอยู่
 mappings.forEach(({ container }) => {
-    const content = document.querySelector(`.${container} .content`);
+    const content = document.querySelector(`.${container}`);
     if (content) {
-        content.style.display = 'none'; // ซ่อนเฉพาะ .content
+        content.style.display = 'none'; // ซ่อนทุก container
+        content.style.paddingBottom = '0'; // ตั้งค่า paddingBottom เป็น 0
     }
 });
 
 // เพิ่ม EventListener ให้แต่ละปุ่ม
 mappings.forEach(({ button, container }) => {
     document.querySelector(`.${button}`).addEventListener('click', function () {
-        const content = document.querySelector(`.${container} .content`);
-        const containerElement = document.querySelector(`.${container}`);
+        const content = document.querySelector(`.${container}`);
         const icon = document.querySelector(`.${button} i`);
 
-        if (content && containerElement) {
-            // สลับการแสดงผลของ .content
+        if (content) {
+            // สลับการแสดงผลของ container
             const isVisible = content.style.display === 'block';
             content.style.display = isVisible ? 'none' : 'block';
-
-            // สลับค่า margin-bottom ของ container
-            containerElement.style.paddingBottom = isVisible ? '0' : '4em';
+            content.style.paddingBottom = isVisible ? '0' : '50px';
         }
 
         // เปลี่ยนไอคอนขึ้น/ลง
