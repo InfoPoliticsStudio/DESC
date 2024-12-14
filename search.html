@@ -20,30 +20,28 @@
 
 <!--[if lt IE 9]><script type="text/javascript">var IE_fix=true;</script><![endif]-->
 <script type="text/javascript">
-  function submitSearch(){
-        var siteSearchUrl = 'https://dara-esc.pages.dev/_/search?query=';  // Replace with your site's search URL
-        var query = document.getElementById("search-query-input").value;
-        var url = siteSearchUrl + query
-  if(typeof IE_fix != "undefined") // IE8 and lower fix to pass the http referer
-  {
-   var referLink = document.createElement("a");
-   referLink.href = url;
-   document.body.appendChild(referLink);
-   referLink.click();
+  function submitSearch() {
+    // URL พื้นฐานสำหรับการค้นหา
+    var siteSearchUrl = 'https://dara-esc.pages.dev/_/search?query=';  
+    // ดึงข้อความค้นหาจาก input
+    var query = document.getElementById("search-query-input").value.trim();
+
+    if (query) { // ตรวจสอบว่ามีข้อความค้นหา
+      var url = siteSearchUrl + encodeURIComponent(query); // เข้ารหัสข้อความเพื่อป้องกันปัญหา
+      window.open(url, '_blank'); // เปิด URL ในแท็บใหม่
+    } else {
+      alert("กรุณากรอกข้อความที่ต้องการค้นหา"); // แจ้งเตือนเมื่อไม่มีคำค้นหา
+    }
   }
-  else { window.open(url,'_blank'); } // All other browsers
- }
-function searchKeyPress(e){
-    // look for window.event in case event isn't passed in
+
+  function searchKeyPress(e) {
     e = e || window.event;
-    if (e.keyCode == 13)
-    {
-        document.getElementById('search-icon').click();
-        return false;
+    if (e.keyCode == 13) { // หากผู้ใช้กด Enter
+      submitSearch(); // เรียกฟังก์ชันค้นหา
+      return false;
     }
     return true;
-}
-
+  }
 </script>
 <!-- Credit goes to http://insider.zone/ -->
 <!-- REDIRECTING ENDS -->  
