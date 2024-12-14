@@ -1865,9 +1865,9 @@ mappings.forEach(({ button, container }) => {
             // ปรับ margin-bottom ของ container
             containerElement.style.paddingBottom = isVisible ? '0' : '0';
         } else if (containerElement) {
-            // หากไม่มี .content ให้สลับ margin-bottom
-            const currentMargin = containerElement.style.paddingBottom;
-            containerElement.style.paddingBottom = currentMargin === '0' ? '4rem' : '0';
+            // ตรวจสอบ paddingBottom เริ่มต้นและเปลี่ยนค่าตามการกดปุ่ม
+            const currentPadding = containerElement.style.paddingBottom || '0'; // ค่าเริ่มต้นเป็น '0'
+            containerElement.style.paddingBottom = currentPadding === '0px' ? '4rem' : '0';
         }
 
         // เปลี่ยนไอคอนขึ้น/ลง
