@@ -1833,26 +1833,25 @@ const mappings = [
     { button: "qqocy", container: "qqoy" },
     { button: "qqocz", container: "qqoz" }
 ];
-// ตั้งค่าเริ่มต้นให้ทุก container ซ่อนอยู่
+
+// ตั้งค่าเริ่มต้นให้ทุก .content ซ่อนอยู่
 mappings.forEach(({ container }) => {
-    const content = document.querySelector(`.${container}`);
+    const content = document.querySelector(`.${container} .content`);
     if (content) {
-        content.style.display = 'none'; // ซ่อนทุก container
-        content.style.paddingBottom = '0'; // ตั้งค่า paddingBottom เป็น 0
+        content.style.display = 'none'; // ซ่อนเฉพาะ .content
     }
 });
 
 // เพิ่ม EventListener ให้แต่ละปุ่ม
 mappings.forEach(({ button, container }) => {
     document.querySelector(`.${button}`).addEventListener('click', function () {
-        const content = document.querySelector(`.${container}`);
+        const content = document.querySelector(`.${container} .content`);
         const icon = document.querySelector(`.${button} i`);
 
         if (content) {
-            // สลับการแสดงผลของ container
+            // สลับการแสดงผลของ .content
             const isVisible = content.style.display === 'block';
             content.style.display = isVisible ? 'none' : 'block';
-            content.style.paddingBottom = isVisible ? '0' : '50px';
         }
 
         // เปลี่ยนไอคอนขึ้น/ลง
