@@ -1866,7 +1866,8 @@ mappings.forEach(({ button, container }) => {
             containerElement.style.paddingBottom = isVisible ? '0' : '0';
         } else if (containerElement) {
             // ตรวจสอบ paddingBottom เริ่มต้นและเปลี่ยนค่าตามการกดปุ่ม
-            containerElement.style.paddingBottom = currentPadding === '0px' ? '4rem' : '0';
+            const currentPadding = containerElement.style.paddingBottom;
+            containerElement.style.paddingBottom = currentPadding === '4rem' ? '0' : '4rem';
         }
 
         // เปลี่ยนไอคอนขึ้น/ลง
