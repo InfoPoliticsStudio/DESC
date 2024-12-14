@@ -1834,17 +1834,26 @@ const mappings = [
     { button: "qqocz", container: "qqoz" }
 ];
 
-// ตั้งค่าเริ่มต้นให้ทุก .content ซ่อนอยู่
+// ตั้งค่าเริ่มต้น
 mappings.forEach(({ container }) => {
+    const containerElement = document.querySelector(`.${container}`);
     const content = document.querySelector(`.${container} .content`);
-    if (content) {
-        content.style.display = 'none'; // ซ่อนเฉพาะ .content
+
+    if (containerElement) {
+        // หากไม่มี .content ให้ตั้งค่า margin-bottom เป็น 4rem
+        if (!content) {
+            containerElement.style.marginBottom = '4rem';
+        } else {
+            // ซ่อน .content
+            content.style.display = 'none';
+        }
     }
 });
 
 // เพิ่ม EventListener ให้แต่ละปุ่ม
 mappings.forEach(({ button, container }) => {
     document.querySelector(`.${button}`).addEventListener('click', function () {
+        const containerElement = document.querySelector(`.${container}`);
         const content = document.querySelector(`.${container} .content`);
         const icon = document.querySelector(`.${button} i`);
 
@@ -1852,6 +1861,13 @@ mappings.forEach(({ button, container }) => {
             // สลับการแสดงผลของ .content
             const isVisible = content.style.display === 'block';
             content.style.display = isVisible ? 'none' : 'block';
+
+            // ปรับ margin-bottom ของ container
+            containerElement.style.marginBottom = isVisible ? '0' : '4rem';
+        } else if (containerElement) {
+            // หากไม่มี .content ให้สลับ margin-bottom
+            const currentMargin = containerElement.style.marginBottom;
+            containerElement.style.marginBottom = currentMargin === '4rem' ? '0' : '4rem';
         }
 
         // เปลี่ยนไอคอนขึ้น/ลง
