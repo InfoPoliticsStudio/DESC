@@ -1,4 +1,4 @@
-onst students = {
+const students = {
     "34514": {
         name: "ณัฐปิยังกูร โภคินชลิตพงศ์",
         imageUrl: "https://i.postimg.cc/1XDwtQRs/34514.jpg",
