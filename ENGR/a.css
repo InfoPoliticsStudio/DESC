@@ -34,10 +34,17 @@
         .user-cards{
             display: grid;
             gap: .5rem;
-            grid-template-columns: repeat(auto-fill,minmax(300px,1fr));
+/*             grid-template-columns: repeat(auto-fill,minmax(300px,1fr)); */   
+            grid-template-columns: repeat(4, 1fr); /* จำกัดสูงสุด 4 คอลัมน์ */
             margin: 5rem 50px 1rem 50px;
+            max-width: 100%; /* ให้กริดขยายเต็มพื้นที่หน้าจอ */
         }
 
+        @media (max-width: 1200px) { /* สำหรับหน้าจอเล็กกว่า 1200px */
+            .user-cards {
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* ปรับตามพื้นที่ */
+            }
+        }
         .logo {
             width: auto;
             height: 50px;
