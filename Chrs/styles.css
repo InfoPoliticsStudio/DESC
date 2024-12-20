@@ -113,3 +113,10 @@ button {
   width: 100%; 
   justify-content: center; 
 }
+
+button, select, input, textarea {
+    font-size: 1.125em;
+    padding: .474em .5em .36em;
+    line-height: 1.4;
+    border-radius: 3px;
+}
