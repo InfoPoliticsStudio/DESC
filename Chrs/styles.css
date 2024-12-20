@@ -97,8 +97,7 @@ button {
     color: #fff;
     border: none;
     border-radius: 3px;
-    display: inline-flex
-;
+    display: inline-flex;
     align-items: center;
     justify-content: center;
     padding: .5em .9em .4em;
@@ -107,4 +106,10 @@ button {
     font-size: 1.125em;
     font-weight: bold;
     transition: all .4s ease-in-out;
+}
+
+.events{
+  display: grid; 
+  width: 100%; 
+  justify-content: center; 
 }
