@@ -199,7 +199,7 @@ function showStudentCard() {
   const student = students[studentId];
 
   if (student) {
-    document.getElementById("event-card").style.display = "block";
+    document.getElementById("event-card").style.display = "grid";
     document.getElementById("student-image").src = student.imageUrl;
     document.getElementById("student-name").innerText = student.name;
     document.getElementById("student-wish").innerText = getRandomWish();
