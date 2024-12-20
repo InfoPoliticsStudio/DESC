@@ -16,7 +16,10 @@
 
     <!-- Events Section -->
     <section class="events">
-      <input type="text" id="student-id" placeholder="กรอกเลขที่">
+      <div class="col required">
+        <label class="has-meta"><span>เลขที่</span></label>
+        <input type="text" id="student-id">
+    </div>
       <button onclick="showStudentCard()">ส่งคำอวยพร</button>
       <div class="event" id="event-card" style="display: none;">
         <img src="" alt="Student Image" id="student-image" style=" width: 300px; height: 400px; object-fit: cover; ">
