@@ -16,10 +16,12 @@
 
     <!-- Events Section -->
     <section class="events">
-      <div class="event" id="event-template" style="display: none;">
-        <h2 class="event-title">Event Title</h2>
-        <p class="event-date">Date: <span></span></p>
-        <p class="event-description">Description goes here...</p>
+      <input type="text" id="student-id" placeholder="กรอกเลขที่">
+      <button onclick="showStudentCard()">ส่งคำอวยพร</button>
+      <div class="event" id="event-card" style="display: none;">
+        <img src="" alt="Student Image" id="student-image">
+        <h2 id="student-name"></h2>
+        <p id="student-wish"></p>
       </div>
     </section>
   </div>
