@@ -14,6 +14,11 @@
     background-color: #ffcece;
     color: #f26b55;
 }
+@media (max-width: 1200px) { /* สำหรับหน้าจอเล็กกว่า 1200px */
+    .user-cards {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* ปรับตามพื้นที่ */
+    }
+}
         .bod {
             display: flex;
             justify-content: center;
