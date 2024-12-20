@@ -1,5 +1,5 @@
 body {
-  font-family: Arial, sans-serif;
+  font-family: "Kanit", serif;
   margin: 0;
   padding: 0;
   background-color: #f4f4f9;
@@ -82,7 +82,7 @@ label.has-meta {
     font-size: 1.125em;
 }
 
-.has-meta>span {
+.has-meta>span:after {
     content: "*";
     color: #ea0c42;
     margin: 0 2px;
@@ -101,7 +101,6 @@ button {
     align-items: center;
     justify-content: center;
     padding: .5em .9em .4em;
-    font-family: "kvl", sans-serif;
     min-height: 44px;
     font-size: 1.125em;
     font-weight: bold;
