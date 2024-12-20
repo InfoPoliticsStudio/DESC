@@ -60,3 +60,51 @@ h1 {
   color: #555;
   font-size: 14px;
 }
+
+input#student-id {
+    border: 2px solid #d5d5d7;
+    transition: .3s ease;
+    background-size: 30px 20px;
+    background-color: #fff;
+    background-repeat: no-repeat;
+    background-position: right center;
+}
+
+.col.required {
+    padding: 0 10px 20px;
+    display: grid;
+    justify-content: center;
+}
+
+label.has-meta {
+    display: flex;
+    width: 100%;
+    font-size: 1.125em;
+}
+
+.has-meta>span {
+    content: "*";
+    color: #ea0c42;
+    margin: 0 2px;
+}
+
+button {
+    background-image: linear-gradient(to right, #606676, #68728c);
+    cursor: pointer;
+    background-color: #1a477f;
+    /* background-image: linear-gradient(to right, #00a5ad, #00bad3, #006db6, #1598f0); */
+    background-size: 300% 100%;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    display: inline-flex
+;
+    align-items: center;
+    justify-content: center;
+    padding: .5em .9em .4em;
+    font-family: "kvl", sans-serif;
+    min-height: 44px;
+    font-size: 1.125em;
+    font-weight: bold;
+    transition: all .4s ease-in-out;
+}
