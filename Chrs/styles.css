@@ -106,6 +106,7 @@ button {
     font-size: 1.125em;
     font-weight: bold;
     transition: all .4s ease-in-out;
+    margin: 0 10px;
 }
 
 .events{
