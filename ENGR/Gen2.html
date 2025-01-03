@@ -7,13 +7,13 @@
     <link rel="stylesheet" href="/ENGR/a.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
-.header.q{
-    background-color: #f26b55 !important;
-}
-.header .round center.q {
-    background-color: #ffcece;
-    color: #f26b55;
-}
+        .header.q{
+            background-color: #f26b55 !important;
+        }
+        .header .round center.q {
+            background-color: #ffcece;
+            color: #f26b55;
+        }
         .bod {
             display: flex;
             justify-content: center;
@@ -1953,17 +1953,64 @@ const mappings = [
 ];
 
 // ตั้งค่าเริ่มต้น
+// mappings.forEach(({ container }) => {
+//     const containerElement = document.querySelector(`.${container}`);
+//     const content = document.querySelector(`.${container} .content`);
+
+//     if (containerElement) {
+//         // หากไม่มี .content ให้ตั้งค่า margin-bottom เป็น 4rem
+//         if (!content) {
+//             containerElement.style.marginBottom = '4rem';
+//         } else {
+//             // ซ่อน .content
+//             content.style.display = 'none';
+//         }
+//     }
+// });
+
+// // เพิ่ม EventListener ให้แต่ละปุ่ม
+// mappings.forEach(({ button, container }) => {
+//     document.querySelector(`.${button}`).addEventListener('click', function () {
+//         const containerElement = document.querySelector(`.${container}`);
+//         const content = document.querySelector(`.${container} .content`);
+//         const icon = document.querySelector(`.${button} i`);
+
+//         if (content) {
+//             // สลับการแสดงผลของ .content
+//             const isVisible = content.style.display === 'block';
+//             content.style.display = isVisible ? 'none' : 'block';
+
+//             // ปรับ margin-bottom ของ container
+//             containerElement.style.paddingBottom = isVisible ? '0' : '0';
+//         } else if (containerElement) {
+//             // ตรวจสอบ paddingBottom เริ่มต้นและเปลี่ยนค่าตามการกดปุ่ม
+//             const currentPadding = containerElement.style.paddingBottom;
+//             containerElement.style.paddingBottom = currentPadding === '4rem' ? '0' : '4rem';
+//         }
+
+//         // เปลี่ยนไอคอนขึ้น/ลง
+//         if (icon) {
+//             icon.classList.toggle('fa-chevron-down');
+//             icon.classList.toggle('fa-chevron-up');
+//         }
+//     });
+// });
+
+//--------------------------------------------
+// ตั้งค่าเริ่มต้น
 mappings.forEach(({ container }) => {
     const containerElement = document.querySelector(`.${container}`);
-    const content = document.querySelector(`.${container} .content`);
+    const contents = containerElement ? containerElement.querySelectorAll('.content') : null;
 
     if (containerElement) {
-        // หากไม่มี .content ให้ตั้งค่า margin-bottom เป็น 4rem
-        if (!content) {
+        if (!contents || contents.length === 0) {
+            // หากไม่มี .content ใดเลย ให้ตั้งค่า margin-bottom เป็น 4rem
             containerElement.style.marginBottom = '4rem';
         } else {
-            // ซ่อน .content
-            content.style.display = 'none';
+            // ซ่อน .content ทั้งหมดใน container
+            contents.forEach(content => {
+                content.style.display = 'none';
+            });
         }
     }
 });
@@ -1972,13 +2019,15 @@ mappings.forEach(({ container }) => {
 mappings.forEach(({ button, container }) => {
     document.querySelector(`.${button}`).addEventListener('click', function () {
         const containerElement = document.querySelector(`.${container}`);
-        const content = document.querySelector(`.${container} .content`);
+        const contents = containerElement ? containerElement.querySelectorAll('.content') : null;
         const icon = document.querySelector(`.${button} i`);
 
-        if (content) {
-            // สลับการแสดงผลของ .content
-            const isVisible = content.style.display === 'block';
-            content.style.display = isVisible ? 'none' : 'block';
+        if (contents && contents.length > 0) {
+            // สลับการแสดงผลของ .content ทั้งหมดใน container
+            const isVisible = Array.from(contents).some(content => content.style.display === 'block');
+            contents.forEach(content => {
+                content.style.display = isVisible ? 'none' : 'block';
+            });
 
             // ปรับ margin-bottom ของ container
             containerElement.style.paddingBottom = isVisible ? '0' : '0';
@@ -1995,6 +2044,7 @@ mappings.forEach(({ button, container }) => {
         }
     });
 });
+
                     </script>
 </body>
 </html>
