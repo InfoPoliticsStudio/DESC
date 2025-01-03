@@ -4,6 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ENGR-02</title>
+    <script>
+        function checkPassword() {
+            const password = prompt("กรุณาเข้าสู่ระบบ");
+            if (password === "DESC2025") {
+                alert("ให้สิทธิ์การเข้าถึงแล้ว!");
+            } else {
+                alert("การเข้าถึงถูกปฏิเสธ! กำลังเปลี่ยนเส้นทางไปยังหน้าก่อนหน้านี้...");
+                window.location.href = "/"; // เปลี่ยนเป็น URL ที่ต้องการ
+            }
+        }
+
+        // เรียกฟังก์ชันเมื่อโหลดหน้า
+        window.onload = checkPassword;
+    </script>
     <link rel="stylesheet" href="/ENGR/a.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
