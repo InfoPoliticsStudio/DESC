@@ -139,23 +139,10 @@
                      
     </style>
     <!-- เชื่อมไฟล์ CSS -->
-    <script>
-        const toggleBtn = document.querySelector('.toggle_btn');
-        const toggleBtnIcon = document.querySelector('.toggle_btn i');
-        const dropDownMenu = document.querySelector('.dropdown_menu');
-
-        toggleBtn.addEventListener('click', () => {
-            dropDownMenu.classList.toggle('open');
-            const isOpen = dropDownMenu.classList.contains('open');
-
-            toggleBtnIcon.className = isOpen
-                ? 'fa-solid fa-xmark'
-                : 'fa-solid fa-bars';
-        });
-    </script>
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
 <body>
+    
     <div class="fixed">
         <header>
             <div class="navbar">
@@ -210,5 +197,20 @@
         <h3>ข้อมูลเพิ่มเติม</h3>
         <p>หากมีข้อสงสัยเกี่ยวกับการประชุม กรุณาติดต่อฝ่ายเลขานุการ DESC ได้ที่ <a href="mailto:desc.secretary@example.com">desc.secretary@example.com</a></p>
     </div>
+
+    <script>
+        const toggleBtn = document.querySelector('.toggle_btn');
+        const toggleBtnIcon = document.querySelector('.toggle_btn i');
+        const dropDownMenu = document.querySelector('.dropdown_menu');
+
+        toggleBtn.addEventListener('click', () => {
+            dropDownMenu.classList.toggle('open');
+            const isOpen = dropDownMenu.classList.contains('open');
+
+            toggleBtnIcon.className = isOpen
+                ? 'fa-solid fa-xmark'
+                : 'fa-solid fa-bars';
+        });
+    </script>
 </body>
 </html>
