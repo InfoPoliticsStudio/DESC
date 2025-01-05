@@ -35,7 +35,7 @@
     
     a{
         text-decoration: none;
-cursor:pointer;
+        cursor:pointer;
     }
 
     a.active{
