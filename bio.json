@@ -1,0 +1,18 @@
+{
+  "044": {
+    "name": "John Doe",
+    "birthDate": "2545-03-15",
+    "university": "Engineering University",
+    "status": "Graduated",
+    "history": "John is now working as a software engineer.",
+    "image": "john.jpg"
+  },
+  "045": {
+    "name": "Jane Smith",
+    "birthDate": "2544-08-20",
+    "university": "Tech Institute",
+    "status": "Enrolled",
+    "history": "Jane is currently a senior studying civil engineering.",
+    "image": "jane.jpg"
+  }
+}
