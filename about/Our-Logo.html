@@ -469,13 +469,15 @@
             </div>
             <script>
               const svgLogos = document.querySelectorAll('.svg-logo');
-            
-              colorPicker.addEventListener('input', (event) => {
-                const selectedColor = event.target.value;
-                svgLogos.forEach(svg => {
-                  svg.querySelector('circle').setAttribute('fill', selectedColor);
+
+                // ใช้ forEach เพื่อวนลูปและจัดการแต่ละอัน
+                svgLogos.forEach((svgLogo, index) => {
+                  console.log(`SVG Logo ${index + 1}:`, svgLogo);
+                
+                  // ตัวอย่างการเปลี่ยนสี
+                  svgLogo.setAttribute('fill', '#ff0000'); // เปลี่ยนสีเป็นแดง
                 });
-              });
+
             </script>
 
         </section>
