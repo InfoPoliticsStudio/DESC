@@ -232,6 +232,49 @@
               }
         
         </style>
+    <style>
+	section.board{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+	}
+  .board-container {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 6%;
+      width: 90%;
+      max-width: 920px;
+  }
+
+  .board-card {
+      background: transparent;
+      text-align: center;
+  }
+
+  .board-card img {
+      width: 100%;
+      vertical-align: middle;
+  }
+
+  .board-card .text-bold {
+      font-weight: bold;
+  }
+  .board-card h3{
+      font-weight: bold;
+      font-size: 1.2rem;
+      margin-top: 25px;
+      line-height: 1;
+      margin-bottom: .2rem;
+      letter-spacing: 1px;
+  }
+  @media (max-width: 576px) {
+      .board-container {
+          grid-template-columns: 1fr;
+      }
+  }
+
+    </style>
     <link rel="stylesheet" href="styles.css"> <!-- Add your stylesheet link here -->
 </head>
 <body>
@@ -284,7 +327,28 @@
         <!-- Right Content -->
         <section style="width: 75%; padding: 10px;">
             <h1>คณะกรรมการ</h1>
-            
+              <section class="board">
+                  <div class="board-container">
+                      <div class="board-card">
+                          <img src="https://via.placeholder.com/150" alt="Dr. Natthaphon">
+                          <h3>ดร.ณัฐพล ณัฏฐสมบูรณ์</h3>
+                          <div class="text-bold">ประธานกรรมการ</div>
+                          <div>คำอธิบาย</div>
+                      </div>
+                      <div class="board-card">
+                          <img src="https://via.placeholder.com/150" alt="Dr. Natthaphon">
+                          <h3>ดร.ณัฐพล ณัฏฐสมบูรณ์</h3>
+                          <div class="text-bold">ประธานกรรมการ</div>
+                          <div>คำอธิบาย</div>
+                      </div>
+                      <div class="board-card">
+                          <img src="https://via.placeholder.com/150" alt="Dr. Natthaphon">
+                          <h3>ดร.ณัฐพล ณัฏฐสมบูรณ์</h3>
+                          <div class="text-bold">ประธานกรรมการ</div>
+                          <div>คำอธิบาย</div>
+                      </div>
+                  </div>
+              </section>
         </section>
     </main>
     <footer>
