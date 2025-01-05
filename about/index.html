@@ -157,9 +157,82 @@
           border-bottom: 2px solid #800;
       }
     </style>
+    <style>
+        /*  LOADER  */
+        .css-1ltj605 {
+            height: 100vh;
+            display: flex;
+                  position: fixed;
+                  inset: 0px;
+                  background: rgb(255, 255, 255);
+                  z-index: 99999;
+                  -webkit-box-align: center;
+                  align-items: center;
+                  -webkit-box-pack: center;
+                  justify-content: center;
+                  transition: opacity 0.75s, visibility 0.75s;
+              }
+        .css-1ltj605-hidden{
+            opacity: 0;
+            visibility: hidden;
+        }
+              
+        .css-nvmvi3 *, .css-nvmvi3 *::before, .css-nvmvi3 *::after {
+                  box-sizing: inherit;
+              }
+              .css-z01bqi {
+                  display: inline-block;
+                  color: #800;
+                  animation: 1.4s linear 0s infinite normal none running animation-61bdi0;
+              }
+              .css-nvmvi3 *, .css-nvmvi3 *::before, .css-nvmvi3 *::after {
+                  box-sizing: inherit;
+              }
+              @keyframes animation-61bdi0{
+              0% {
+                  transform: rotate(0deg);
+              }
+              100% {
+                  transform: rotate(360deg);
+              }
+                }
+              .css-13o7eu2 {
+                  display: block;
+              }
+              .css-nvmvi3 *, .css-nvmvi3 *::before, .css-nvmvi3 *::after {
+                  box-sizing: inherit;
+              }
+              .css-14891ef {
+                  stroke: currentcolor;
+                  stroke-dasharray: 80px, 200px;
+                  stroke-dashoffset: 0;
+                  animation: 1.4s ease-in-out 0s infinite normal none running animation-1p2h4ri;
+              }
+              
+              .css-nvmvi3 *, .css-nvmvi3 *::before, .css-nvmvi3 *::after {
+                  box-sizing: inherit;
+              }
+              
+              @keyframes nimation-1p2h4ri{
+              0% {
+                  stroke-dasharray: 1px, 200px;
+                  stroke-dashoffset: 0;
+              }
+              50% {
+                  stroke-dasharray: 100px, 200px;
+                  stroke-dashoffset: -15px;
+              }
+              100% {
+                  stroke-dasharray: 100px, 200px;
+                  stroke-dashoffset: -125px;
+              }
+              }
+        
+        </style>
     <link rel="stylesheet" href="styles.css"> <!-- Add your stylesheet link here -->
 </head>
 <body>
+    <div class="MuiBox-root css-1ltj605 loader css-1ltj605-hidden" id=""><span class="MuiCircularProgress-root MuiCircularProgress-indeterminate MuiCircularProgress-colorPrimary css-z01bqi" role="progressbar" style="width: 100px; height: 100px;"><svg class="MuiCircularProgress-svg css-13o7eu2" viewBox="22 22 44 44"><circle class="MuiCircularProgress-circle MuiCircularProgress-circleIndeterminate css-14891ef" cx="44" cy="44" r="20.2" fill="none" stroke-width="3.6"></circle></svg></span></div>
     <div class="fixed">
         <header>
             <div class="navbar">
@@ -215,7 +288,7 @@
         <!-- Footer content here -->
         <p>&copy; 2024-2025 สำนักงานคณะกรรมการฯ สวศ. All rights reserved.</p>
     </footer>
-    <script>
+      <script>
           const toggleBtn = document.querySelector('.toggle_btn');
           const toggleBtnIcon = document.querySelector('.toggle_btn i');
           const dropDownMenu = document.querySelector('.dropdown_menu');
@@ -228,6 +301,86 @@
                   ? 'fa-solid fa-xmark'
                   : 'fa-solid fa-bars';
           });
+        </script>
+        <script>
+        // ฟังก์ชันคำนวณอายุจากวันเดือนปีเกิด
+        function calculateAge(birthDate) {
+          const [thaiYear, month, day] = birthDate.split("-").map(Number); // แยกปี พ.ศ., เดือน, วัน
+          const christianYear = thaiYear - 543; // แปลง พ.ศ. เป็น ค.ศ.
+      
+          const birthDateObj = new Date(christianYear, month - 1, day); // สร้างวันที่ในรูปแบบ Date
+          const today = new Date(); // วันที่ปัจจุบัน
+      
+          let age = today.getFullYear() - birthDateObj.getFullYear(); // คำนวณปีที่ต่างกัน
+          const isBeforeBirthday =
+            today.getMonth() < birthDateObj.getMonth() ||
+            (today.getMonth() === birthDateObj.getMonth() && today.getDate() < birthDateObj.getDate());
+      
+          if (isBeforeBirthday) {
+            age--; // ถ้าวันเกิดยังไม่ถึงในปีนี้ ให้ลบ 1 ปี
+          }
+      
+          return age;
+        }
+      
+        // ฟังก์ชันโหลดข้อมูลจาก JSON
+        async function loadStudentData() {
+          try {
+            const response = await fetch('bio.json');
+            const data = await response.json();
+      
+            const studentsContainer = document.getElementById('students-container');
+      
+            // สร้างการ์ดสำหรับนักเรียนแต่ละคน
+            for (let id in data) {
+              const student = data[id];
+      
+              // คำนวณอายุ
+              const age = calculateAge(student.birthDate);
+      
+              // สร้าง DOM การ์ด
+              const card = document.createElement('div');
+              card.className = 'student-card';
+      
+              const img = document.createElement('img');
+              img.src = student.image || 'default.jpg';
+              img.alt = `Image of ${student.name}`;
+      
+              const info = document.createElement('div');
+              info.className = 'student-info';
+      
+              const name = document.createElement('h2');
+              name.textContent = student.name;
+      
+              const ageElement = document.createElement('p');
+              ageElement.innerHTML = `<strong>อายุ:</strong> ${age} ปี`;
+      
+              const university = document.createElement('p');
+              university.innerHTML = `<strong>ระดับปริญญาตรี:</strong> ${student.university} (${student.status})`;
+      
+              const history = document.createElement('p');
+              history.innerHTML = `<strong>ประวัติ:</strong> ${student.history}`;
+      
+              // เพิ่มข้อมูลลงใน info
+              info.appendChild(name);
+              info.appendChild(ageElement);
+              info.appendChild(university);
+              info.appendChild(history);
+      
+              // เพิ่ม img และ info ลงใน card
+              card.appendChild(img);
+              card.appendChild(info);
+      
+              // เพิ่ม card ลงใน studentsContainer
+              studentsContainer.appendChild(card);
+            }
+          } catch (error) {
+            console.error('Error loading student data:', error);
+          }
+        }
+      
+        // เรียกใช้ฟังก์ชันเมื่อโหลดหน้าเสร็จ
+        window.onload = loadStudentData;
       </script>
 </body>
 </html>
