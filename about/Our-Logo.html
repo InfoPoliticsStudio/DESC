@@ -292,14 +292,16 @@
               <input type="color" id="colorPicker" value="#000" style=" border: none; background: transparent; width: 25px; height: 25px; ">
             </div>
             <script>
-              const colorPicker = document.getElementById('colorPicker');
-              const svgLogo = document.querySelector('.svg-logo');
+              const svgLogos = document.querySelectorAll('.svg-logo');
             
               colorPicker.addEventListener('input', (event) => {
-                const selectedColor = event.target.value; 
-                svgLogo.setAttribute('fill', selectedColor);
+                const selectedColor = event.target.value;
+                svgLogos.forEach(svg => {
+                  svg.querySelector('circle').setAttribute('fill', selectedColor);
+                });
               });
             </script>
+
         </section>
     </main>
     <footer>
