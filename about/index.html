@@ -98,7 +98,61 @@
                 line-height: unset;
             }
       </style>
-  
+      <style>
+      @media (min-width: 1170px) {
+          .cont, .cont-pd {
+              max-width: 1170px!important;
+              padding-left: 30px!important;
+              padding-right: 30px!important;
+          }
+      }
+      @media (min-width: 992px) {
+          .cont, .cont-pd {
+              max-width: 990px!important;
+              padding-left: 30px!important;
+              padding-right: 30px!important;
+          }
+      }
+      .cont-pd, cont-pd {
+          max-width: 1232px;
+          min-width: 320px;
+          display: block;
+          position: relative;
+          margin: auto;
+          padding: 0 16px;
+      }
+      
+      
+      .c2 {
+          color: #d10000;
+      }
+      
+      .cb {
+          color: #000;
+      }
+      
+      .cw{color:#fff;}
+      
+      .h5 {
+          font-size: 2.6em !important;
+      }
+      
+      .h7 {
+          font-size: 1.8em !important;
+      }
+      
+      h1, h2, h3, h4, h5, h6, hr, p {
+          margin: 0;
+      }
+      .h8{
+        font-size: 1.3em !important;
+      }
+        section#section {
+            background: #800000;
+        }
+        .description{color:#800000;]
+                     
+    </style>
     <link rel="stylesheet" href="styles.css"> <!-- Add your stylesheet link here -->
 </head>
 <body>
@@ -128,7 +182,7 @@
             </div>
         </header>
     </div>
-    <main style="display: flex;padding-top: 60px;">
+    <main style="display: flex;padding-top: 60px;" class="cont-pd">
         <!-- Left Menu -->
         <aside style="width: 25%; padding: 10px; border-right: 1px solid #ccc;">
             <nav>
