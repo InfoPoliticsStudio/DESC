@@ -238,6 +238,7 @@
 	      justify-content: center;
 	      align-items: center;
 	      margin-top: 10px;
+    	      overflow: hidden;
 	  }
 	  .board-container {
 	      display: grid;
@@ -245,16 +246,20 @@
 	      gap: 6%;
 	      width: 90%;
 	      max-width: 920px;
+    	      overflow: hidden;
 	  }
 	
 	  .board-card {
 	      background: transparent;
 	      text-align: center;
+    	      overflow: hidden;
 	  }
 	
 	  .board-card img {
 	      width: 100%;
 	      vertical-align: middle;
+	      aspect-ratio: 1 / 1;
+	      object-fit: cover;
 	  }
 	
 	  .board-card .text-bold {
