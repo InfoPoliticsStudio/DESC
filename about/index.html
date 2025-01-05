@@ -304,84 +304,16 @@
           });
         </script>
         <script>
-        // ฟังก์ชันคำนวณอายุจากวันเดือนปีเกิด
-        function calculateAge(birthDate) {
-          const [thaiYear, month, day] = birthDate.split("-").map(Number); // แยกปี พ.ศ., เดือน, วัน
-          const christianYear = thaiYear - 543; // แปลง พ.ศ. เป็น ค.ศ.
+          window.addEventListener("load", () => {
+              const loader = document.querySelector(".css-1ltj605");
       
-          const birthDateObj = new Date(christianYear, month - 1, day); // สร้างวันที่ในรูปแบบ Date
-          const today = new Date(); // วันที่ปัจจุบัน
+              loader.classList.add("css-1ltj605-hidden");
       
-          let age = today.getFullYear() - birthDateObj.getFullYear(); // คำนวณปีที่ต่างกัน
-          const isBeforeBirthday =
-            today.getMonth() < birthDateObj.getMonth() ||
-            (today.getMonth() === birthDateObj.getMonth() && today.getDate() < birthDateObj.getDate());
+              loader.addEventListener("transitionend", () => {
+                  document.body.removeChild("loader");
+              })
+          })
       
-          if (isBeforeBirthday) {
-            age--; // ถ้าวันเกิดยังไม่ถึงในปีนี้ ให้ลบ 1 ปี
-          }
-      
-          return age;
-        }
-      
-        // ฟังก์ชันโหลดข้อมูลจาก JSON
-        async function loadStudentData() {
-          try {
-            const response = await fetch('bio.json');
-            const data = await response.json();
-      
-            const studentsContainer = document.getElementById('students-container');
-      
-            // สร้างการ์ดสำหรับนักเรียนแต่ละคน
-            for (let id in data) {
-              const student = data[id];
-      
-              // คำนวณอายุ
-              const age = calculateAge(student.birthDate);
-      
-              // สร้าง DOM การ์ด
-              const card = document.createElement('div');
-              card.className = 'student-card';
-      
-              const img = document.createElement('img');
-              img.src = student.image || 'default.jpg';
-              img.alt = `Image of ${student.name}`;
-      
-              const info = document.createElement('div');
-              info.className = 'student-info';
-      
-              const name = document.createElement('h2');
-              name.textContent = student.name;
-      
-              const ageElement = document.createElement('p');
-              ageElement.innerHTML = `<strong>อายุ:</strong> ${age} ปี`;
-      
-              const university = document.createElement('p');
-              university.innerHTML = `<strong>ระดับปริญญาตรี:</strong> ${student.university} (${student.status})`;
-      
-              const history = document.createElement('p');
-              history.innerHTML = `<strong>ประวัติ:</strong> ${student.history}`;
-      
-              // เพิ่มข้อมูลลงใน info
-              info.appendChild(name);
-              info.appendChild(ageElement);
-              info.appendChild(university);
-              info.appendChild(history);
-      
-              // เพิ่ม img และ info ลงใน card
-              card.appendChild(img);
-              card.appendChild(info);
-      
-              // เพิ่ม card ลงใน studentsContainer
-              studentsContainer.appendChild(card);
-            }
-          } catch (error) {
-            console.error('Error loading student data:', error);
-          }
-        }
-      
-        // เรียกใช้ฟังก์ชันเมื่อโหลดหน้าเสร็จ
-        window.onload = loadStudentData;
       </script>
 </body>
 </html>
