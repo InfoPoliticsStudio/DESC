@@ -362,10 +362,63 @@
               aside nav ul li a:hover{
                   border-bottom: 2px solid #800;
               }
+                
+                .containers {
+                    background: #fff;
+                    padding: 20px;
+                    border-radius: 10px;
+                }
+                .data p {
+                    font-size: 20px;
+                    margin: 10px 0;
+                    color: #000;
+                }
+                
+                .number {
+                    font-weight: bold;
+                }
             </style>
             
         </section>
     <!-- </div> -->
+    <div class="cont-pd containers">
+        <div class="data">
+            <p id="members">จำนวนสมาชิกทั้งหมด <span class="number">150</span> คน</p>
+            <p id="executives">จำนวนผู้บริหาร <span class="number">25</span> คน</p>
+        </div>
+        <script>
+-            const organizationData = {
+                members: 150,
+                executives: 25,
+            };
+            
+            function animateNumber(element, targetNumber, duration) {
+                let startNumber = 0;
+                const stepTime = Math.abs(Math.floor(duration / targetNumber)); 
+            
+                const interval = setInterval(() => {
+                    startNumber += 1;
+                    element.textContent = startNumber;
+                    
+                    if (startNumber >= targetNumber) {
+                        clearInterval(interval);
+                    }
+                }, stepTime);
+            }
+            
+            function displayOrganizationData(data) {
+                const membersElement = document.querySelector("#members .number");
+                const executivesElement = document.querySelector("#executives .number");
+            
+                animateNumber(membersElement, data.members, 2000);
+                animateNumber(executivesElement, data.executives, 1500);
+            }
+            
+            window.onload = () => {
+                displayOrganizationData(organizationData);
+            };
+        </script>
+    </div>
     <main>
         <section id="hero" >
             <h1 class="aaa" style="display:none;">
