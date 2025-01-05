@@ -382,43 +382,43 @@
         </section>
     <!-- </div> -->
     <div class="cont-pd containers">
-    <div class="data">
-        <p id="members">จำนวนสมาชิกทั้งหมด <span class="number"></span> คน</p>
-        <p id="executives">จำนวนผู้บริหาร <span class="number"></span> คน</p>
+        <div class="data">
+            <p id="members"><i class="fa-solid fa-user" style=" padding-right: 10px; "></i>จำนวนสมาชิกทั้งหมด <span class="number"></span> คน</p>
+            <p id="executives"><i class="fa-solid fa-gear" style=" padding-right: 10px; "></i>จำนวนผู้บริหาร <span class="number"></span> คน</p>
+        </div>
+        <script>
+            const organizationData = {
+                members: 150,
+                executives: 25,
+            };
+            
+            function animateNumber(element, targetNumber, duration) {
+                let startNumber = 0;
+                const stepTime = Math.max(Math.floor(duration / targetNumber), 1); // ป้องกัน stepTime น้อยเกินไป
+            
+                const interval = setInterval(() => {
+                    startNumber += 1;
+                    element.textContent = startNumber;
+                    
+                    if (startNumber >= targetNumber) {
+                        clearInterval(interval);
+                    }
+                }, stepTime);
+            }
+            
+            function displayOrganizationData(data) {
+                const membersElement = document.querySelector("#members .number");
+                const executivesElement = document.querySelector("#executives .number");
+            
+                if (membersElement) animateNumber(membersElement, data.members, 2000);
+                if (executivesElement) animateNumber(executivesElement, data.executives, 1500);
+            }
+            
+            window.onload = () => {
+                displayOrganizationData(organizationData);
+            };
+        </script>
     </div>
-    <script>
-        const organizationData = {
-            members: 150,
-            executives: 25,
-        };
-        
-        function animateNumber(element, targetNumber, duration) {
-            let startNumber = 0;
-            const stepTime = Math.max(Math.floor(duration / targetNumber), 1); // ป้องกัน stepTime น้อยเกินไป
-        
-            const interval = setInterval(() => {
-                startNumber += 1;
-                element.textContent = startNumber;
-                
-                if (startNumber >= targetNumber) {
-                    clearInterval(interval);
-                }
-            }, stepTime);
-        }
-        
-        function displayOrganizationData(data) {
-            const membersElement = document.querySelector("#members .number");
-            const executivesElement = document.querySelector("#executives .number");
-        
-            if (membersElement) animateNumber(membersElement, data.members, 2000);
-            if (executivesElement) animateNumber(executivesElement, data.executives, 1500);
-        }
-        
-        window.onload = () => {
-            displayOrganizationData(organizationData);
-        };
-    </script>
-</div>
 
     <main>
         <section id="hero" >
