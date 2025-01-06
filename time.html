@@ -269,42 +269,47 @@
     </section>
     <main style="padding-top: 60px;margin-bottom: 60px;padding-bottom: 60px;" class="cont-pd">
         <h1>เวลาประกาศผลคะแนน tgat tpat2-5</h1>
-        <div id="countdown">Loading...</div>
+        <div id="countdown">00:00:00</div>
 
     <script>
         function startCountdown() {
             const countdownElement = document.getElementById('countdown');
-            
+
+            function formatTime(num) {
+                return num.toString().padStart(2, '0'); // แปลงตัวเลขให้มี 2 หลัก
+            }
+
             function updateCountdown() {
-                // Get current time
+                // เวลาปัจจุบัน
                 const now = new Date();
-                
-                // Set target time to 13:00 today
+
+                // ตั้งเวลาเป้าหมาย 13:00 ของวันปัจจุบัน
                 const target = new Date();
                 target.setHours(13, 0, 0, 0);
-                
-                // If it's past 13:00, set target to 13:00 tomorrow
+
+                // ถ้าเวลาปัจจุบันเกิน 13:00 ให้ตั้งเป้าเป็นวันถัดไป
                 if (now > target) {
                     target.setDate(target.getDate() + 1);
                 }
-                
-                // Calculate the time difference
+
+                // คำนวณเวลาที่เหลือ
                 const diff = target - now;
-                
-                // Convert milliseconds to hours and minutes
+
+                // คำนวณชั่วโมง นาที และวินาที
                 const hours = Math.floor(diff / (1000 * 60 * 60));
                 const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-                
-                // Display the countdown
-                countdownElement.textContent = `${hours} hours ${minutes} minutes`;
+                const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+                // แสดงเวลาที่เหลือในรูปแบบ 00:00:00
+                countdownElement.textContent = `${formatTime(hours)}:${formatTime(minutes)}:${formatTime(seconds)}`;
             }
-            
-            // Update countdown every second
+
+            // อัปเดตทุกวินาที
             updateCountdown();
             setInterval(updateCountdown, 1000);
         }
 
-        // Start the countdown when the page loads
+        // เริ่มต้นการนับถอยหลังเมื่อโหลดหน้า
         startCountdown();
     </script>
     </main>
