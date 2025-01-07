@@ -1,4 +1,11 @@
 
+.logo {
+    overflow: hidden;
+}
+
+div#countdown {
+    font-weight: 900;
+}
     @import url('https://fonts.googleapis.com/css2?family=Kanit&display=swap');
 
     :root{
