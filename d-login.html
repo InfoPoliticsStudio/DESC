@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Login Page</title>
+  <title>Student Login</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -46,6 +46,15 @@
     .login-container button:hover {
       background-color: #0056b3;
     }
+    #studentImage {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      margin: 10px auto;
+      display: none;
+      border: 2px solid #ccc;
+      object-fit: cover;
+    }
     .error-message {
       color: red;
       font-size: 0.9rem;
@@ -56,42 +65,57 @@
 </head>
 <body>
   <div class="login-container">
-    <h2>Login</h2>
-    <form id="login-form">
-      <div class="error-message" id="error-message">Invalid credentials. Please try again.</div>
-      <input type="text" id="username" placeholder="Username" required />
+    <h2>Student Login</h2>
+    <img id="studentImage" alt="Student Image">
+    <form id="login-form" onsubmit="return false;">
+      <input type="text" id="studentID" placeholder="Student ID" required />
       <input type="password" id="password" placeholder="Password" required />
-      <button type="submit">Login</button>
+      <button type="button" onclick="validateLogin()">Login</button>
     </form>
+    <div class="error-message" id="error-message">Invalid Student ID or Password</div>
   </div>
 
   <script>
-    document.getElementById('login-form').addEventListener('submit', async (e) => {
-      e.preventDefault(); // ป้องกันการ reload หน้าเว็บ
+    // Fetch student data from Google Apps Script
+    async function fetchStudentData() {
+      const response = await fetch('https://script.google.com/macros/s/AKfycbwe01xrLXX1lkTQfXy7ae0Y9liHR7r0pVdSVHjuIKU-vm4f6VNw8FKerlw2VPlKlNoZ/exec');
+      const data = await response.json();
+      return data; // Return student data as an object
+    }
 
-      const username = document.getElementById('username').value;
+    // Automatically display student image when Student ID is entered
+    document.getElementById('studentID').addEventListener('input', async function() {
+      const studentID = this.value;
+      const imgElement = document.getElementById('studentImage');
+      
+      const students = await fetchStudentData();
+
+      if (students[studentID]) {
+        imgElement.src = students[studentID].imageUrl;
+        imgElement.style.display = 'block';
+      } else {
+        imgElement.style.display = 'none';
+      }
+    });
+
+    // Validate login when "Login" button is clicked
+    async function validateLogin() {
+      const studentID = document.getElementById('studentID').value;
       const password = document.getElementById('password').value;
       const errorMessage = document.getElementById('error-message');
 
-      try {
-        const response = await fetch('https://script.google.com/macros/s/AKfycbwe01xrLXX1lkTQfXy7ae0Y9liHR7r0pVdSVHjuIKU-vm4f6VNw8FKerlw2VPlKlNoZ/exec');
-        const data = await response.json();
+      const students = await fetchStudentData();
 
-        const user = data.find(user => user.username === username && user.password === password);
-
-        if (user) {
-          alert(`Welcome, ${user.name}!`);
-          // Redirect to another page or handle login success
-          window.location.href = 'dashboard.html';
-        } else {
-          errorMessage.style.display = 'block';
-        }
-      } catch (error) {
-        console.error('Error:', error);
-        errorMessage.textContent = 'An error occurred. Please try again later.';
+      if (students[studentID] && students[studentID].password === password) {
+        // Successful login, redirect to dashboard
+        alert("Login successful! Welcome " + students[studentID].name);
+        window.location.href = "dashboard"; // Redirect to dashboard page
+      } else {
+        // Invalid login credentials
         errorMessage.style.display = 'block';
+        setTimeout(() => errorMessage.style.display = 'none', 3000); // Hide error message after 3 seconds
       }
-    });
+    }
   </script>
 </body>
 </html>
