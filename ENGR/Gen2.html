@@ -164,9 +164,45 @@
             width: 80%;
     		padding: 5px;
         }
+/* Loader Styles */
+.loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  transition: opacity 0.5s ease;
+}
+
+.loader.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.spinner {
+  border: 8px solid rgb(199 0 0 / 30%);
+  border-top: 8px solid rgb(199 0 0);
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
     </style>
 </head>
 <body>
+	<div class="loader">
+      	    <div class="spinner"></div>
+    	</div>
 	<header style=" z-index: 100; ">
         <img class="logo" src="https://i.postimg.cc/nc54WyNB/HRIS.png" alt="Logo">
         <ul>
