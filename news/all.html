@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Anuphan:wght@100..700&amp;family=Bai+Jamjuree:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="icon" href="https://i.postimg.cc/Fzngfzcv/14.png">
+    <link rel="stylesheet" href="index.css">
+    <title>DESC - หน้าหลัก</title>
+    <style>
+        @media screen and (max-width: 960px) {
+            .congratulations img {
+                width: 50%!important;
+            }
+        }
+        @media screen and (max-width: 960px) {
+            .congrats img {
+                width: 50%!important;
+            }
+        }
+        
+        .congrats img {
+            width: 50%;
+            height: 100%;
+            object-fit: cover;
+            padding: 10px;
+        }
+          .bai-jamjuree-extralight {
+            font-family: "Bai Jamjuree", serif;
+            font-weight: 200;
+            font-style: normal;
+          }
+          
+          .bai-jamjuree-light {
+            font-family: "Bai Jamjuree", serif;
+            font-weight: 300;
+            font-style: normal;
+          }
+          
+          .bai-jamjuree-regular {
+            font-family: "Bai Jamjuree", serif;
+            font-weight: 400;
+            font-style: normal;
+          }
+          
+          .bai-jamjuree-medium {
+            font-family: "Bai Jamjuree", serif;
+            font-weight: 500;
+            font-style: normal;
+          }
+          
+          .bai-jamjuree-semibold {
+            font-family: "Bai Jamjuree", serif;
+            font-weight: 600;
+            font-style: normal;
+          }
+          
+          .bai-jamjuree-bold {
+            font-family: "Bai Jamjuree", serif;
+            font-weight: 700;
+            font-style: normal;
+          }
+          
+          .bai-jamjuree-extralight-italic {
+            font-family: "Bai Jamjuree", serif;
+            font-weight: 200;
+            font-style: italic;
+          }
+          
+          .bai-jamjuree-light-italic {
+            font-family: "Bai Jamjuree", serif;
+            font-weight: 300;
+            font-style: italic;
+          }
+          
+          .bai-jamjuree-regular-italic {
+            font-family: "Bai Jamjuree", serif;
+            font-weight: 400;
+            font-style: italic;
+          }
+          
+          .bai-jamjuree-medium-italic {
+            font-family: "Bai Jamjuree", serif;
+            font-weight: 500;
+            font-style: italic;
+          }
+          
+          .bai-jamjuree-semibold-italic {
+            font-family: "Bai Jamjuree", serif;
+            font-weight: 600;
+            font-style: italic;
+          }
+          
+          .bai-jamjuree-bold-italic {
+            font-family: "Bai Jamjuree", serif;
+            font-weight: 700;
+            font-style: italic;
+          }
+      </style>
+    <style>
+        @keyframes marquee {
+            0% {
+                transform: translateX(100%);
+            }
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+
+        .marquee {
+            display: inline-block;
+            white-space: nowrap;
+            padding-left: 100%;
+            animation: marquee 20s linear infinite;
+        }
+        h1.aaa{  
+            padding: 5px 0;
+          font-size: 24px;
+          font-weight: normal;
+          background: var(--bg-desc);
+          color: #ffffff;
+          z-index: 0;
+          position: unset;
+        }
+    </style>
+    <style>
+        /*  LOADER  */
+        .css-1ltj605 {
+            height: 100vh;
+            display: flex;
+                  position: fixed;
+                  inset: 0px;
+                  background: rgb(255, 255, 255);
+                  z-index: 99999;
+                  -webkit-box-align: center;
+                  align-items: center;
+                  -webkit-box-pack: center;
+                  justify-content: center;
+                  transition: opacity 0.75s, visibility 0.75s;
+              }
+        .css-1ltj605-hidden{
+            opacity: 0;
+            visibility: hidden;
+        }
+              
+        .css-nvmvi3 *, .css-nvmvi3 *::before, .css-nvmvi3 *::after {
+                  box-sizing: inherit;
+              }
+              .css-z01bqi {
+                  display: inline-block;
+                  color: #800;
+                  animation: 1.4s linear 0s infinite normal none running animation-61bdi0;
+              }
+              .css-nvmvi3 *, .css-nvmvi3 *::before, .css-nvmvi3 *::after {
+                  box-sizing: inherit;
+              }
+              @keyframes animation-61bdi0{
+              0% {
+                  transform: rotate(0deg);
+              }
+              100% {
+                  transform: rotate(360deg);
+              }
+                }
+              .css-13o7eu2 {
+                  display: block;
+              }
+              .css-nvmvi3 *, .css-nvmvi3 *::before, .css-nvmvi3 *::after {
+                  box-sizing: inherit;
+              }
+              .css-14891ef {
+                  stroke: currentcolor;
+                  stroke-dasharray: 80px, 200px;
+                  stroke-dashoffset: 0;
+                  animation: 1.4s ease-in-out 0s infinite normal none running animation-1p2h4ri;
+              }
+              
+              .css-nvmvi3 *, .css-nvmvi3 *::before, .css-nvmvi3 *::after {
+                  box-sizing: inherit;
+              }
+              
+              @keyframes nimation-1p2h4ri{
+              0% {
+                  stroke-dasharray: 1px, 200px;
+                  stroke-dashoffset: 0;
+              }
+              50% {
+                  stroke-dasharray: 100px, 200px;
+                  stroke-dashoffset: -15px;
+              }
+              100% {
+                  stroke-dasharray: 100px, 200px;
+                  stroke-dashoffset: -125px;
+              }
+              }
+        
+        </style>
+        <style>
+        /*  LOADER  */
+        .css-1ltj605 {
+            height: 100vh;
+            display: flex;
+                  position: fixed;
+                  inset: 0px;
+                  background: rgb(255, 255, 255);
+                  z-index: 99999;
+                  -webkit-box-align: center;
+                  align-items: center;
+                  -webkit-box-pack: center;
+                  justify-content: center;
+                  transition: opacity 0.75s, visibility 0.75s;
+              }
+        .css-1ltj605-hidden{
+            opacity: 0;
+            visibility: hidden;
+        }
+              
+        .css-nvmvi3 *, .css-nvmvi3 *::before, .css-nvmvi3 *::after {
+                  box-sizing: inherit;
+              }
+              .css-z01bqi {
+                  display: inline-block;
+                  color: #800;
+                  animation: 1.4s linear 0s infinite normal none running animation-61bdi0;
+              }
+              .css-nvmvi3 *, .css-nvmvi3 *::before, .css-nvmvi3 *::after {
+                  box-sizing: inherit;
+              }
+              @keyframes animation-61bdi0{
+              0% {
+                  transform: rotate(0deg);
+              }
+              100% {
+                  transform: rotate(360deg);
+              }
+                }
+              .css-13o7eu2 {
+                  display: block;
+              }
+              .css-nvmvi3 *, .css-nvmvi3 *::before, .css-nvmvi3 *::after {
+                  box-sizing: inherit;
+              }
+              .css-14891ef {
+                  stroke: currentcolor;
+                  stroke-dasharray: 80px, 200px;
+                  stroke-dashoffset: 0;
+                  animation: 1.4s ease-in-out 0s infinite normal none running animation-1p2h4ri;
+              }
+              
+              .css-nvmvi3 *, .css-nvmvi3 *::before, .css-nvmvi3 *::after {
+                  box-sizing: inherit;
+              }
+              
+              @keyframes nimation-1p2h4ri{
+              0% {
+                  stroke-dasharray: 1px, 200px;
+                  stroke-dashoffset: 0;
+              }
+              50% {
+                  stroke-dasharray: 100px, 200px;
+                  stroke-dashoffset: -15px;
+              }
+              100% {
+                  stroke-dasharray: 100px, 200px;
+                  stroke-dashoffset: -125px;
+              }
+              }
+        
+        </style>
+            <style>
+              @media (min-width: 1170px) {
+                  .cont, .cont-pd {
+                      max-width: 1170px!important;
+                      padding-left: 30px!important;
+                      padding-right: 30px!important;
+                  }
+              }
+              @media (min-width: 992px) {
+                  .cont, .cont-pd {
+                      max-width: 990px!important;
+                      padding-left: 30px!important;
+                      padding-right: 30px!important;
+                  }
+              }
+              .cont-pd, cont-pd {
+                  max-width: 1232px;
+                  min-width: 320px;
+                  display: block;
+                  position: relative;
+                  margin: auto;
+                  padding: 0 16px;
+              }
+              
+              
+              .c2 {
+                  color: #d10000;
+              }
+              
+              .cb {
+                  color: #000;
+              }
+              
+              .cw{color:#fff;}
+              
+              .h5 {
+                  font-size: 2.6em !important;
+              }
+              
+              .h7 {
+                  font-size: 1.8em !important;
+              }
+              
+              h1, h2, h3, h4, h5, h6, hr, p {
+                  margin: 0;
+              }
+              .h8{
+                font-size: 1.3em !important;
+              }
+                section#section {
+                    background: #800000;
+                }
+              aside nav ul li a{
+                  color: #800;
+                  border-bottom: 2px solid transparent;
+              }
+              aside nav ul li a:hover{
+                  border-bottom: 2px solid #800;
+              }
+                
+                .containers {
+                    background: #fff;
+                    padding: 20px;
+                    border-radius: 10px;
+                }
+                .data p {
+                    font-size: 20px;
+                    margin: 10px 0;
+                    color: #000;
+                }
+                
+                .number {
+                    font-weight: bold;
+                }
+            </style>
+            <style>
+    .news-start {
+        display: flex;
+        justify-content: center;
+    }
+    .news {
+        padding: 15px;
+        max-width: 860px;
+        
+    }
+
+    .news h2 {
+        font-size: 24px;
+        margin: 0;
+        padding-bottom: 15px;
+    }
+
+    .news a.view-all {
+        color: #800;
+        text-decoration: none;
+        font-weight: 600;
+        transition: 0.3s;
+    }
+
+    .news a.view-all:hover {
+        padding-right: 10px;
+        transition: 0.3s;
+    }
+
+    .news-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .news-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 15px;
+        border-bottom: 1px solid #ddd;
+        padding: 10px 0;
+    }
+
+    .news-item:last-child {
+        border-bottom: none;
+    }
+
+    .news-image img {
+        width: 150px;
+        height: auto;
+        border-radius: 8px;
+        object-fit: cover;
+    }
+
+    .news-details {
+        flex: 1;
+    }
+
+    .news-title {
+        font-size: 18px;
+        margin: 0 0 5px;
+        color: #333;
+    }
+
+    .news-date {
+        font-size: 14px;
+        color: #666;
+        margin: 0 0 10px;
+    }
+
+    .news-content {
+        font-size: 16px;
+        color: #444;
+        margin: 0 0 10px;
+    }
+
+    .news-link {
+        text-decoration: none;
+        color: #000;
+        transition: color 0.3s ease;
+    }
+
+    .news-link:hover {
+        color: #555;
+    }
+    .congratulations{
+            display: flex;
+            width: 100%;
+            height: 100%;
+            flex-wrap: wrap;
+    }
+                
+    .congrats{
+            display: flex;
+            width: 100%;
+            height: 100%;
+            flex-wrap: wrap;
+    }
+
+    .congratulations img {
+            width: 33.3333%;
+            height: 100%;
+            object-fit: cover;
+            padding: 10px;
+        }
+</style>
+</head>
+
+<body>
+    <div class="MuiBox-root css-1ltj605 loader css-1ltj605" id="">
+        <script>
+          window.addEventListener("load", () => {
+              const loader = document.querySelector(".css-1ltj605");
+      
+              loader.classList.add("css-1ltj605-hidden");
+      
+              loader.addEventListener("transitionend", () => {
+                  document.body.removeChild("loader");
+              })
+          })
+      
+        </script>
+        <span class="MuiCircularProgress-root MuiCircularProgress-indeterminate MuiCircularProgress-colorPrimary css-z01bqi" role="progressbar" style="width: 100px; height: 100px;"><svg class="MuiCircularProgress-svg css-13o7eu2" viewBox="22 22 44 44"><circle class="MuiCircularProgress-circle MuiCircularProgress-circleIndeterminate css-14891ef" cx="44" cy="44" r="20.2" fill="none" stroke-width="3.6"></circle></svg></span>
+    </div>
+    <!-- <div class="body"> -->     
+        <div class="fixed">
+            <header>
+                <div class="navbar">
+                    <div class="logo">
+                        <a><img src="https://i.postimg.cc/L8qt45XM/2.png" alt="" height="50px" srcset=""></a>
+                    </div>
+                    <ul class="links">
+                        <li><a class="active hd" href="index">หน้าหลัก</a></li>
+                        <li><a class="hd" href="members">สมาชิก</a></li>
+                        <li><a class="hd" href="/board">กรรมการบริหาร</a></li>
+                        <li><a class="hd" href="/about/">เกี่ยวกับสภาฯ</a></li>
+                        <!--<li><a class="hd" href="statute">ข้อบังคับ</a></li>-->
+                    </ul>
+                    <a href="login" class="action-btn">เข้าสู่ระบบ</a>
+                    <div class="toggle_btn">
+                        <i class="fa-solid fa-bars"></i>
+                    </div>
+                </div>
+                <div class="dropdown_menu">
+                    <li><a class="active hd" href="index">หน้าหลัก</a></li>
+                    <li><a class="hd" href="members">สมาชิก</a></li>
+                    <li><a class="hd" href="/board">กรรมการบริหาร</a></li>
+                    <li><a class="hd" href="/about/">เกี่ยวกับสภาฯ</a></li>
+                    <li><a class="hd" href="login" class="action-btn">เข้าสู่ระบบ</a></li>
+                </div>
+            </header>
+        </div>
+        <section id="section" style="padding-top: calc(3rem + 56.8px) !important; padding-bottom: 3rem !important;">
+            <div class="cont-pd bai-jamjuree-medium">
+                <h2 class="h5 c2" style="color: #fff;font-family: 'Bai Jamjuree';">DARA PRE ENGINEERING SCI-MATH</h2>
+                <h2 class="h8 cw" style="color: #fff;font-family: 'Bai Jamjuree';">สำนักงานคณะกรรมการบริหาร สภานักเรียนเตรียมวิศวกรรมศาสตร์</h2>
+            </div>
+        </section>
+
+    <div class="cont-pd news-start">
+        <div class="news">
+            <div style="display: flex;">
+                <h2>ข่าวสาร</h2>
+            </div>
+            <ul class="news-list"></ul>
+        </div>
+    </div>
+    <main>
+    </main>
+    
+    <footer>
+        <div class="row">
+            <div class="col">
+                <img src="https://i.postimg.cc/L8qt45XM/2.png" class="logos">
+                <p></p>
+            </div>
+            <div class="col">
+                <h3>สำนักงานใหญ่</h3>
+                <p>ห้อง Pre-Engineering Space</p>
+                <p>ชั้น 1 อาคารอนุสรณ์ 100 ปี</p>
+                <p class="email-id">info.dara.ecs@gmail.com</p>
+                <h4>+66 - 06 3687 9505</h4>
+            </div>
+            <div class="col">
+                <h3>Munu</h3>
+                <ul class="ul">
+                    <li class="li"><a href="index">หน้าหลัก</a></li>
+                    <li class="li"><a href="#">ประชุมใหญ่สามัญประจำปี</a></li>
+                    <li class="li"><a href="https://i.ibb.co/c23sXYj/Beige-Modern-Business-Company-Organization-Chart-Graph.png">กรรมการบริหาร</a></li>
+                    <li class="li"><a class="active">สมาชิก</a></li>
+                </ul>
+            </div>
+            <div class="col">
+                <h3>ติดต่อ</h3>
+                <form action="" >
+                    <i class="fa-regular fa-envelope"></i>
+                    <input type="email" placeholder="Enter your Email id" required>
+                    <button type="submit"><i class="fa-solid fa-arrow-right fas"></i></button>
+                </form>
+                <div class="social-icons">
+                    <a href="https://www.youtube.com/@DESC2021"><i class="fa-brands fa-youtube"></i></a>
+                    <a href=""><i class="fa-brands fa-facebook"></i></a>
+                </div>  
+            </div>
+        </div>
+    </footer>
+  <script src="script.js"></script>
+</body>
+</html>
+
+<script>
+    const toggleBtn = document.querySelector('.toggle_btn')
+    const toggleBtnIcon = document.querySelector('.toggle_btn i')
+    const dropDownMenu = document.querySelector('.dropdown_menu')
+
+    toggleBtn.onclick = function () {
+        dropDownMenu.classList.toggle('open')
+        const isOpen = dropDownMenu.classList.contains('open')
+
+        toggleBtnIcon.classList = isOpen
+        ? 'fa-solid fa-xmark'
+        : 'fa-solid fa-bars'
+    }
+</script>
+<script>
+async function fetchNewsData() {
+    try {
+        const response = await fetch("https://script.google.com/macros/s/AKfycbwiqJJPzn9RIH2-1QJChwQdTAcVgns0Vk9O4Kcos3EYmwDoY1p-qCOqqykfeCYb-z8A2Q/exec");
+        const data = await response.json();
+
+        console.log("API Response:", data); // เช็คข้อมูลที่ API ส่งมา
+
+        if (Array.isArray(data)) { 
+            displayNews(data); // ใช้ data ตรงๆ
+        } else {
+            console.error("รูปแบบข้อมูลไม่ถูกต้อง", data);
+        }
+    } catch (error) {
+        console.error("เกิดข้อผิดพลาดในการดึงข้อมูล:", error);
+    }
+}
+
+// ฟังก์ชันแสดงข่าวสาร
+function displayNews(data) {
+    const newsListElement = document.querySelector(".news-list");
+    if (!newsListElement) return;
+
+    newsListElement.innerHTML = ""; // ล้างข้อมูลเก่า
+
+    data.forEach((news) => {
+        const listItem = document.createElement("li");
+        listItem.className = "news-item";
+
+        listItem.innerHTML = `
+            <div class="news-image">
+                <img src="${news.image}" alt="${news.title}">
+            </div>
+            <div class="news-details">
+                <h3 class="news-title">${news.title}</h3>
+                <p class="news-date">วันที่ ${news.date}</p> <!-- ใช้วันที่ตรงๆ -->
+                <p class="news-content">${news.content} <a href="${news.link}" class="news-link">อ่านเพิ่มเติม...</a></p>
+            </div>
+        `;
+
+        newsListElement.appendChild(listItem);
+    });
+}
+
+// ดึงข้อมูลเมื่อโหลดหน้า
+window.onload = () => {
+    fetchNewsData();
+};
+
+</script>
