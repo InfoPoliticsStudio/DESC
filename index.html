@@ -846,7 +846,8 @@ function goToURL() {
         : 'fa-solid fa-bars'
     }
 </script>
-<script>async function fetchNewsData() {
+<script>
+    async function fetchNewsData() {
     try {
         const response = await fetch("https://script.google.com/macros/s/AKfycbwiqJJPzn9RIH2-1QJChwQdTAcVgns0Vk9O4Kcos3EYmwDoY1p-qCOqqykfeCYb-z8A2Q/exec");
         const data = await response.json();
@@ -899,6 +900,5 @@ function displayNews(data) {
 window.onload = () => {
     fetchNewsData();
 };
-
 </script>
 
