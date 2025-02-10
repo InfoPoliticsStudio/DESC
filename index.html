@@ -398,22 +398,18 @@ function displayNews(data) {
 window.onload = () => {
     fetchNewsData();
 };
-window.addEventListener('resize', function() {
+
+
+    window.addEventListener('resize', function() {
     var width = window.innerWidth;
     var marginTop;
 
-    if (width >= 700) {
-        marginTop = -20;
-    } else if (width >= 670) {
-        marginTop = -22.5;
-    } else if (width >= 640) {
-        marginTop = -25;
-    } else if (width >= 610) {
-        marginTop = -27.5;
-    } else if (width >= 580) {
-        marginTop = -30;
+    // ถ้าหน้าจอขนาด 200px หรือใหญ่กว่า ให้เริ่มที่ -137.5%
+    if (width >= 200) {
+        marginTop = -137.5 - ((width - 200) / 30) * 2.5;
     } else {
-        marginTop = -30 - ((700 - width) / 30) * 2.5;
+        // กรณีหน้าจอเล็กกว่า 200px
+        marginTop = -137.5;
     }
 
     document.querySelector('.bottom-img').style.marginTop = marginTop + '%';
@@ -421,6 +417,7 @@ window.addEventListener('resize', function() {
 
 // เรียกใช้เพื่อให้ได้ค่าเริ่มต้นตอนโหลดหน้า
 window.dispatchEvent(new Event('resize'));
+
 
 </script>
 
