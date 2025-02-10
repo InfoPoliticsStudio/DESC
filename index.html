@@ -137,7 +137,7 @@
             displayOrganizationData(organizationData);
         });
     </script>
-    <div class="cont-pd">
+    <div class="cont-pd bottom-img">
         <div class="congrats">
             <img src="KMITL1.png" alt="" onclick="window.open('https://www.facebook.com/NSDTCNTs', '_blank')" style=" cursor: pointer; ">
             <img src="KMITL2.png" alt="" onclick="window.open('https://www.facebook.com/ponphum.wongcharern', '_blank')" style=" cursor: pointer; ">
@@ -398,6 +398,29 @@ function displayNews(data) {
 window.onload = () => {
     fetchNewsData();
 };
+window.addEventListener('resize', function() {
+    var width = window.innerWidth;
+    var marginTop;
+
+    if (width >= 700) {
+        marginTop = -20;
+    } else if (width >= 670) {
+        marginTop = -22.5;
+    } else if (width >= 640) {
+        marginTop = -25;
+    } else if (width >= 610) {
+        marginTop = -27.5;
+    } else if (width >= 580) {
+        marginTop = -30;
+    } else {
+        marginTop = -30 - ((700 - width) / 30) * 2.5;
+    }
+
+    document.querySelector('.bottom-img').style.marginTop = marginTop + '%';
+});
+
+// เรียกใช้เพื่อให้ได้ค่าเริ่มต้นตอนโหลดหน้า
+window.dispatchEvent(new Event('resize'));
 
 </script>
 
