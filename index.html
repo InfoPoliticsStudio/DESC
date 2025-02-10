@@ -876,10 +876,10 @@ function displayNews(data) {
         listItem.className = "news-item";
 
         listItem.innerHTML = `
-            <div class="news-image"  style=" cursor: pointer; " onclick="window.location.href('${news.link}')">
+            <div class="news-image"  style=" cursor: pointer; " onclick="window.location.href='${news.link}'">
                 <img src="${news.image}" alt="${news.title}">
             </div>
-            <div class="news-details"  onclick="window.location.href('${news.link}')">
+            <div class="news-details"  onclick="window.location.href='${news.link}'">
                 <h3 class="news-title"  style=" cursor: pointer; ">${news.title}</h3>
                 <p class="news-date" style=" cursor: pointer; ">วันที่ ${news.date}</p> <!-- ใช้วันที่ตรงๆ -->
                 <p class="news-content"  style=" cursor: pointer; ">${news.content} <a href="${news.link}" class="news-link">อ่านเพิ่มเติม...</a></p>
