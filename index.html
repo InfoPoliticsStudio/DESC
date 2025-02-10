@@ -75,8 +75,16 @@
             </p>
         </div>
     </div>
-    <iframe src="https://dara-esc.pages.dev/test2" width="100%" style="border-radius: 0;border: 0;height: 400px;"></iframe>
+    <iframe id="myIframe" src="https://dara-esc.pages.dev/test2" style="width: 100%; border: none;border-radius: 0;"></iframe>
 
+    <script>
+      window.onload = function() {
+        var iframe = document.getElementById("myIframe");
+        var width = iframe.offsetWidth;  // กำหนดความกว้างที่ iframe
+        var height = width / 2.19178082;  // คำนวณความสูง
+        iframe.style.height = height + "px";  // ตั้งค่าความสูงให้ iframe
+      };
+    </script>
 
     
     <script>
