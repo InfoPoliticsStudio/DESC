@@ -10,18 +10,87 @@
     <link rel="icon" href="https://i.postimg.cc/Fzngfzcv/14.png">
     <link rel="stylesheet" href="index.css">
     <title>DESC - หน้าหลัก</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
     <style>
-        .swiper {
+        .desc-slider {
+            position: relative;
             width: 100%;
-            height: 400px;
+            overflow: hidden;
         }
-        .swiper-slide img {
+        .desc-slider-wrapper {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+        .desc-slide {
             width: 100%;
-            height: 100%;
+            flex-shrink: 0;
+        }
+        .desc-slide img {
+            width: 100%;
             object-fit: cover;
         }
+        .desc-button-next,
+        .desc-button-prev {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            padding: 10px;
+            cursor: pointer;
+            z-index: 10;
+        }
+        .desc-button-next { right: 10px; }
+        .desc-button-prev { left: 10px; }
+        .desc-pagination {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 5px;
+        }
+        .desc-pagination span {
+            width: 10px;
+            height: 10px;
+            background: white;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+        .desc-pagination .active {
+            background: red;
+        }
     </style>
+    <script>
+        let currentIndex = 0;
+        const slides = document.querySelectorAll(".desc-slide");
+        const totalSlides = slides.length;
+        const sliderWrapper = document.querySelector(".desc-slider-wrapper");
+        const paginationContainer = document.querySelector(".desc-pagination");
+        
+        function updateSlider() {
+            sliderWrapper.style.transform = `translateX(-${currentIndex * 100}%)`;
+            document.querySelectorAll(".desc-pagination span").forEach((dot, index) => {
+                dot.classList.toggle("active", index === currentIndex);
+            });
+        }
+        
+        function goToSlide(index) {
+            currentIndex = (index + totalSlides) % totalSlides;
+            updateSlider();
+        }
+        
+        document.querySelector(".desc-button-next").addEventListener("click", () => goToSlide(currentIndex + 1));
+        document.querySelector(".desc-button-prev").addEventListener("click", () => goToSlide(currentIndex - 1));
+        
+        slides.forEach((_, index) => {
+            const dot = document.createElement("span");
+            dot.addEventListener("click", () => goToSlide(index));
+            paginationContainer.appendChild(dot);
+        });
+        
+        updateSlider();
+        setInterval(() => goToSlide(currentIndex + 1), 3000);
+    </script>
 </head>
 
 <body>
@@ -88,22 +157,19 @@
         </div>
     </div>
     
-
-    
-<!--     
     <div class="cont-pd containers">
-        <iframe id="myIframe" src="https://dara-esc.pages.dev/test2" style="width: 100%; height: 430px;border: none;border-radius: 0;"></iframe>
+        <div class="desc-slider">
+            <div class="desc-slider-wrapper">
+                <div class="desc-slide"><img src="http://dara-esc.pages.dev/IMG/banner.png" alt="Slide 1"></div>
+                <div class="desc-slide"><img src="http://dara-esc.pages.dev/IMG/banner.png" alt="Slide 2"></div>
+                <div class="desc-slide"><img src="http://dara-esc.pages.dev/IMG/banner.png" alt="Slide 3"></div>
+            </div>
+            <div class="desc-button-prev">&#10094;</div>
+            <div class="desc-button-next">&#10095;</div>
+            <div class="desc-pagination"></div>
+        </div>
     </div>
-
-    <script>
-      window.onload = function() {
-        var iframe = document.getElementById("myIframe");
-        var width = iframe.offsetWidth;  // กำหนดความกว้างที่ iframe
-        var height = width / 2.19178082;  // คำนวณความสูง
-        iframe.style.height = height + "px";  // ตั้งค่าความสูงให้ iframe
-      };
-    </script>
- -->
+    
     
     <script>
         const organizationData = {
