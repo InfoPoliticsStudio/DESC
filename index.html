@@ -10,6 +10,7 @@
     <link rel="icon" href="https://i.postimg.cc/Fzngfzcv/14.png">
     <link rel="stylesheet" href="index.css">
     <title>DESC - หน้าหลัก</title>
+    <style> #banner { width: 100%; transition: opacity .75s ease-in-out; } </style>
 </head>
 
 <body>
@@ -77,16 +78,27 @@
     </div>
     
     <div class="cont-pd containers">
-        <div class="desc-slider">
-            <div class="desc-slider-wrapper">
-                <div class="desc-slide"><img src="http://dara-esc.pages.dev/IMG/banner.png" alt="Slide 1"></div>
-                <div class="desc-slide"><img src="http://dara-esc.pages.dev/IMG/banner.png" alt="Slide 1"></div>
-                <div class="desc-slide"><img src="http://dara-esc.pages.dev/IMG/banner.png" alt="Slide 1"></div>
-            </div>
-            <div class="desc-button-prev">&#10094;</div>
-            <div class="desc-button-next">&#10095;</div>
-            <div class="desc-pagination"></div>
-        </div>
+        <img id="banner" src="http://dara-esc.pages.dev/IMG/banner.png" alt="Banner">
+
+        <script>
+            const images = [
+                "http://dara-esc.pages.dev/IMG/banner.png",
+                "http://dara-esc.pages.dev/IMG/banner.png",
+                "http://dara-esc.pages.dev/IMG/banner2.png"
+            ];
+    
+            let index = 0;
+            const banner = document.getElementById("banner");
+    
+            setInterval(() => {
+                banner.style.opacity = 0; // จางหายไป
+                setTimeout(() => {
+                    index = (index + 1) % images.length; // เปลี่ยนภาพ
+                    banner.src = images[index];
+                    banner.style.opacity = 1; // ค่อยๆ โผล่มา
+                }, 1000); // รอให้เอฟเฟกต์จางหายก่อนเปลี่ยนภาพ
+            }, 5000);
+        </script>
     </div>
     
     
