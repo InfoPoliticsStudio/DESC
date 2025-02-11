@@ -60,37 +60,6 @@
             background: red;
         }
     </style>
-    <script>
-        let currentIndex = 0;
-        const slides = document.querySelectorAll(".desc-slide");
-        const totalSlides = slides.length;
-        const sliderWrapper = document.querySelector(".desc-slider-wrapper");
-        const paginationContainer = document.querySelector(".desc-pagination");
-        
-        function updateSlider() {
-            sliderWrapper.style.transform = `translateX(-${currentIndex * 100}%)`;
-            document.querySelectorAll(".desc-pagination span").forEach((dot, index) => {
-                dot.classList.toggle("active", index === currentIndex);
-            });
-        }
-        
-        function goToSlide(index) {
-            currentIndex = (index + totalSlides) % totalSlides;
-            updateSlider();
-        }
-        
-        document.querySelector(".desc-button-next").addEventListener("click", () => goToSlide(currentIndex + 1));
-        document.querySelector(".desc-button-prev").addEventListener("click", () => goToSlide(currentIndex - 1));
-        
-        slides.forEach((_, index) => {
-            const dot = document.createElement("span");
-            dot.addEventListener("click", () => goToSlide(index));
-            paginationContainer.appendChild(dot);
-        });
-        
-        updateSlider();
-        setInterval(() => goToSlide(currentIndex + 1), 3000);
-    </script>
 </head>
 
 <body>
@@ -168,6 +137,38 @@
             <div class="desc-button-next">&#10095;</div>
             <div class="desc-pagination"></div>
         </div>
+    
+        <script>
+            let currentIndex = 0;
+            const slides = document.querySelectorAll(".desc-slide");
+            const totalSlides = slides.length;
+            const sliderWrapper = document.querySelector(".desc-slider-wrapper");
+            const paginationContainer = document.querySelector(".desc-pagination");
+            
+            function updateSlider() {
+                sliderWrapper.style.transform = `translateX(-${currentIndex * 100}%)`;
+                document.querySelectorAll(".desc-pagination span").forEach((dot, index) => {
+                    dot.classList.toggle("active", index === currentIndex);
+                });
+            }
+            
+            function goToSlide(index) {
+                currentIndex = (index + totalSlides) % totalSlides;
+                updateSlider();
+            }
+            
+            document.querySelector(".desc-button-next").addEventListener("click", () => goToSlide(currentIndex + 1));
+            document.querySelector(".desc-button-prev").addEventListener("click", () => goToSlide(currentIndex - 1));
+            
+            slides.forEach((_, index) => {
+                const dot = document.createElement("span");
+                dot.addEventListener("click", () => goToSlide(index));
+                paginationContainer.appendChild(dot);
+            });
+            
+            updateSlider();
+            setInterval(() => goToSlide(currentIndex + 1), 3000);
+        </script>
     </div>
     
     
