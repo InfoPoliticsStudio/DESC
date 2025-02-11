@@ -481,25 +481,5 @@ window.onload = () => {
     fetchNewsData();
 };
 
-
-    window.addEventListener('resize', function() {
-    var width = window.innerWidth;
-    var marginTop;
-
-    // ถ้าหน้าจอขนาด 200px หรือใหญ่กว่า ให้เริ่มที่ -137.5%
-    if (width >= 200) {
-        marginTop = -137.5 + ((width - 200) / 30) * 2.5%;
-    } else {
-        // กรณีหน้าจอเล็กกว่า 200px
-        marginTop = -137.5;
-    }
-
-    document.querySelector('.bottom-img').style.marginTop = marginTop + '%';
-});
-
-// เรียกใช้เพื่อให้ได้ค่าเริ่มต้นตอนโหลดหน้า
-window.dispatchEvent(new Event('resize'));
-
-
 </script>
 
