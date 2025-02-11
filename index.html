@@ -146,7 +146,7 @@
             const paginationContainer = document.querySelector(".desc-pagination");
             
             function updateSlider() {
-                sliderWrapper.style.transform = `translateX(-${currentIndex * 100}%)`;
+                sliderWrapper.style.transform = `translateX(-${currentIndex * 50}%)`;
                 document.querySelectorAll(".desc-pagination span").forEach((dot, index) => {
                     dot.classList.toggle("active", index === currentIndex);
                 });
