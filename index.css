@@ -254,7 +254,7 @@ div#countdown {
         .card > .header{
             margin-bottom: .25rem;
             font-family: 'Kanit', sans-serif;
-            height: 60px;
+            min-height: 60px;
         }
         .card > .bodys{
             margin-bottom: .8rem;
