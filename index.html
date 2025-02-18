@@ -122,55 +122,16 @@
             }, 5000);
         </script>
     </div>
+
+    <div class="cont-pd containers">
+        <div class="flex space-around">
+            <div class="box-gift">ความทรงจำของ รุ่น 1</div>
+            <div class="box-gift">ความทรงจำของ รุ่น 2</div>
+            <div class="box-gift">ความทรงจำของ รุ่น 3</div>
+            <div class="box-gift">ความทรงจำของ รุ่น 4</div>
+        </div>
+    </div>
     
-    
-    <script>
-        const organizationData = {
-            members: 155,
-            executives: 36,
-        };
-    
-        /**
-         * Animates a number incrementally within a specified duration.
-         * @param {HTMLElement} element - The element to display the number.
-         * @param {number} targetNumber - The final number to animate to.
-         * @param {number} duration - The duration of the animation in milliseconds.
-         */
-        function animateNumber(element, targetNumber, duration) {
-            let currentNumber = 0;
-            const increment = Math.ceil(targetNumber / (duration / 16.67)); // Calculate increment per frame (assuming 60 FPS).
-    
-            const updateNumber = () => {
-                currentNumber += increment;
-                if (currentNumber >= targetNumber) {
-                    currentNumber = targetNumber; // Ensure final number is exact.
-                    clearInterval(animationInterval);
-                }
-                element.textContent = currentNumber;
-            };
-    
-            const animationInterval = setInterval(updateNumber, 16.67); // 16.67ms per frame for 60 FPS.
-        }
-    
-        /**
-         * Displays organization data with animated numbers.
-         * @param {Object} data - The organization data.
-         * @param {number} data.members - The total number of members.
-         * @param {number} data.executives - The total number of executives.
-         */
-        function displayOrganizationData(data) {
-            const membersElement = document.querySelector("#members .number");
-            const executivesElement = document.querySelector("#executives .number");
-    
-            if (membersElement) animateNumber(membersElement, data.members, 2000);
-            if (executivesElement) animateNumber(executivesElement, data.executives, 1500);
-        }
-    
-        // Initialize the animation when the DOM is fully loaded.
-        document.addEventListener("DOMContentLoaded", () => {
-            displayOrganizationData(organizationData);
-        });
-    </script>
     <div class="cont-pd bottom-img">
         <div class="congrats">
             <img src="KMITL1.png" alt="" onclick="window.open('https://www.facebook.com/NSDTCNTs', '_blank')" style=" cursor: pointer; ">
@@ -434,4 +395,54 @@ window.onload = () => {
 };
 
 </script>
+    
+    
+    
+    <script>
+        const organizationData = {
+            members: 155,
+            executives: 36,
+        };
+    
+        /**
+         * Animates a number incrementally within a specified duration.
+         * @param {HTMLElement} element - The element to display the number.
+         * @param {number} targetNumber - The final number to animate to.
+         * @param {number} duration - The duration of the animation in milliseconds.
+         */
+        function animateNumber(element, targetNumber, duration) {
+            let currentNumber = 0;
+            const increment = Math.ceil(targetNumber / (duration / 16.67)); // Calculate increment per frame (assuming 60 FPS).
+    
+            const updateNumber = () => {
+                currentNumber += increment;
+                if (currentNumber >= targetNumber) {
+                    currentNumber = targetNumber; // Ensure final number is exact.
+                    clearInterval(animationInterval);
+                }
+                element.textContent = currentNumber;
+            };
+    
+            const animationInterval = setInterval(updateNumber, 16.67); // 16.67ms per frame for 60 FPS.
+        }
+    
+        /**
+         * Displays organization data with animated numbers.
+         * @param {Object} data - The organization data.
+         * @param {number} data.members - The total number of members.
+         * @param {number} data.executives - The total number of executives.
+         */
+        function displayOrganizationData(data) {
+            const membersElement = document.querySelector("#members .number");
+            const executivesElement = document.querySelector("#executives .number");
+    
+            if (membersElement) animateNumber(membersElement, data.members, 2000);
+            if (executivesElement) animateNumber(executivesElement, data.executives, 1500);
+        }
+    
+        // Initialize the animation when the DOM is fully loaded.
+        document.addEventListener("DOMContentLoaded", () => {
+            displayOrganizationData(organizationData);
+        });
+    </script>
 
