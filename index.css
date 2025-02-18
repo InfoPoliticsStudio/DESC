@@ -864,3 +864,23 @@ div#numGen {
 #download-btn:hover {
     background-color: #9c0000;
 }
+
+.space-around {
+    justify-content: space-around;
+}
+.flex {
+    display: flex;
+}
+
+.box-gift:hover {
+    border: 1px solid;
+    border-top: 2px solid;
+    border-left: 2px solid;
+}
+.box-gift {
+    padding: 10px;
+    border: 1px solid;
+    border-bottom: 2px solid;
+    border-right: 2px solid;
+    cursor: pointer;
+}
