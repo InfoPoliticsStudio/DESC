@@ -138,16 +138,92 @@
 
 <!-- ข่าวสาร -->
 <section class="container my-5">
-  <!-- ข่าวสาร -->
+  <div class="cont-pd news-start">
+        <div class="news" style=" width: 100%; ">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+                <h2>ข่าวสาร</h2>
+                <a href="news/all" class="view-all">ดูทั้งหมด</a>
+            </div>
+            <ul class="news-list"><li class="news-item">
+            <div class="news-image" style=" cursor: pointer; " onclick="window.location.href='https://dara-esc.pages.dev/news/002'">
+                <img src="https://dara-esc.pages.dev/news/news2.png" alt="แสดงความยินดีนักเรียนผ่านรอบ Portfolio #ยืนยันสิทธิ์แล้ว">
+            </div>
+            <div class="news-details" onclick="window.location.href='https://dara-esc.pages.dev/news/002'">
+                <h3 class="news-title" style=" cursor: pointer; ">แสดงความยินดีนักเรียนผ่านรอบ Portfolio #ยืนยันสิทธิ์แล้ว</h3>
+                <p class="news-date" style=" cursor: pointer; ">วันที่ 7 กุมภาพันธ์ 2568</p> <!-- ใช้วันที่ตรงๆ -->
+                <p class="news-content" style=" cursor: pointer; ">ได้แก่ นายณภัทร ปัญโญ นายพลภูมิ ว่องเจริญ นายศิวัช พุกพูลทรัพย์ และนายภูริ ธาราวิไลสุขสกุล <a href="https://dara-esc.pages.dev/news/002" class="news-link">อ่านเพิ่มเติม...</a></p>
+            </div>
+        </li><li class="news-item">
+            <div class="news-image" style=" cursor: pointer; " onclick="window.location.href='https://dara-esc.pages.dev/news/001'">
+                <img src="https://dara-esc.pages.dev/news/news1.png" alt="ประกาศรายชื่อคณะกรรมการบริหาร สำนักงานคณะกรรมการบริหาร">
+            </div>
+            <div class="news-details" onclick="window.location.href='https://dara-esc.pages.dev/news/001'">
+                <h3 class="news-title" style=" cursor: pointer; ">ประกาศรายชื่อคณะกรรมการบริหาร สำนักงานคณะกรรมการบริหาร</h3>
+                <p class="news-date" style=" cursor: pointer; ">วันที่ 5 มกราคม 2568</p> <!-- ใช้วันที่ตรงๆ -->
+                <p class="news-content" style=" cursor: pointer; ">ประกาศรายชื่อคณะกรรมการบริหาร สำนักงานคณะกรรมการบริหาร สภานักเรียนเตรียมวิศวกรรมศาสตร์ ประจำปี พ.ศ.2568 มีจำนวน 35 คน ดังนี้ <a href="https://dara-esc.pages.dev/news/001" class="news-link">อ่านเพิ่มเติม...</a></p>
+            </div>
+        </li></ul>
+        </div>
+    </div>
 </section>
 
-<!-- Footer -->
-<footer class="bg-dark text-white text-center py-4">
-  <div class="container">
-    <p class="mb-0">&copy; 2025 DARA ESC. All rights reserved.</p>
-  </div>
-</footer>
+  <!-- Footer -->
+  <footer class="bg-dark text-white text-center py-4">
+    <div class="container">
+      <p class="mb-0">&copy; 2025 DARA ESC. All rights reserved.</p>
+    </div>
+  </footer>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    async function fetchNewsData() {
+        try {
+            const response = await fetch("https://script.google.com/macros/s/AKfycbwiqJJPzn9RIH2-1QJChwQdTAcVgns0Vk9O4Kcos3EYmwDoY1p-qCOqqykfeCYb-z8A2Q/exec");
+            const data = await response.json();
+    
+            console.log("API Response:", data); // เช็คข้อมูลที่ API ส่งมา
+    
+            if (Array.isArray(data)) { 
+                displayNews(data); // ใช้ data ตรงๆ
+            } else {
+                console.error("รูปแบบข้อมูลไม่ถูกต้อง", data);
+            }
+        } catch (error) {
+            console.error("เกิดข้อผิดพลาดในการดึงข้อมูล:", error);
+        }
+    }
+    
+    // ฟังก์ชันแสดงข่าวสาร
+    function displayNews(data) {
+        const newsListElement = document.querySelector(".news-list");
+        if (!newsListElement) return;
+    
+        newsListElement.innerHTML = ""; // ล้างข้อมูลเก่า
+    
+        data.forEach((news) => {
+            const listItem = document.createElement("li");
+            listItem.className = "news-item";
+    
+            listItem.innerHTML = `
+                <div class="news-image"  style=" cursor: pointer; " onclick="window.location.href='${news.link}'">
+                    <img src="${news.image}" alt="${news.title}">
+                </div>
+                <div class="news-details"  onclick="window.location.href='${news.link}'">
+                    <h3 class="news-title"  style=" cursor: pointer; ">${news.title}</h3>
+                    <p class="news-date" style=" cursor: pointer; ">วันที่ ${news.date}</p> <!-- ใช้วันที่ตรงๆ -->
+                    <p class="news-content"  style=" cursor: pointer; ">${news.content} <a href="${news.link}" class="news-link">อ่านเพิ่มเติม...</a></p>
+                </div>
+            `;
+    
+            newsListElement.appendChild(listItem);
+        });
+    }
+    
+    // ดึงข้อมูลเมื่อโหลดหน้า
+    window.onload = () => {
+        fetchNewsData();
+    };
+    
+    </script>
 </body>
 </html>
