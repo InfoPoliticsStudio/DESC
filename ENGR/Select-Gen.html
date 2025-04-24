@@ -1,38 +1,50 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="th">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Select Generation</title>
-    <link rel="stylesheet" href="b.css">
+  <meta charset="UTF-8">
+  <title>กำลังโหลด...</title>
+  <style>
+    .loading {
+      font-size: 1.5rem;
+      text-align: center;
+      padding: 50px;
+      color: #555;
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <img src="https://i.postimg.cc/nc54WyNB/HRIS.png" alt="Logo" class="logo">
-    </header>
-    <main>
-        <table class="generation-table">
-            <thead>
-                <tr>
-                    <th>Generation 1</th>
-                    <th>Generation 2</th>
-                    <th>Generation 3</th>
-                    <th>Generation 4</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td><input type="radio" name="generation" value="Gen1"> Gen 1</td>
-                    <td><input type="radio" name="generation" value="Gen2"> Gen 2</td>
-                    <td><input type="radio" name="generation" value="Gen3"> Gen 3</td>
-                    <td><input type="radio" name="generation" value="Gen4"> Gen 4</td>
-                </tr>
-            </tbody>
-        </table>
-        <div class="center">
-            <button onclick="redirectToPage()">Go</button>
-        </div>
-    </main>
-    <script src="b.js"></script>
+
+<main id="main">
+  <div class="loading">กำลังโหลด...</div>
+</main>
+    
+<script>
+  window.onload = function () {
+    const params = new URLSearchParams(window.location.search);
+    const userId = params.get("userId");
+
+    const main = document.getElementById("main");
+    if (main) main.innerHTML = '<div class="loading">กำลังโหลดข้อมูล กรุณารอสักครู่...</div>';
+
+    if (userId && /^ENGR-\d{5}$/.test(userId)) {
+      const numberPart = parseInt(userId.split("-")[1], 10);
+
+      if (numberPart >= 1000 && numberPart <= 99999) {
+        const genNumber = Math.floor(numberPart / 1000);
+        setTimeout(() => {
+          window.location.href = `/ENGR/Gen${genNumber}`;
+        }, 1000); // เพิ่ม delay เล็กน้อยให้ผู้ใช้เห็นว่าโหลดอยู่
+      } else {
+        console.warn("userId ไม่อยู่ในช่วงที่กำหนด");
+        if (main) main.innerHTML = '<div class="error">ไม่พบข้อมูลที่ต้องการ</div>';
+      }
+    } else {
+      console.warn("ไม่มีหรือรูปแบบ userId ไม่ถูกต้อง");
+      if (main) main.innerHTML = '<div class="error">รูปแบบรหัสไม่ถูกต้อง</div>';
+    }
+  };
+</script>
+
+
 </body>
 </html>
