@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ENGR-04</title>
+    <link rel="stylesheet" href="/ENGR/a.css">
+    <style>.profile-info div {display: none;}</style>
+</head>
+<body>
+    <img class="logo" src="https://i.postimg.cc/nc54WyNB/HRIS.png" alt="Logo">
+      
+    <div class="user-cards" id="userCards"></div>
+    
+    <script>
+    fetch('https://daraimages.pages.dev/json/gen4.json')
+      .then(res => res.json())
+      .then(data => {
+        const container = document.getElementById('userCards');
+        data.forEach(user => {
+          const card = document.createElement('div');
+          card.className = 'profile-card';
+          card.innerHTML = `
+            <img class="profile-img" alt="User Image" src="${user.img}">
+            <div class="profile-info">
+              <h1 id="name">${user.name}</h1>
+              <p><strong>ID:</strong> <span id="id-user">${user.id}</span></p>
+              <div style="display:flex;align-items: center;">
+                <div style="width: 20%;">
+                  <img class="u" src="https://i.postimg.cc/3wMB3nFX/favicon-32x32.png">
+                </div>
+                <div style="width: 80%;">
+                  <p><span id="id-user">คณะ</span></p>
+                  <p><span id="id-user">มหาวิทยาลัย</span></p>
+                </div>
+              </div>
+            </div>
+          `;
+          container.appendChild(card);
+        });
+      })
+      .catch(err => {
+        console.error("ไม่สามารถโหลดข้อมูลได้", err);
+      });
+  </script>
+</body>
+</html>
