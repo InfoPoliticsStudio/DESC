@@ -141,3 +141,13 @@
     .news-link:hover {
         color: #555;
     }
+
+                .data p {
+                    font-size: 12px;
+                    margin: 10px 0;
+                    color: #000;
+                }
+                
+                .number {
+                    font-weight: bold;
+                }
