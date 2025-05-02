@@ -4,6 +4,10 @@
         box-sizing: border-box;
         font-family: 'Kanit', sans-serif;
     }
+   ::selection {
+       background-color: #ffb700;
+       color: #fff;
+   }
     .bai-jamjuree-medium {
       font-family: 'Bai Jamjuree', sans-serif;
     }
@@ -45,8 +49,8 @@
     }
     
     section#section {
-        background-color: #800000 !important;
-        background: #800000;
+        background-color: #0b0088 !important;
+        background: #1a477f;
     }
     
     .bg-eng {
