@@ -1,0 +1,279 @@
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Anuphan', sans-serif;
+        }
+
+        body {
+            background-color: #e0e0e0;
+        }
+
+        .body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        @media (max-width: 1200px) {
+            .user-cards {
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)) !important;
+            }
+        }
+
+        .user-cards {
+            display: grid;
+            gap: .5rem;
+            grid-template-columns: repeat(4, 1fr);
+            margin: 2rem 50px 1rem 50px;
+            max-width: 100%;
+        }
+
+        .profile-card {
+            background-color: #ffffff;
+            border: 1px solid #ccc;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            position: static;
+            overflow: hidden;
+        }
+
+        .profile-img {
+            width: 120px;
+            height: auto;
+            border-radius: 10px;
+            border: 5px solid #ffffff;
+            margin-bottom: 15px;
+        }
+
+        .university {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .university img {
+            width: 50px;
+        }
+
+        .university p {
+            text-align: left;
+        }
+
+        .profile-info h1 {
+            font-size: 20px;
+            margin: 10px 0;
+        }
+
+        .profile-info p {
+            margin: 5px 0;
+            font-size: 16px;
+            color: #333;
+        }
+
+        button {
+            background-color: #1877F2;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background-color: #125aba;
+        }
+
+        button i {
+            font-size: 18px;
+        }
+
+        .div {
+            display: flex;
+            justify-content: center;
+        }
+
+        .r-1 {
+            background: #ffc636;
+            color: white !important;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        .r-2 {
+            background: #f26b55;
+            color: white !important;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        .r-3 {
+            background: #00a0a9;
+            color: white !important;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        .r-4 {
+            background: #00709a;
+            color: white !important;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        .r-no {
+            background: #1a477f;
+            color: white !important;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        .logo {
+            width: auto;
+            height: 50px;
+            position: relative;
+        }
+
+        header {
+            width: 100%;
+            position: fixed;
+            top: 0;
+            background: #0000006b;
+            padding: 10px;
+            display: flex;
+        }
+
+        header ul {
+            position: absolute;
+            right: 10px;
+            display: flex;
+            align-items: center;
+            height: 50px;
+        }
+
+        header ul li {
+            padding-right: 5px;
+            padding-left: 5px;
+            margin: 0 5px;
+            border-bottom: 1px solid #ffffff00;
+            list-style: none;
+            cursor: pointer;
+            transition: .5s;
+        }
+
+        header ul li:hover {
+            border-bottom: 1px solid #fff;
+            transition: .5s;
+        }
+
+        header ul li a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .select {
+            margin-top: 80px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+
+
+
+        select {
+            width: 80%;
+            padding: 5px;
+            background: #fff;
+            border: 1px solid #000;
+            border-radius: 1px;
+            font-size: 0.9em;
+        }
+
+        /* Loader Styles */
+        .loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.9);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            transition: opacity 0.5s ease;
+        }
+
+        .loader.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .spinner {
+            border: 8px solid rgb(199 0 0 / 30%);
+            border-top: 8px solid rgb(199 0 0);
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+        
+        .bar-row {
+            display: flex;
+            height: 40px;
+            margin-top: 30px;
+            width: 100%;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .bar {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 12px;
+            font-weight: bold;
+            white-space: nowrap;
+        }
+
+        .legend {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 30px;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            font-size: 13px;
+            background: #f1f1f1;
+            padding: 4px 8px;
+            border-radius: 6px;
+        }
+
+        .legend-circle {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            margin-right: 6px;
+        }
