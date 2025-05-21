@@ -4,239 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ENGR-02</title>
-    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://fonts.googleapis.com/css2?family=Anuphan:wght@100..700&family=Bai+Jamjuree:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
-    <style>
-    
-        body {
-            background-color: #e0e0e0;
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Anuphan', sans-serif;
-        }
-        .body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        
-        @media (max-width: 1200px) {
-            .user-cards {
-                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)) !important;
-            }
-        }
-        .user-cards {
-            display: grid;
-            gap: .5rem;
-            grid-template-columns: repeat(4, 1fr);
-            margin: 2rem 50px 1rem 50px;
-            max-width: 100%;
-        }
-        
-        .profile-card {
-            background-color: #ffffff;
-            border: 1px solid #ccc;
-            border-radius: 12px;
-            padding: 20px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            text-align: center;
-            position: static;
-            overflow: hidden;
-        }
-        
-        .profile-img {
-            width: 120px;
-            height: auto;
-            border-radius: 10px;
-            border: 5px solid #ffffff;
-            margin-bottom: 15px;
-        }
-        
-        .university {
-            display: flex;
-            justify-content: center;
-    		align-items: center;
-            gap: 20px;
-        }
-        
-        .university img {
-            width: 50px;
-        }
-        
-        .university p {
-            text-align: left;
-        }
-        
-        .profile-info h1 {
-            font-size: 20px;
-            margin: 10px 0;
-        }
-        .profile-info p {
-            margin: 5px 0;
-            font-size: 16px;
-            color: #333;
-        }
-        button {
-            background-color: #1877F2;
-            color: white;
-            border: none;
-            padding: 10px 15px;
-            border-radius: 5px;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            margin-top: 10px;
-        }
-        button:hover {
-            background-color: #125aba;
-        }
-        button i {
-            font-size: 18px;
-        }
-        .div {
-            display: flex;
-            justify-content: center;
-        }
-        .r-1{
-        	background: #ffc636; 
-            color: white !important; 
-            padding: 10px;
-            border-radius: 5px;
-        }
-	    
-	.r-2 {
-	    background: #f26b55;
-	    color: white !important;
-	    padding: 10px;
-	    border-radius: 5px;
-	}
-	    
-	.r-3 {
-	    background: #00a0a9;
-	    color: white !important;
-	    padding: 10px;
-	    border-radius: 5px;
-	}
-	    
-	.r-4 {
-	    background: #00709a;
-	    color: white !important;
-	    padding: 10px;
-	    border-radius: 5px;
-	}
-   
-	.r-no {
-	    background: #1a477f;
-	    color: white !important;
-	    padding: 10px;
-	    border-radius: 5px;
-	}
-        .logo {
-            width: auto;
-            height: 50px;
-            position: relative;
-        }
-        
-        header {
-            width: 100%;
-            position: fixed;
-            top: 0;
-            background: #0000006b;
-            padding: 10px;
-            display: flex;
-        }
-        header ul {
-            position: absolute;
-            right: 10px;
-            display: flex;
-            align-items: center;
-    		height: 50px;
-        }
-        
-        header ul li {
-            padding-right: 5px;
-            padding-left: 5px;
-            margin: 0 5px;
-            border-bottom: 1px solid #ffffff00;
-            list-style: none;
-            cursor: pointer;
-            transition: .5s;
-        }
-        
-        header ul li:hover {
-            border-bottom: 1px solid #fff;
-            transition: .5s;
-        }
-        
-        header ul li a {
-            color: #fff;
-            text-decoration: none;
-        }
-        
-        .select {
-            margin-top: 80px;
-            width: 100%;
-            display: flex;
-            justify-content: center;
-        }
-        
-        
-	
-	select {
-	    width: 80%;
-	    padding: 5px;
-	    background: #fff;
-	    border: 1px solid #000;
-	    border-radius: 1px;
-	    font-size: 0.9em;
-	}
-/* Loader Styles */
-.loader {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(255, 255, 255, 0.9);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 1000;
-  transition: opacity 0.5s ease;
-}
-
-.loader.hidden {
-  opacity: 0;
-  pointer-events: none;
-}
-
-.spinner {
-  border: 8px solid rgb(199 0 0 / 30%);
-  border-top: 8px solid rgb(199 0 0);
-  border-radius: 50%;
-  width: 60px;
-  height: 60px;
-  animation: spin 1s linear infinite;
-}
-
-@keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
-    </style>
+    <link rel="stylesheet" href="GearX2.css">
 </head>
 <body>
-	<div class="loader">
-      	    <div class="spinner"></div>
-    	</div>
-	<header style=" z-index: 100; ">
+    <div class="loader">
+        <div class="spinner"></div>
+    </div>
+    <header style=" z-index: 100; ">
         <img class="logo" src="https://i.postimg.cc/nc54WyNB/HRIS.png" alt="Logo">
         <ul>
             <li>
@@ -247,87 +23,26 @@
             </li>
         </ul>
     </header>
+    <div class="bar-row" id="barRow"></div>
+    <div class="legend" id="legendContainer"></div>
     <div class="select">
-      <select>
-        <option value="0">เลือกมหาวิทยาลัย</option>
-        <option value="สถาบันเทคโนโลยีพระจอมเกล้าเจ้าคุณทหารลาดกระบัง">สถาบันเทคโนโลยีพระจอมเกล้าเจ้าคุณทหารลาดกระบัง</option>
-	<option value="มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าพระนครเหนือ">มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าพระนครเหนือ</option>
-        <option value="มหาวิทยาลัยธรรมศาสตร์">มหาวิทยาลัยธรรมศาสตร์</option>
-        <option value="มหาวิทยาลัยเชียงใหม่">มหาวิทยาลัยเชียงใหม่</option>
-        <option value="มหาวิทยาลัยพะเยา">มหาวิทยาลัยพะเยา</option>
-        <option value="มหาวิทยาลัยเทคโนโลยีราชมงคลล้านนา">มหาวิทยาลัยเทคโนโลยีราชมงคลล้านนา</option>
-      </select>
+        <select>
+            <option value="0">เลือกมหาวิทยาลัย</option>
+            <option value="สถาบันเทคโนโลยีพระจอมเกล้าเจ้าคุณทหารลาดกระบัง">
+                สถาบันเทคโนโลยีพระจอมเกล้าเจ้าคุณทหารลาดกระบัง</option>
+            <option value="มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าพระนครเหนือ">มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าพระนครเหนือ
+            </option>
+            <option value="มหาวิทยาลัยธรรมศาสตร์">มหาวิทยาลัยธรรมศาสตร์</option>
+            <option value="มหาวิทยาลัยเชียงใหม่">มหาวิทยาลัยเชียงใหม่</option>
+            <option value="มหาวิทยาลัยพะเยา">มหาวิทยาลัยพะเยา</option>
+            <option value="มหาวิทยาลัยเทคโนโลยีราชมงคลล้านนา">มหาวิทยาลัยเทคโนโลยีราชมงคลล้านนา</option>
+        </select>
     </div>
-	<div class="body">
-    	<div class="user-cards" id="userCards"></div>
+    <div class="body">
+        <div class="user-cards" id="userCards"></div>
     </div>
 
-    <script>
-
-
-
-
-    document.addEventListener("DOMContentLoaded", async function () {
-        const apiUrl = "https://script.google.com/macros/s/AKfycbw8r-o-DHqfU5cCdMtj95mFv2NmnHGFuIjYqtxwAaT_0nnj6406HzaRfFksoNYFvO8/exec";
-        let allData = [];
-
-        const loader = document.querySelector(".loader");
-        const userCardsContainer = document.getElementById("userCards");
-
-        // แสดง Loader ก่อนโหลดข้อมูล
-        loader.style.display = "flex";
-        userCardsContainer.style.display = "none";
-
-        try {
-            const response = await fetch(apiUrl);
-            allData = await response.json();
-            renderProfiles(allData);
-        } catch (error) {
-            console.error("เกิดข้อผิดพลาดในการโหลดข้อมูล:", error);
-        } finally {
-            // ซ่อน Loader เมื่อโหลดเสร็จ
-            loader.style.display = "none";
-            userCardsContainer.style.display = "grid";
-        }
-
-        document.querySelector("select").addEventListener("change", function () {
-            const selectedUniversity = this.value;
-            const filteredData = selectedUniversity === "0" ? allData : allData.filter(user => user.university === selectedUniversity);
-            renderProfiles(filteredData);
-        });
-
-        function renderProfiles(data) {
-            userCardsContainer.innerHTML = ""; // เคลียร์ข้อมูลเดิม
-
-            data.forEach(user => {
-                const card = document.createElement("div");
-                card.classList.add("profile-card");
-                card.innerHTML = `
-                    <img src="${user.img}" class="profile-img">
-                    <div class="profile-info">
-                        <h1>${user.name}</h1>
-                        <p class="${user.round}">${user.tround}</p>
-                        <div class="university">
-                            <img src="${user.uimg}" style="width: 50px;">
-                            <p>${user.university}</p>
-                        </div>
-                        <p>${user.prov}</p>
-                        <p>${user.faculty}</p>
-                        <p>${user.field}</p>
-                        <p style="font-size: 12px;">${user.program}</p>
-                        <div class="div">
-                            <button onclick="window.open('${user.contact}', '_blank')">
-                                <i class="fa-brands fa-facebook-f"></i>
-                                <span>ติดต่อผ่าน Facebook</span>
-                            </button>
-                        </div>
-                    </div>
-                `;
-                userCardsContainer.appendChild(card);
-            });
-        }
-    });
-    </script>
-
+    <script src="ubar.js"></script>
+    <script src="inputGEARx2.js"></script>
 </body>
 </html>
