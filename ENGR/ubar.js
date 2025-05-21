@@ -8,7 +8,7 @@
     "TCAS": { short: "TCAS", color: "#1a477f" }
   };
 
-  const tcasGroup = ["", "รอผล", "*", null, undefined];
+  const tcasGroup = ["","รอตัดสินใจ", "รอผล", "*", null, undefined];
 
   const TOTAL = 27;
 
